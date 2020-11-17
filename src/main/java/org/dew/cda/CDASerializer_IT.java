@@ -1744,7 +1744,7 @@ class CDASerializer_IT implements ICDASerializer
       return "62387-6";
     }
     else if(sectionIdLC.indexOf("diag") >= 0) {
-      // Referto
+      // Diagnosi
       return "29548-5";
     }
     
