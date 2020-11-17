@@ -19,7 +19,7 @@ String xml = ser.toXML(cda);
 ```java
 ICDADeserializer dser = new CDADeserializer();
 
-cdaDeserializer.load(xml);
+dser.load(xml);
 
 ClinicalDocument cda = dser.getClinicalDocument();
 ```
