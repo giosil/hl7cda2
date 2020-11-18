@@ -10,7 +10,7 @@ public
 interface ICDASerializer 
 {
   /**
-   * Impostazione opzioni di serializzazioni (es. comments, ecc.)
+   * Impostazione opzioni di serializzazione (es. comments, ecc.)
    * 
    * @param options Opzioni
    */
