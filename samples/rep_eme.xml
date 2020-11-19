@@ -1,0 +1,578 @@
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 xsd/hl7/infrastructure/cda/C32_CDA.xsd">
+  <realmCode code="IT" />
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3" />
+  <templateId extension="ITPRF_SCHEDA_PAZ-001" root="2.16.840.1.113883.2.9.10.1.6.1" />
+  <id assigningAuthorityName="Regione Puglia" extension="BA-2020-000510-0" root="2.16.840.1.113883.2.9.2.160.4.4" />
+  <code code="78341-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Scheda paziente 118" />
+  <title>Scheda Paziente 118</title>
+  <effectiveTime value="20201013163000+0200" />
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <languageCode code="it-IT" />
+  <setId assigningAuthorityName="Regione Puglia" extension="BA-2020-000510-0" root="2.16.840.1.113883.2.9.2.160.4.4" />
+  <versionNumber value="1" />
+  <recordTarget>
+    <patientRole>
+      <id extension="RSSMRA75C03F839K" root="2.16.840.1.113883.2.9.4.3.2" />
+      <patient>
+        <name>
+          <given>MARIO</given>
+          <family>ROSSI</family>
+        </name>
+        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1" />
+        <birthTime value="19750303" />
+        <birthplace>
+          <place>
+            <addr>
+              <city>NAPOLI</city>
+              <country>Italia</country>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="20201013163000+0200" />
+    <assignedAuthor>
+      <id extension="oper118" root="2.16.840.1.113883.2.9.2.160.4.2" />
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id assigningAuthorityName="Regione Puglia" extension="160114" root="2.16.840.1.113883.2.9.2.160.4.11" />
+        <name>ASL BARI</name>
+        <addr>
+          <city>BARI</city>
+          <postalCode>70123</postalCode>
+          <streetName>LUNGOMARE STARITA</streetName>
+          <houseNumber>6</houseNumber>
+          <country>Italia</country>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <component>
+    <structuredBody>
+      <component>
+        <section ID="INIZIO_MISSIONE">
+          <templateId root="2.16.840.1.113883.2.9.10.1.6.21" />
+          <code code="54094-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Note Triage" />
+          <title>Missione</title>
+          <text>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Data</td>
+                  <td>13/10/2020</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>Luogo dell'evento</td>
+                  <td>PIAZZA VITTORIO EMANUELE 50 -- loc. MONOPOLI -- MONOPOLI (BA)</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>Motivo</td>
+                  <td>TRAUMA</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>Codice Criticita'</td>
+                  <td>
+                    <content ID="COD-CRI-COD">G</content>
+                  </td>
+                  <td>
+                    <content ID="COD-CRI-DES">Codice Giallo</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dinamica</td>
+                  <td>MINORE;INCIDENTE AUTO</td>
+                  <td/>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="COMP">
+            <act classCode="INFRM" moodCode="EVN">
+              <code code="G" codeSystem="2.16.840.1.113883.2.9.6.1.54.4" codeSystemName="Codici Criticita'">
+                <originalText>
+                  <reference value="#COD-CRI-COD" />
+                </originalText>
+              </code>
+              <text>Codice Giallo</text>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section ID="VALUTAZIONE_PRIMARIA">
+          <templateId root="2.16.840.1.113883.2.9.10.1.6.56" />
+          <code code="78337-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Inquadramento clinico iniziale" />
+          <title>Valutazione Primaria</title>
+          <text>
+            <table>
+              <tbody>
+                <tr>
+                  <td>P.A. Sistolica</td>
+                  <td>
+                    <content ID="PAR-PAS">150 mm[Hg]</content>
+                  </td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>P.A. Diastolica</td>
+                  <td>
+                    <content ID="PAR-PAD">90 mm[Hg]</content>
+                  </td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>Temperatura</td>
+                  <td>
+                    <content ID="PAR-TEM">36.3 Cel</content>
+                  </td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>Ritmo al monitor</td>
+                  <td>
+                    <content ID="PAR-RTM">RS</content>
+                  </td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>Glicemia</td>
+                  <td>
+                    <content ID="PAR-GLI">105 mg/dl</content>
+                  </td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>Apertura Occhi</td>
+                  <td>
+                    <content ID="PAR-GSE-COD">4</content>
+                  </td>
+                  <td>
+                    <content ID="PAR-GSE-DES">Spontanea</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Risposta Verbale</td>
+                  <td>
+                    <content ID="PAR-GSV-COD">5</content>
+                  </td>
+                  <td>
+                    <content ID="PAR-GSV-DES">Orientata</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Risposta Motoria</td>
+                  <td>
+                    <content ID="PAR-GSM-COD">6</content>
+                  </td>
+                  <td>
+                    <content ID="PAR-GSM-DES">Ubbidisce al comando</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Mimica facciale: i due lati del volto non si muovono allo stesso modo</td>
+                  <td>NO</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>Spostamento delle braccia: un braccio non si muove o cade giu'</td>
+                  <td>NO</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>Linguaggio: Il paziente inceppa sulla parola, usa parole inappropriate o non e' in grado di parlare</td>
+                  <td>NO</td>
+                  <td/>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.2.9.10.1.6.56" />
+              <id root="57dbb25c-c188-4f90-a4a1-4e048866dcae" />
+              <code code="78337-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Inquadramento clinico iniziale" />
+              <statusCode code="completed" />
+              <effectiveTime value="20201013163000+0200" />
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="11378-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Pressione arteriosa sistolica iniziale" />
+                  <text>
+                    <reference value="#PAR-PAS" />
+                  </text>
+                  <value xsi:type="PQ" value="150" unit="mm[Hg]" />
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="11377-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Pressione arteriosa diastolica iniziale" />
+                  <text>
+                    <reference value="#PAR-PAD" />
+                  </text>
+                  <value xsi:type="PQ" value="90" unit="mm[Hg]" />
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="11289-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Temperatura corporea iniziale" />
+                  <text>
+                    <reference value="#PAR-TEM" />
+                  </text>
+                  <value xsi:type="PQ" value="36.3" unit="Cel" />
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="56849-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Ritmo al monitor" />
+                  <text>
+                    <reference value="#PAR-RTM" />
+                  </text>
+                  <value xsi:type="CD">
+                    <originalText>
+                      <reference value="#PAR-RTM" />
+                    </originalText>
+                  </value>
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="14743-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Glicemia su sangue capillare" />
+                  <text>
+                    <reference value="#PAR-GLI" />
+                  </text>
+                  <value xsi:type="PQ" value="105" unit="mg/dl" />
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="11324-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Glasgow coma score apertura occhi iniziale" />
+                  <text>
+                    <reference value="#PAR-GSE-DES" />
+                  </text>
+                  <value xsi:type="CD">
+                    <originalText>
+                      <reference value="#PAR-GSE-COD" />
+                    </originalText>
+                  </value>
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="11326-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Glasgow coma score risposta verbale iniziale" />
+                  <text>
+                    <reference value="#PAR-GSV-DES" />
+                  </text>
+                  <value xsi:type="CD">
+                    <originalText>
+                      <reference value="#PAR-GSV-COD" />
+                    </originalText>
+                  </value>
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="11325-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Glasgow coma score risposta motoria iniziale" />
+                  <text>
+                    <reference value="#PAR-GSM-DES" />
+                  </text>
+                  <value xsi:type="CD">
+                    <originalText>
+                      <reference value="#PAR-GSM-COD" />
+                    </originalText>
+                  </value>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section ID="VALUTAZIONE_SECONDARIA">
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.13" />
+          <code code="47420-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Inquadramento clinico" />
+          <title>Valutazione Secondaria</title>
+          <text>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Trauma</td>
+                  <td>
+                    <content ID="POS-VAL-TRA">Contusione spalla destra</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.2.9.10.1.4.2.13" />
+              <id root="7ed19de4-9f97-4e2e-81d6-4046be4ab7a3" />
+              <code code="47420-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Inquadramento clinico secondario" />
+              <statusCode code="completed" />
+              <effectiveTime value="20201013163000+0200" />
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="11376-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Aree anatomiche interessate dal trauma" />
+                  <text>
+                    <reference value="#POS-VAL-TRA" />
+                  </text>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section ID="VALUTAZIONE_SANITARIA">
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.13" />
+          <code code="56817-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Valutazione Sanitaria" />
+          <title>Valutazione sanitaria</title>
+          <text>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Valutazione sanitaria</td>
+                  <td>
+                    <content ID="POS-VAL-SAN-COD">I1</content>
+                  </td>
+                  <td>
+                    <content ID="POS-VAL-SAN-DES">Soggetto affetto da forma morbosa di grado lieve</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Diagnosi sul luogo</td>
+                  <td>
+                    <content ID="DIAGNOSI">PATOLOGIA TRAUMATICA - CONTUSIONE</content>
+                  </td>
+                  <td/>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="COMP">
+            <observation classCode="OBS" moodCode="EVN">
+              <code code="I1" codeSystem="2.16.840.1.113883.2.9.6.1.33" codeSystemName="Valutazione sanitaria del paziente 118" displayName="Soggetto affetto da forma morbosa di grado lieve">
+                <originalText>
+                  <reference value="#POS-VAL-SAN-COD" />
+                </originalText>
+              </code>
+              <text>
+                <reference value="#POS-VAL-SAN-DES" />
+              </text>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <act classCode="INFRM" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.6.103" codeSystemName="ICD9CM" nullFlavor="NA">
+                <originalText>
+                  <reference value="#DIAGNOSI" />
+                </originalText>
+              </code>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section ID="TERAPIA_TRATTAMENTI">
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.11" />
+          <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Storia di Procedure" />
+          <title>Terapia - Trattamenti</title>
+          <text>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Terapia</td>
+                  <td>
+                    <content ID="TERAPIA">ECG ONLINE, CONTROLLO SATURAZIONE O2, GLICEMIA SU SANGUE CAPILLARE, MONITORAGGIO DELLA PRESSIONE ARTERIOSA SISTEMICA, VISITA GENERALE</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <act classCode="INFRM" moodCode="EVN">
+              <code nullFlavor="NA">
+                <originalText>
+                  <reference value="#TERAPIA" />
+                </originalText>
+              </code>
+            </act>
+          </entry>
+          <entry typeCode="COMP">
+            <observationMedia ID="REFERTO" classCode="OBS" moodCode="EVN">
+              <value mediaType="application/pdf" representation="B64">JVBERi0xLjE=</value>
+            </observationMedia>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section ID="PARAMETRI_POST_TRATTAMENTO">
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.8" />
+          <code code="8716-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Parametri vitali" />
+          <title>Parametri post trattamento</title>
+          <text>
+            <table>
+              <tbody>
+                <tr>
+                  <td>P.A. Sistolica Post Trattamento</td>
+                  <td>
+                    <content ID="POS-PAR-PAS">120 mm[Hg]</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>P.A. Diastolica Post Trattamento</td>
+                  <td>
+                    <content ID="POS-PAR-PAD">80 mm[Hg]</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Temperatura Post Trattamento</td>
+                  <td>
+                    <content ID="POS-PAR-TEM">36.2 Cel</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>VAS Post Trattamento</td>
+                  <td>
+                    <content ID="POS-PAR-VAS">1</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Saturazione Post Trattamento</td>
+                  <td>
+                    <content ID="POS-PAR-SAT">90 %</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.2.9.10.1.4.2.8" />
+              <id root="bd4b2724-0bce-4da7-baf2-c1dd1c8776fb" />
+              <code code="8716-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Storia di Procedure" />
+              <statusCode code="completed" />
+              <effectiveTime value="20201013163000+0200" />
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="8480-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Pressione arteriosa sistolica" />
+                  <text>
+                    <reference value="#POS-PAR-PAS" />
+                  </text>
+                  <value xsi:type="PQ" value="120" unit="mm[Hg]" />
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="8462-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Pressione arteriosa diastolica" />
+                  <text>
+                    <reference value="#POS-PAR-PAD" />
+                  </text>
+                  <value xsi:type="PQ" value="80" unit="mm[Hg]" />
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="8310-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Temperatura corporea" />
+                  <text>
+                    <reference value="#POS-PAR-TEM" />
+                  </text>
+                  <value xsi:type="PQ" value="36.2" unit="Cel" />
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="38214-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Scala dolore Visual Analog Score" />
+                  <text>
+                    <reference value="#POS-PAR-VAS" />
+                  </text>
+                  <value xsi:type="CD">
+                    <originalText>
+                      <reference value="#POS-PAR-VAS" />
+                    </originalText>
+                  </value>
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="59413-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Saturazione ossigeno" />
+                  <text>
+                    <reference value="#POS-PAR-SAT" />
+                  </text>
+                  <value xsi:type="PQ" value="90" unit="%" />
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section ID="FINE_MISSIONE">
+          <templateId root="2.16.840.1.113883.2.9.10.1.6.21" />
+          <code code="54094-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Note Triage" />
+          <title>Fine missione</title>
+          <text>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Codice Fine Missione</td>
+                  <td>
+                    <content ID="COD-FIN-COD">V</content>
+                  </td>
+                  <td>
+                    <content ID="COD-FIN-DES">Codice Verde</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Esito</td>
+                  <td>
+                    <content ID="ESITO-COD">3</content>
+                  </td>
+                  <td>
+                    <content ID="ESITO-DES">Trattamento sul posto senza trasporto (consenso esplicito informato)</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="COMP">
+            <act classCode="INFRM" moodCode="EVN">
+              <code code="V" codeSystem="2.16.840.1.113883.2.9.6.1.54.4" codeSystemName="Codici Criticita'">
+                <originalText>
+                  <reference value="#COD-FIN-COD" />
+                </originalText>
+              </code>
+              <text>Codice Verde</text>
+            </act>
+          </entry>
+          <entry typeCode="COMP">
+            <act classCode="INFRM" moodCode="EVN">
+              <code code="3" codeSystem="2.16.840.1.113883.2.9.6.1.34" codeSystemName="Esito trattamento" displayName="Trattamento sul posto senza trasporto (consenso esplicito informato)">
+                <originalText>
+                  <reference value="#ESITO-COD" />
+                </originalText>
+              </code>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section ID="PDF">
+          <code code="78341-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Scheda paziente 118" />
+          <entry>
+            <observationMedia classCode="OBS" moodCode="EVN">
+              <value mediaType="application/pdf" representation="B64">JVBERi0xLjE=</value>
+            </observationMedia>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

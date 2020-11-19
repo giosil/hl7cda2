@@ -29,13 +29,15 @@ public class TestHL7CDA2 extends TestCase {
   void serializeAndDeserialize()
     throws Exception
   {
-    ClinicalDocument cda1 = buildClinicalDocument();
+    ClinicalDocument cda1 = buildEmergencyReport();
     
     String xml1 = cdaSerialize(cda1);
     
     ClinicalDocument cda2 = cdaDeserialize(xml1);
     
     cdaSerialize(cda2);
+    
+    cdaRenderer(cda2);
   }
   
   protected 
@@ -64,6 +66,19 @@ public class TestHL7CDA2 extends TestCase {
     return clinicalDocument;
   }
   
+  protected 
+  String cdaRenderer(ClinicalDocument clinicalDocument) 
+    throws Exception 
+  {
+    ICDARenderer cdaRenderer = new CDARenderer();
+    
+    String html = cdaRenderer.toHTML(clinicalDocument);
+    
+    System.out.println(html);
+    
+    return html;
+  }
+  
   protected  
   ClinicalDocument buildClinicalDocument() 
   {
@@ -83,6 +98,70 @@ public class TestHL7CDA2 extends TestCase {
       .addEntry("Diagnosi",     "Scompenso cardiaco");
     
     clinicalDocument.addSection("PDF", "application/pdf", pdfReferto);
+    
+    return clinicalDocument;
+  }
+  
+  protected
+  ClinicalDocument buildEmergencyReport() 
+  {
+    byte[] pdfReferto = "%PDF-1.1".getBytes();
+    byte[] pdfScheda  = "%PDF-1.1".getBytes();
+    
+    ClinicalDocument clinicalDocument = new ClinicalDocument("160", "Regione Puglia");
+    
+    clinicalDocument.setId("BA-2020-000510-0");
+    clinicalDocument.setEffectiveTime(toDate(13, 10, 2020, 16, 30));
+    clinicalDocument.setTitle("Scheda Paziente 118");
+    
+    clinicalDocument.setPatient(new Person("RSSMRA75C03F839K", "ROSSI", "MARIO", "M", toDate(03, 3, 1975), "NAPOLI"));
+    clinicalDocument.setAuthor(new Person("oper118"));
+    clinicalDocument.setCustodian(new Organization("160114", "ASL BARI", "BARI", "70123", "LUNGOMARE STARITA", "6"));
+    
+    clinicalDocument.addSection("INIZIO_MISSIONE", "Missione")
+      .addEntry("Data",                       "13/10/2020")
+      .addEntry("Luogo dell'evento",          "PIAZZA VITTORIO EMANUELE 50 -- loc. MONOPOLI -- MONOPOLI (BA)")
+      .addEntry("Motivo",                     "TRAUMA")
+      .addEntry("Codice Criticita'",          "G", "Codice Giallo")
+      .addEntry("Dinamica",                   "MINORE;INCIDENTE AUTO");
+      
+    clinicalDocument.addSection("VALUTAZIONE_PRIMARIA", "Valutazione Primaria")
+      .addEntry("P.A. Sistolica",             "150 mm[Hg]")
+      .addEntry("P.A. Diastolica",            "90 mm[Hg]")
+      .addEntry("Temperatura",                "36.3 Cel")
+      .addEntry("Ritmo al monitor",           "RS")
+      .addEntry("Glicemia",                   "105 mg/dl")
+      .addEntry("Apertura Occhi",             "4", "Spontanea")
+      .addEntry("Risposta Verbale",           "5", "Orientata")
+      .addEntry("Risposta Motoria",           "6", "Ubbidisce al comando")
+      .addEntry("Mimica facciale: i due lati del volto non si muovono allo stesso modo",  "NO")
+      .addEntry("Spostamento delle braccia: un braccio non si muove o cade giu'",         "NO")
+      .addEntry("Linguaggio: Il paziente inceppa sulla parola, usa parole inappropriate o non e' in grado di parlare", "NO");
+    
+    clinicalDocument.addSection("VALUTAZIONE_SECONDARIA", "Valutazione Secondaria")
+      .addEntry("Trauma",                     "Contusione spalla destra")
+      .addEntry("Pupille",                    "");
+    
+    clinicalDocument.addSection("VALUTAZIONE_SANITARIA", "Valutazione sanitaria")
+      .addEntry("Valutazione sanitaria",      "I1", "Soggetto affetto da forma morbosa di grado lieve")
+      .addEntry("Diagnosi sul luogo",         "PATOLOGIA TRAUMATICA - CONTUSIONE");
+    
+    clinicalDocument.addSection("TERAPIA_TRATTAMENTI", "Terapia - Trattamenti")
+      .addEntry("Terapia",                    "ECG ONLINE, CONTROLLO SATURAZIONE O2, GLICEMIA SU SANGUE CAPILLARE, MONITORAGGIO DELLA PRESSIONE ARTERIOSA SISTEMICA, VISITA GENERALE")
+      .addEntry("REFERTO", "application/pdf", pdfReferto);
+    
+    clinicalDocument.addSection("PARAMETRI_POST_TRATTAMENTO", "Parametri post trattamento")
+      .addEntry("P.A. Sistolica Post Trattamento",    "120 mm[Hg]")
+      .addEntry("P.A. Diastolica Post Trattamento",   "80 mm[Hg]")
+      .addEntry("Temperatura Post Trattamento",       "36.2 Cel")
+      .addEntry("VAS Post Trattamento",               "1")
+      .addEntry("Saturazione Post Trattamento",       "90 %");
+    
+    clinicalDocument.addSection("FINE_MISSIONE", "Fine missione")
+      .addEntry("Codice Fine Missione",               "V", "Codice Verde")
+      .addEntry("Esito",                              "3", "Trattamento sul posto senza trasporto (consenso esplicito informato)");
+    
+    clinicalDocument.addSection("PDF", "application/pdf", pdfScheda);
     
     return clinicalDocument;
   }

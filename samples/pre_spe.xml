@@ -1,0 +1,130 @@
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 xsd/hl7/infrastructure/cda/C32_CDA.xsd">
+  <realmCode code="IT"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <templateId root="2.16.840.1.113883.2.9.10.1.2"/>
+  <id root="2.16.840.1.113883.2.9.4.3.8" extension="1200A0000000000" assigningAuthorityName="MEF"/>
+  <code code="57832-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+  <effectiveTime value="20200113112710+0100"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" displayName="Normal"/>
+  <languageCode code="it-IT"/>
+  <setId root="2.16.840.1.113883.2.9.4.3.8" extension="1200A0000000000" assigningAuthorityName="MEF"/>
+  <versionNumber value="1"/>
+  <recordTarget>
+    <patientRole classCode="PAT">
+      <id root="2.16.840.1.113883.2.9.4.3.2" extension="RSSMRA75C03F839K" assigningAuthorityName="Ministero Economia e Finanze"/>
+      <addr use="HP">
+        <streetName>VIA XXX, 1</streetName>
+      </addr>
+      <patient>
+        <name>
+          <family>ROSSI</family>
+          <given>MARIO</given>
+        </name>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="20200113112710+0100"/>
+    <assignedAuthor>
+      <id root="2.16.840.1.113883.2.9.4.3.2" extension="XXXXXX01A01H501X" assigningAuthorityName="Ministero Economia e Finanze"/>
+      <code code="MMG" codeSystem="2.16.840.1.113883.2.9.5.1.111"/>
+      <assignedPerson>
+        <name>
+          <given>XXX</given>
+          <family>XXX</family>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="2.16.840.1.113883.2.9.4.1.1" extension="120202" assigningAuthorityName="Ministero della Salute"/>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="2.16.840.1.113883.2.9.4.1.1" extension="120202" assigningAuthorityName="Ministero della Salute"/>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <participant typeCode="IND">
+    <associatedEntity classCode="GUAR">
+      <scopingOrganization>
+        <id root="2.16.840.1.113883.2.9.4.1.1" extension="202" assigningAuthorityName="Ministero della Salute"/>
+        <addr>
+          <county>RM</county>
+        </addr>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  <componentOf>
+    <encompassingEncounter>
+      <code code="AMB" codeSystem="2.16.840.1.113883.5.4"/>
+      <effectiveTime>
+        <center value="20200113112710+0100"/>
+      </effectiveTime>
+    </encompassingEncounter>
+  </componentOf>
+  <component>
+    <structuredBody>
+      <component>
+        <section>
+          <code code="57827-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Reason for co-payment exemption"/>
+          <text>
+            <content>Nessuna esenzione</content>
+          </text>
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <code code="NE" codeSystem="2.16.840.1.113883.2.9.5.2.2" codeSystemName="Nessuna esenzione" codeSystemVersion="2001"/>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <id root="2.16.840.1.113883.2.9.4.3.8" extension="1200A4290960252" assigningAuthorityName="MEF"/>
+        </section>
+      </component>
+      <component>
+        <section>
+          <text>
+            <content ID="QD1">PATOLOGIA DEI TURBINATI</content>
+          </text>
+          <entry>
+            <observation classCode="OBS" moodCode="RQO">
+              <code code="89.7_37" codeSystem="2.16.840.1.113883.2.9.2.120.6.11" codeSystemName="Catalogo Regionale" displayName="PRIMA VISITA OTORINOLARINGOIATRICA">
+                <translation code="89.7" codeSystem="2.16.840.1.113883.2.9.2.120.6.12" codeSystemName="Nomenclatore Tariffario"/>
+              </code>
+              <priorityCode code="S" codeSystem="2.16.840.1.113883.5.7" codeSystemName="Act Priority" displayName="STAT">
+                <translation code="D" codeSystem="2.16.840.1.113883.2.9.5.2.3" codeSystemName="Priorita' Ricetta" displayName="Entro 30 (visite), entro 60 giorni (visite strumentali)"/>
+              </priorityCode>
+              <repeatNumber value="1"/>
+              <entryRelationship typeCode="REFR">
+                <encounter classCode="ENC" moodCode="INT">
+                  <code code="1" displayName="Primo accesso"/>
+                </encounter>
+              </entryRelationship>
+              <entryRelationship typeCode="RSON">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="29548-5" codeSystem="2.16.840.1.113883.6.1"/>
+                  <text>
+                    <reference value="#QD1"/>
+                  </text>
+                </observation>
+              </entryRelationship>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <code code="57832-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+          <entry>
+            <observationMedia classCode="OBS" moodCode="EVN">
+              <value mediaType="application/pdf" representation="B64">...</value>
+            </observationMedia>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

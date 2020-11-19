@@ -885,6 +885,15 @@ class CDASerializer_IT implements ICDASerializer
       }
     }
     
+    boolean firstEncounter = false;
+    String sectionId = section.getId();
+    if(sectionId != null && sectionId.length() > 0) {
+      String sectionIdLC = sectionId.toLowerCase();
+      if(sectionIdLC.indexOf("prim") >= 0 || sectionIdLC.indexOf("iniz") >= 0) {
+        firstEncounter = true;
+      }
+    }
+    
     sb.append("<text>");
     sb.append("<table>");
     sb.append("<tbody>");
@@ -900,10 +909,10 @@ class CDASerializer_IT implements ICDASerializer
       String edesc   = entry.getDisplayName();
       
       String prefix  = "";
-      if(item.indexOf(" post") > 0) {
+      if(item.indexOf(" post") > 0 && !firstEncounter) {
         prefix = "POS-";
       }
-      else if(item.indexOf(" iniz") < 0 && item.indexOf(" first") < 0) {
+      else if(item.indexOf(" iniz") < 0 && item.indexOf(" first") < 0 && !firstEncounter) {
         prefix = "POS-";
       }
       

@@ -1,0 +1,602 @@
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 xsd/hl7/infrastructure/cda/C32_CDA.xsd">
+  <realmCode code="IT"/>
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+  <templateId extension="ITPRF_REF_LABCH-001" root="2.16.840.1.113883.2.9.10.2.16"/>
+  <id assigningAuthorityName="Regione Lazio" extension="120101.20130221150637.be9ix" root="2.16.840.1.113883.2.9.2.120.4.4"/>
+  <code code="11502-2" codeSystem="2.16.840.1.113883.6.1" displayName="Laboratory Report"/>
+  <effectiveTime value="20130221000000+0100"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality"/>
+  <languageCode code="it-IT"/>
+  <setId assigningAuthorityName="Regione Lazio" extension="120101.20130221150637.be9ix" root="2.16.840.1.113883.2.9.2.120.4.4"/>
+  <versionNumber value="1"/>
+  <recordTarget>
+    <patientRole>
+      <id extension="RSSMRA75C03F839K" root="2.16.840.1.113883.2.9.4.3.2"/>
+      <addr>
+        <city>Roma</city>
+        <postalCode>00131</postalCode>
+        <streetName>via XXX</streetName>
+        <houseNumber>1</houseNumber>
+        <country>Italia</country>
+      </addr>
+      <patient>
+        <name>
+          <prefix>Sig.</prefix>
+          <given>MARIO</given>
+          <family>ROSSI</family>
+        </name>
+        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19690101"/>
+        <guardian>
+          <id nullFlavor="UNK" root="2.16.840.1.113883.2.9.4.3.2"/>
+          <guardianPerson/>
+        </guardian>
+        <birthplace>
+          <place>
+            <addr>
+              <city>Roma</city>
+              <country>Italia</country>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="20150210150637+0100"/>
+    <assignedAuthor>
+      <id extension="XXXXXX01A01H501X" root="2.16.840.1.113883.2.9.4.3.2"/>
+      <id extension="120101000237" root="2.16.840.1.113883.2.9.2.120.4.2"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dott.</prefix>
+          <given>XXX</given>
+          <family>XXX</family>
+        </name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id assigningAuthorityName="Regione Lazio" extension="120101" root="2.16.840.1.113883.2.9.2.120.4.11"/>
+        <name>Laboratorio Analisi</name>
+        <addr>
+          <city>Roma</city>
+          <postalCode>00131</postalCode>
+          <streetName>via XXX</streetName>
+          <houseNumber>2</houseNumber>
+          <country>Italia</country>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <legalAuthenticator>
+    <time value="20150210150637+0100"/>
+    <signatureCode code="S"/>
+    <assignedEntity>
+      <id extension="XXXXXX01A01H501X" root="2.16.840.1.113883.2.9.4.3.2"/>
+      <id extension="120101000237" root="2.16.840.1.113883.2.9.2.120.4.2"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dott.</prefix>
+          <given>XXX</given>
+          <family>XXX</family>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id assigningAuthorityName="Regione Lazio" extension="120101"  root="2.16.840.1.113883.2.9.2.120.4.11"/>
+        <name>Laboratorio Analisi</name>
+        <addr>
+          <city>Roma</city>
+          <postalCode>00131</postalCode>
+          <streetName>via XXX</streetName>
+          <houseNumber>2</houseNumber>
+          <country>Italia</country>
+        </addr>
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+  <component>
+    <structuredBody>
+      <component>
+        <section>
+          <code code="18723-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Hematology Studies">
+            <translation codeSystem="2.16.840.1.113883.2.9.2.120.6.11" nullFlavor="OTH"/>
+          </code>
+          <title>EMATOLOGIA</title>
+          <text>
+            <table>
+              <caption>ESAME EMOCROMOCITOMETRICO</caption>
+              <thead>
+                <tr>
+                  <th>Esame</th>
+                  <th>Esito</th>
+                  <th>Fuori norma</th>
+                  <th>Unita di misura</th>
+                  <th>Valori normali</th>
+                  <th>Metodo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-1">EMOGLOBINA</content>
+                  </td>
+                  <td>12.6000000</td>
+                  <td/>
+                  <td>G/DL</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-2">EMATOCRITO</content>
+                  </td>
+                  <td>37.5000000</td>
+                  <td/>
+                  <td>%</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-3">GLOBULI ROSSI</content>
+                  </td>
+                  <td>4.1700000</td>
+                  <td/>
+                  <td>10^12/L</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-4">MCV</content>
+                  </td>
+                  <td>89.9000000</td>
+                  <td/>
+                  <td>FL</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-5">MCH</content>
+                  </td>
+                  <td>30.2000000</td>
+                  <td/>
+                  <td>PG</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-6">MCHC</content>
+                  </td>
+                  <td>33.6000000</td>
+                  <td/>
+                  <td>G/DL</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-7">PIASTRINE</content>
+                  </td>
+                  <td>184.0000000</td>
+                  <td/>
+                  <td>10^9/L</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-8">GLOBULI BIANCHI</content>
+                  </td>
+                  <td>8.3400000</td>
+                  <td/>
+                  <td>10^9/L</td>
+                  <td/>
+                  <td/>
+                </tr>
+              </tbody>
+            </table>
+            <table>
+              <caption>CONTA DIFFERENZIALE DEI LEUCOCITI</caption>
+              <thead>
+                <tr>
+                  <th>Esame</th>
+                  <th>Esito</th>
+                  <th>Fuori norma</th>
+                  <th>Unita di misura</th>
+                  <th>Valori normali</th>
+                  <th>Metodo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-9">GRANULOCITI NEUTROFILI</content>
+                  </td>
+                  <td>4.5300000</td>
+                  <td/>
+                  <td>X10^9/L</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-10">GRANULOCITI EOSINOFILI</content>
+                  </td>
+                  <td>0.2700000</td>
+                  <td/>
+                  <td>X10^9/L</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-11">GRANULOCITI BASOFILI</content>
+                  </td>
+                  <td>0.0200000</td>
+                  <td/>
+                  <td>X10^9/L</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-12">LINFOCITI</content>
+                  </td>
+                  <td>2.9400000</td>
+                  <td/>
+                  <td>X10^9/L</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-13">MONOCITI</content>
+                  </td>
+                  <td>0.5800000</td>
+                  <td/>
+                  <td>X10^9/L</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-14">GRANULOCITI NEUTROFILI (%)</content>
+                  </td>
+                  <td>54.3000000</td>
+                  <td/>
+                  <td>%</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-15">GRANULOCITI EOSINOFILI (%)</content>
+                  </td>
+                  <td>3.2000000</td>
+                  <td/>
+                  <td>%</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-16">GRANULOCITI BASOFILI (%)</content>
+                  </td>
+                  <td>0.2000000</td>
+                  <td/>
+                  <td>%</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-17">LINFOCITI (%)</content>
+                  </td>
+                  <td>35.3000000</td>
+                  <td/>
+                  <td>%</td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="OSSERVAZIONE-18">MONOCITI (%)</content>
+                  </td>
+                  <td>7.0000000</td>
+                  <td/>
+                  <td>%</td>
+                  <td/>
+                  <td/>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-1"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="EMOGLOBINA"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="G/DL" value="12.6000000" xsi:type="PQ">
+                <translation code="G/DL" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="12.6000000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-2"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="EMATOCRITO"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="%" value="37.5000000" xsi:type="PQ">
+                <translation code="%" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="37.5000000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-3"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="GLOBULI ROSSI"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="10^12/L" value="4.1700000" xsi:type="PQ">
+                <translation code="10^12/L" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="4.1700000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-4"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="MCV"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="FL" value="89.9000000" xsi:type="PQ">
+                <translation code="FL" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="89.9000000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-5"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="MCH"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="PG" value="30.2000000" xsi:type="PQ">
+                <translation code="PG" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="30.2000000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-6"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="MCHC"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="G/DL" value="33.6000000" xsi:type="PQ">
+                <translation code="G/DL" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="33.6000000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-7"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="PIASTRINE"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="10^9/L" value="184.0000000" xsi:type="PQ">
+                <translation code="10^9/L" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="184.0000000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-8"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="GLOBULI BIANCHI"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="10^9/L" value="8.3400000" xsi:type="PQ">
+                <translation code="10^9/L" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="8.3400000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry typeCode="COMP">
+            <observationMedia ID="IMG08" classCode="OBS"  moodCode="EVN">
+              <value integrityCheck="Lbw4RU9T5m8WATQNm/iNcf7c/tU="  integrityCheckAlgorithm="SHA-1" mediaType="image/jpeg">
+                <reference value="http://localhost/images/IMG08"/>
+                <thumbnail mediaType="image/jpeg" representation="B64">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</thumbnail>
+              </value>
+            </observationMedia>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-9"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="GRANULOCITI NEUTROFILI"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="X10^9/L" value="4.5300000" xsi:type="PQ">
+                <translation code="X10^9/L" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="4.5300000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-10"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="GRANULOCITI EOSINOFILI"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="X10^9/L" value="0.2700000" xsi:type="PQ">
+                <translation code="X10^9/L" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="0.2700000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-11"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="GRANULOCITI BASOFILI"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="X10^9/L" value="0.0200000" xsi:type="PQ">
+                <translation code="X10^9/L" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="0.0200000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-12"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="LINFOCITI"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="X10^9/L" value="2.9400000" xsi:type="PQ">
+                <translation code="X10^9/L" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="2.9400000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-13"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="MONOCITI"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="X10^9/L" value="0.5800000" xsi:type="PQ">
+                <translation code="X10^9/L" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="0.5800000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-14"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="GRANULOCITI NEUTROFILI (%)"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="%" value="54.3000000" xsi:type="PQ">
+                <translation code="%" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="54.3000000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-15"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="GRANULOCITI EOSINOFILI (%)"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="%" value="3.2000000" xsi:type="PQ">
+                <translation code="%" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="3.2000000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11"  nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-16"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11"  displayName="GRANULOCITI BASOFILI (%)"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="%" value="0.2000000" xsi:type="PQ">
+                <translation code="%" codeSystem="2.16.840.1.113883.6.8"  codeSystemName="UCUM" value="0.2000000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-17"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11" displayName="LINFOCITI (%)"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="%" value="35.3000000" xsi:type="PQ">
+                <translation code="%" codeSystem="2.16.840.1.113883.6.8" codeSystemName="UCUM" value="35.3000000"/>
+              </value>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code codeSystem="2.16.840.1.113883.2.9.2.120.6.11" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#OSSERVAZIONE-18"/>
+                </originalText>
+                <translation code="0" codeSystem="2.16.840.1.113883.2.9.6.1.11" displayName="MONOCITI (%)"/>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20130221000000"/>
+              <value unit="%" value="7.0000000" xsi:type="PQ">
+                <translation code="%" codeSystem="2.16.840.1.113883.6.8" codeSystemName="UCUM" value="7.0000000"/>
+              </value>
+            </observation>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>
