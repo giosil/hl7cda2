@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="CDAit.xsl"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 xsd/hl7/infrastructure/cda/C32_CDA.xsd">
+  <realmCode code="IT" />
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3" />
+  <templateId extension="IT_LETTDIM-001" root="2.16.840.1.113883.2.9.10.2.10.99" />
+  <id assigningAuthorityName="Regione Lazio" extension="12026701.2015.000000001.2" root="2.16.840.1.113883.2.9.2.120.4.4" />
+  <code code="34105-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Lettera di dimissione ospedaliera"/>
+  <effectiveTime value="20150507105330+0200" />
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" />
+  <languageCode code="it-IT" />
+  <setId assigningAuthorityName="Regione Lazio" extension="12026701.2015.000000001" root="2.16.840.1.113883.2.9.2.120.4.4" />
+  <versionNumber value="2" />
+  <recordTarget>
+    <patientRole>
+      <id extension="RSSMRA75C03F839K" root="2.16.840.1.113883.2.9.4.3.2"/>
+      <addr>
+        <city>Roma</city>
+        <postalCode>00131</postalCode>
+        <streetName>via XXX</streetName>
+        <houseNumber>1</houseNumber>
+        <country>Italia</country>
+      </addr>
+      <patient>
+        <name>
+          <prefix>Sig.</prefix>
+          <given>MARIO</given>
+          <family>ROSSI</family>
+        </name>
+        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19690101"/>
+        <guardian>
+          <id nullFlavor="UNK" root="2.16.840.1.113883.2.9.4.3.2"/>
+          <guardianPerson/>
+        </guardian>
+        <birthplace>
+          <place>
+            <addr>
+              <city>Roma</city>
+              <country>Italia</country>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="20150507105330+0200" />
+    <assignedAuthor>
+      <id extension="XXXXXX01A01H501X" root="2.16.840.1.113883.2.9.4.3.2" />
+      <id extension="cod_operatore" root="2.16.840.1.113883.2.9.2.120.4.2" />
+      <assignedPerson>
+        <name>
+          <prefix>Sig.</prefix>
+          <given>XXX</given>
+          <family>XXX</family>
+        </name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id assigningAuthorityName="Regione Lazio" extension="12026701" root="2.16.840.1.113883.2.9.2.120.4.11" />
+        <name>OSPEDALE</name>
+        <addr>
+          <city>Roma</city>
+          <postalCode>00157</postalCode>
+          <streetName>VIA YYY</streetName>
+          <houseNumber>1</houseNumber>
+          <country>Italia</country>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <legalAuthenticator>
+    <time value="20150507105330+0200" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id extension="XXXXXX01A01H501X" root="2.16.840.1.113883.2.9.4.3.2" />
+      <id extension="cod_operatore" root="2.16.840.1.113883.2.9.2.120.4.2" />
+      <assignedPerson>
+        <name>
+          <prefix>Sig.</prefix>
+          <given>XXX</given>
+          <family>XXX</family>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id assigningAuthorityName="Regione Lazio" extension="120102" root="2.16.840.1.113883.2.9.2.120.4.11" />
+        <name>ASL ROMA B</name>
+        <addr>
+          <city>Roma</city>
+          <postalCode>00157</postalCode>
+          <streetName>Via Filippo Meda</streetName>
+          <houseNumber>35</houseNumber>
+          <country>Italia</country>
+        </addr>
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+  <inFulfillmentOf>
+    <order classCode="ACT" moodCode="RQO">
+      <id root="2.16.840.1.113883.2.9.4.3.4" extension="120110674856696" assigningAuthorityName="Ministero delle Finanze" />
+    </order>
+  </inFulfillmentOf>
+  <relatedDocument typeCode="RPLC">
+    <parentDocument>
+      <id extension="12026701.2015.000000001" root="2.16.840.1.113883.2.9.2.120.4.4"/>
+    </parentDocument>
+  </relatedDocument>
+  <componentOf>
+    <encompassingEncounter>
+      <id root="2.16.840.1.113883.2.9.2.120.4.6" extension="00000000" assigningAuthorityName="Regione Lazio" displayable="true" />
+      <effectiveTime>
+        <low value="20150603" />
+        <high value="20150615" />
+      </effectiveTime>
+      <location>
+        <healthCareFacility>
+          <id root="2.16.840.1.113883.2.9.4.1.6" extension="120267.02.50" />
+          <location>
+            <name>Cardiologia Terapia Intensiva</name>
+          </location>
+          <serviceProviderOrganization>
+            <id root="2.16.840.1.113883.2.9.4.1.2" extension="120267" assigningAuthorityName="Ministero della Salute" />
+          </serviceProviderOrganization>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <component>
+    <structuredBody>
+      <!-- Motivo del ricovero -->
+      <component>
+        <section>
+          <code code="46241-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Hospital admission Dx" />
+          <title>Motivo del ricovero</title>
+          <text>
+            <list>
+              <item>
+                <content ID="DIAG-1">Disturbo di panico</content>
+              </item>
+              <item>
+                <content ID="DIAG-2">Ipertiroidismo</content>
+              </item>
+            </list>
+          </text>
+          <!-- Diagnosi di accettazione -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code code="[CODICE_ICD9_DIAGNOSI_1]" codeSystem="2.16.840.1.113883.6.103" codeSystemName="ICD9CM" displayName="[DESCRIZIONE_DIAGNOSI_1]" />
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <code code="[CODICE_ICD9_DIAGNOSI_2]" codeSystem="2.16.840.1.113883.6.103" codeSystemName="ICD9CM" displayName="[DESCRIZIONE_DIAGNOSI_2]">
+                <translation code="[CODICE_DIAGNOSI_2]" codeSystem="2.16.99" codeSystemName="Catalogo Ultraspecialisitco Nazionale" displayName="[DESCRIZIONE_DETTAGLIO_DIAGNOSI_2]" />
+              </code>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!-- Inquadramento Clinico Iniziale -->
+      <component>
+        <section>
+          <code code="47039-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Hospital Admission history and physical note " />
+          <title>Inquadramento Clinico Iniziale</title>
+          <text>Proveniente da PS. Paziente Diabetico NID, Ipertensione Arteriosa familiare. EO Edemi declivi, murmure vescicolare normotrasmesso.</text>
+          <!-- Sotto-sezione Anamnesi -->
+          <component>
+            <section>
+              <code code="11329-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="History General" />
+              <title>Anamnesi</title>
+              <text>
+                <paragraph>
+                  <caption>Elenco degli interventi, data e commenti</caption>
+                  <content ID="INTCHIR-1">Appendicectomia nel giugno 2009</content>
+                  <content ID="INTCHIR-2">Cordotomia percutanea nel febbraio 1999</content>
+                </paragraph>
+              </text>
+            </section>
+          </component>
+          <!-- Sotto-sezione Esame Obiettivo -->
+          <component>
+            <section>
+              <code code="29545-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Phisical Examination" />
+              <title>Esame Obiettivo</title>
+              <text>Condizioni generali: paziente vigile, orientato e collaborante. Apparato cardiocircolatorio: azione cardiaca ritmica normofrequente, toni puri e pause libere. Soffi vascolari: assenti. Polsi periferici: palpabili nelle comuni sedi di repere. Apparato respiratorio: Murmure vescicolare presente su tutto l'ambito, non rumori patologici aggiunti. Addome: trattabile alla palpazione superficiale e profonda non dolente ne dolorabile. Murphy: negativo. Blumberg: negativo. Giordano: negativo. Fegato: nei limiti. Milza: nei limiti. Turgore giugulare: assente. Edemi: assenti.</text>
+            </section>
+          </component>
+          <!-- Sotto-sezione Terapia Medica all'ingresso -->
+          <component>
+            <section>
+              <code code="42346-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Medications on admission" />
+              <title>Terapia Medica all'Ingresso </title>
+              <text>
+                <list>
+                  <item>Losaprex 50 mg 1 cpr ore 8</item>
+                  <item>Cardicor 5 mg 1 cpr ore 8</item>
+                  <item>Lasix 25 mg 2 cpr ore 8</item>
+                  <item>Peptazol 40 mg 1 cpr ore 8</item>
+                  <item>Arixtra 2.5 mg 1 fl s.c. ore 8</item>
+                  <item>Coumadin sec INR (range terapeutico 2-3)</item>
+                </list>
+              </text>
+            </section>
+          </component>
+        </section>
+      </component>
+      <!-- Valutazione e decorso clinico -->
+      <component>
+        <section>
+          <code code="8648-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Hospital course" />
+          <title>Valutazione e decorso clinico</title>
+          <text>
+            <paragraph>Il paziente giungeva alla nostra attenzione sintomatico per scompenso cardiaco acuto. Durante il ricovero e' stato ottenuto un ripristino dello stato di compenso emodinamico mediante trattamento farmacologico intensivo.</paragraph>
+          </text>
+        </section>
+      </component>
+      <!-- Riscontri ed accertamenti significativi -->
+      <component>
+        <section>
+          <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Relevant diagnostic tests and/or laboratory data" />
+          <title>Riscontri ed accertamenti significativi</title>
+          <text>
+            <paragraph>In data 07/07 u.s eseguita valutazione ecocardiografica della malattia valvolare aortica attraverso cui e' stata data indicazione a correzione della stenosi valvolare mediante impianto di protesi valvolare per via percutanea.</paragraph>
+          </text>
+        </section>
+      </component>
+      <!-- Procedure eseguite durante il ricovero -->
+      <component>
+        <section>
+          <code code="11493-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Hospital discharge studies summary" />
+          <title>Procedure eseguite durante il ricovero</title>
+          <text>
+            <paragraph>In data 15/7 correzione della stenosi valvolare mediante impianto di protesi valvolare per via percutanea. Decorso post-operatori regolare.</paragraph>
+          </text>
+        </section>
+      </component>
+      <!-- Allergie -->
+      <component>
+        <section>
+          <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName=" ALLERGIES" />
+          <title>Allergie</title>
+          <text>
+            <list>
+              <item>Allergico a Cefalosporine</item>
+              <item>Allergia a contatto per lattice</item>
+              <item>Allergia a contatto ed inalazione per polvere comune</item>
+              <item>Allergia alimentare ai flavonoidi</item>
+            </list>
+          </text>
+        </section>
+      </component>
+      <!-- Terapia farmacologica effettuata durante il ricovero -->
+      <component>
+        <section>
+          <code code="8677-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Selected medicine administered during hospitalization" />
+          <title>Terapia farmacologica effettuata durante il ricovero</title>
+          <text>
+            <list>
+              <item>Dal 1/7 al 7/7: Losaprex 50 mg 1 cpr ore 8</item>
+              <item>Dal 1/7 al 7/7: Cardicor 5 mg 1 cpr ore 8</item>
+              <item>Dal 1/7 al 7/7: Lasix 25 mg 2 cpr ore 8</item>
+              <item>Dal 1/7 al 7/7: Peptazol 40 mg 1 cpr ore 20</item>
+              <item>Dal 1/7 al 7/7: Arixtra 2.5 mg 1 fl s.c. ore 20</item>
+              <item>Dal 1/7 al 7/7: Coumadin sec INR (range terapeutico 2-3)</item>
+            </list>
+          </text>
+        </section>
+      </component>
+      <!-- Condizioni del paziente e diagnosi alla dimissione -->
+      <component>
+        <section>
+          <code code="11535-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Hospital discharge Dx" />
+          <title>Condizioni del paziente e diagnosi alla dimissione</title>
+          <text>Insufficenza della Valvola Aortica di grado severo.</text>
+          <!-- lista diagnosi strutturate -->
+          <component>
+            <section>
+              <!-- esempio di diagnosi non strutturata, si usa ilcodice LOINC 11535-2 -->
+              <entry>
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="11535-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Hospital discharge Dx" />
+                  <text>Testo descrittivo cumulativo di tutte le diagnosi</text>
+                </observation>
+              </entry>
+              <!-- esempio di diagnosi strutturata ICD9 -->
+              <entry>
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="[CODICE_ICD9_DIAGNOSI]" codeSystem="2.16.840.1.113883.6.103" codeSystemName="ICD9CM" displayName="[DESCRIZIONE_DIAGNOSI]" />
+                  <text>Testo descrittivo di dettaglio o cumulativo di tutte le 25 diagnosi</text>
+                </observation>
+              </entry>
+              <!-- esempio di diagnosi strutturata ICD9 e altro dizionario interno -->
+              <entry>
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="[CODICE_ICD9_DIAGNOSI_2]" codeSystem="2.16.840.1.113883.6.103" codeSystemName="ICD9CM" displayName="[DESCRIZIONE_DIAGNOSI_2]">
+                    <translation code="[CODICE_DIAGNOSI_2]" codeSystem="2.16.99" codeSystemName="Catalogo Ultraspecialisitco Nazionale" displayName="[DESCRIZIONE_DETTAGLIO_DIAGNOSI_2]" />
+                  </code>
+                  <text>Testo descrittivo di dettaglio</text>
+                </observation>
+              </entry>
+            </section>
+          </component>
+        </section>
+      </component>
+      <!-- Terapia farmacologica alla dimissione -->
+      <component>
+        <section>
+          <code code="10183-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Discharge medications" />
+          <title>Terapia farmacologica alla dimissione</title>
+          <text>
+            <list>
+              <item>Norvasc 5 mg 1 cp ore 20</item>
+              <item>Lasix 25 mg 1 cp il Lun e Ven ore 8</item>
+              <item>Dilatrend 6,25 mg 1/2 cp x 2 ore 8-20</item>
+              <item>Fragmin 0,6 ml 1 fl ore 8 fino a INR &gt; 2</item>
+            </list>
+          </text>
+        </section>
+      </component>
+      <!-- Istruzioni di follow-up -->
+      <component>
+        <section>
+          <code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Treatment plan" />
+          <title>Istruzioni di follow-up</title>
+          <text>
+            <paragraph>Viene data indicazione a correzione della stenosi valvolare mediante impianto di protesi valvolare per via percutanea. Si ritiene opportuno che tale intervento venga svolto solamente dopo un intervallo di tempo adeguato a permettere la stabilizzazione anatomo-funzionale della fistola artero-venosa recentemente confezionata.</paragraph>
+          </text>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

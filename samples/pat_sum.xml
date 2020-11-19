@@ -1,0 +1,2588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClinicalDocument xmlns:ds="http://www.w3.org/2000/09/xmldsig$" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3">
+  <realmCode code="IT" />
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <templateId extension="1.2" root="2.16.840.1.113883.2.9.10.1.4.1.1" />
+  <templateId root="2.16.840.1.113883.2.9.10.2.4" extension="ITPRF_PSUM_GEN-001" />
+  <id assigningAuthorityName="Regione Lazio" root="2.16.840.1.113883.2.9.2.120.4.4" extension="120102.120102045621299.20181129143045.B19YX" />
+  <code code="60591-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Profilo Sanitario Sintetico" codeSystemVersion="2.19" />
+  <title>Profilo Sanitario Sintetico</title>
+  <effectiveTime value="20181129023045+0100" />
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" codeSystemName="HL7 Confidentiality" />
+  <languageCode code="it-IT" />
+  <setId assigningAuthorityName="Regione Lazio" root="2.16.840.1.113883.2.9.4.1.1" extension="120102.120102045621299.20181129143045.B19YX" />
+  <versionNumber value="1" />
+  <recordTarget>
+    <patientRole>
+      <id extension="RSSMRA75C03F839K" root="2.16.840.1.113883.2.9.4.3.2"/>
+      <addr>
+        <city>Roma</city>
+        <postalCode>00131</postalCode>
+        <streetName>via XXX</streetName>
+        <houseNumber>1</houseNumber>
+        <country>Italia</country>
+      </addr>
+      <patient>
+        <name>
+          <prefix>Sig.</prefix>
+          <given>MARIO</given>
+          <family>ROSSI</family>
+        </name>
+        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19690101"/>
+        <guardian>
+          <id nullFlavor="UNK" root="2.16.840.1.113883.2.9.4.3.2"/>
+          <guardianPerson/>
+        </guardian>
+        <birthplace>
+          <place>
+            <addr>
+              <city>Roma</city>
+              <country>Italia</country>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="20181129023045+0100" />
+    <assignedAuthor>
+      <id root="2.16.840.1.113883.2.9.4.3.2" extension="XXXXXX01A01H501X" />
+      <code code="MMG" codeSystem="2.16.840.1.113883.2.9.5.1.111" displayName="Medico di Medicina Generale" />
+      <assignedPerson>
+        <name>
+          <given>XXX</given>
+          <family>XXX</family>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <asOrganizationPartOf>
+          <wholeOrganization>
+            <id root="2.16.840.1.113883.2.9.4.1.1" extension="120102" />
+            <name>ASL ROMA B</name>
+          </wholeOrganization>
+        </asOrganizationPartOf>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id assigningAuthorityName="Regione Lazio" root="2.16.840.1.113883.2.9.2.120.4.11" extension="120102" />
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <legalAuthenticator>
+    <time value="20181129023045+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="2.16.840.1.113883.2.9.4.3.2" extension="XXXXXX01A01H501X" />
+      <assignedPerson>
+        <name>
+          <given>XXX</given>
+          <family>XXX</family>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id assigningAuthorityName="Regione Lazio" root="2.16.840.1.113883.2.9.2.120.4.11" extension="120102" />
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+  <participant typeCode="IND">
+    <associatedEntity classCode="GUAR">
+      <scopingOrganization>
+        <id root="2.16.840.1.113883.2.9.4.1.1" extension="120102" />
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  <component>
+    <structuredBody>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.17" />
+          <code code="57827-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Motivo di esenzione dal co-pagamento" />
+          <title>Esenzioni</title>
+          <text>
+            <table>
+              <thead>
+                <tr>
+                  <th>Codice</th>
+                  <th>Esenzione</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="e1">013250</content>
+                  </td>
+                  <td>DIABETE MELLITO</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="e2">C03</content>
+                  </td>
+                  <td>Invalidi civili con riduzione della capacità lavorativa maggiore di due terzi - dal 67% al 99% di invalidità - (ex art.6 comma 1 lettera c D.M. 01/02/1991)</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="e3">0031402</content>
+                  </td>
+                  <td>CARDIOPATIA IPERTENSIVA</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="COMP">
+            <act classCode="ACT" moodCode="EVN">
+              <code code="013250" codeSystem="2.16.840.1.113883.2.9.2.120.6.22" codeSystemName="Codifica Esenzioni Regione Lazio">
+                <originalText>
+                  <reference value="#e1" />
+                </originalText>
+              </code>
+            </act>
+          </entry>
+          <entry typeCode="COMP">
+            <act classCode="ACT" moodCode="EVN">
+              <code code="C03" codeSystem="2.16.840.1.113883.2.9.2.120.6.22" codeSystemName="Codifica Esenzioni Regione Lazio">
+                <originalText>
+                  <reference value="#e2" />
+                </originalText>
+              </code>
+            </act>
+          </entry>
+          <entry typeCode="COMP">
+            <act classCode="ACT" moodCode="EVN">
+              <code code="0031402" codeSystem="2.16.840.1.113883.2.9.2.120.6.22" codeSystemName="Codifica Esenzioni Regione Lazio">
+                <originalText>
+                  <reference value="#e3" />
+                </originalText>
+              </code>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.2" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.13" />
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.1" />
+          <id root="75847608-5397-4d99-a72a-0d91f0ccb587" />
+          <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Allergie, Reazioni Avverse, Allarmi" />
+          <title>Allergie, reazioni avverse ai farmaci o ai mezzi di contrasto o ad altre sostanze, intolleranze, rischi immunitari</title>
+          <text />
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.8" />
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.2" />
+          <id root="db7232f4-5805-4376-92c4-2946f502541d" />
+          <code code="10160-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="HISTORY OF MEDICATION USE" />
+          <title>Terapie farmacologiche rilevanti</title>
+          <text />
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.6" />
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.3" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.23" />
+          <id root="0371703b-c081-495f-8cae-a63bd6a10645" />
+          <code code="11369-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="HISTORY OF IMMUNIZATIONS" />
+          <title>Vaccinazioni</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Vaccino</th>
+                  <th>Data somministrazione</th>
+                  <th>Data scadenza</th>
+                  <th>Nome farmaco</th>
+                  <th>Lotto farmaco</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ID="vaccino_0">ANTIEPATITE B (5° MESE)</td>
+                  <td>28/11/2018</td>
+                  <td>28/04/2019</td>
+                  <td>4-Fluad</td>
+                  <td>1185C1A</td>
+                  <td/>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <substanceAdministration moodCode="EVN" classCode="SBADM">
+              <templateId root="2.16.840.1.113883.10.20.1.24" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12" />
+              <templateId root="2.16.840.1.113883.2.9.10.1.4.3.3.1" />
+              <id root="f256f922-73d9-4c59-9ffb-3a377ede9a00" />
+              <code code="IMMUNIZ" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" />
+              <statusCode code="completed" />
+              <effectiveTime value="20181128000000" />
+              <consumable typeCode="CSM">
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="2.16.840.1.113883.2.9.10.1.4.3.3.2" />
+                  <manufacturedMaterial classCode="MMAT" determinerCode="KIND">
+                    <code nullFlavor="OTH">
+                      <originalText>
+                        <reference value="#vaccino_0" />
+                      </originalText>
+                    </code>
+                    <lotNumberText>1185C1A</lotNumberText>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.40" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
+                  <code code="48767-8" displayName="Annotation Comment" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </entryRelationship>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.11" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6" />
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.4" />
+          <id root="56148958-7f5e-4a41-b1d0-6e731bc95d87" />
+          <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Lista dei Problemi" />
+          <title>Lista problemi rilevanti e diagnosi codificate</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Problema</th>
+                  <th>Data insorgenza</th>
+                  <th>Stato</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ID="Problema_0">Ernia inguinale senza menzione di ostruzione o gangrena</td>
+                  <td>23/12/2005</td>
+                  <td>Attivo</td>
+                  <td/>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <templateId root="2.16.840.1.113883.2.9.10.1.4.3.4.1" />
+              <id root="da18741a-67b0-4c28-8f86-88d69d014400" />
+              <code nullFlavor="NA" />
+              <statusCode code="active" />
+              <effectiveTime>
+                <low value="20051223000000" />
+              </effectiveTime>
+              <entryRelationship typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.28" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <templateId root="2.16.840.1.113883.2.9.10.1.4.3.4.2" />
+                  <id root="af6e3286-0b05-4c37-8e76-81a157866700" />
+                  <code code="64572001" displayName="Malattia" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" />
+                  <text>
+                    <reference value="#Problema_0" />
+                  </text>
+                  <statusCode code="active" />
+                  <effectiveTime>
+                    <low value="20051223000000" />
+                  </effectiveTime>
+                  <value xsi:type="CD">
+                    <originalText>
+                      <reference value="Problema_0" />
+                    </originalText>
+                  </value>
+                  <entryRelationship typeCode="COMP">
+                    <observation moodCode="EVN" classCode="OBS">
+                      <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                      <statusCode code="completed" />
+                      <value xsi:type="ST">Unknown</value>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.4" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.14" />
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.16" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.15" />
+          <id root="7e3025d2-5283-4a51-b9de-9fe68aeb55d5" />
+          <code code="10157-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Familiarita" />
+          <title>Anamnesi familiare</title>
+          <text />
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.6" />
+          <templateId root="2.16.840.1.113883.10.20.1.15" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16" />
+          <id root="650ad22b-34c2-41a7-aba0-ed614c40d5cf" />
+          <code code="29762-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="SOCIAL HISTORY" />
+          <title>Fattori di rischio</title>
+          <text />
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.4" />
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.7" />
+          <id root="be1bbba9-17cf-4827-beb2-20bbcda682c4" />
+          <code code="10162-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="HISTORY OF PREGNANCIES" />
+          <title>Gravidanza e Parto</title>
+          <text />
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.8" />
+          <templateId root="2.16.840.1.113883.10.20.1.16" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.25" />
+          <id root="745dfb5e-d074-46d8-89ba-209dce4f5f34" />
+          <code code="8716-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="VITAL SIGNS" />
+          <title>Parametri di monitoraggio</title>
+          <text>
+            <paragraph>
+              <content />
+            </paragraph>
+          </text>
+          <entry typeCode="DRIV">
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <templateId root="2.16.840.1.113883.2.9.10.1.4.3.8.1" />
+              <id root="25d91b06-3644-447f-8553-6e4c876e0eba" />
+              <code code="46680005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="VITAL SIGNS" />
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="UNK" />
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.11383.10.20.1.7" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.5" />
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.9" />
+          <id root="6fb8a026-8c95-4ef3-a309-1dc5f18c3310" />
+          <code code="46264-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="HISTORY OF MEDICAL DEVICE USE" />
+          <title>Protesi, impianti e ausili</title>
+          <text>
+            <paragraph>Non noto</paragraph>
+          </text>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.10" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.31" />
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.10" />
+          <id root="02b12631-f9d7-4653-9f94-c32a8202d1f0" />
+          <code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="PLAN OF TREATMENT" />
+          <title>Note(Piano di cura)</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Descrizione</th>
+                  <th>AIC/Catalogo Regionale</th>
+                  <th>Data</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_0">Insulina (curva da carico o dopo test farmacologici, max. 5)</content>
+                  </td>
+                  <td>90.28.5</td>
+                  <td>13/10/2016</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_1">Glicemia</content>
+                  </td>
+                  <td>90.27.1</td>
+                  <td>28/03/2014</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_2">Urine: esame parziale (acetone e glucosio quantitativo)</content>
+                  </td>
+                  <td>90.44.4</td>
+                  <td>28/03/2014</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_3">Emoglobina glicata</content>
+                  </td>
+                  <td>90.28.1</td>
+                  <td>28/03/2014</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_4">Glicemia</content>
+                  </td>
+                  <td>90.27.1</td>
+                  <td>24/02/2012</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_5">Colesterolo hdl</content>
+                  </td>
+                  <td>90.14.1</td>
+                  <td>24/02/2012</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_6">Trigliceridi</content>
+                  </td>
+                  <td>90.43.2</td>
+                  <td>24/02/2012</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_7">Analisi dinamometrica arto superiore sx</content>
+                  </td>
+                  <td>93.05.2</td>
+                  <td>19/03/2013</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_8">Creatinina ematica</content>
+                  </td>
+                  <td>90.16.3</td>
+                  <td>21/11/2011</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_9">Visita diabetologica</content>
+                  </td>
+                  <td>89.7</td>
+                  <td>24/11/2014</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_10">COLESTEROLO TOTALE</content>
+                  </td>
+                  <td>90.14.3_0</td>
+                  <td>05/09/2017</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_11">URINE ESAME COMPLETO</content>
+                  </td>
+                  <td>90.44.3_0</td>
+                  <td>05/09/2017</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_12">CREATINCHINASI (CPK O CK)</content>
+                  </td>
+                  <td>90.15.4_2</td>
+                  <td>05/09/2017</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_13">MICROALBUMINURIA</content>
+                  </td>
+                  <td>90.33.4_2</td>
+                  <td>05/09/2017</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_14">URATO (ACIDO URICO) [S] </content>
+                  </td>
+                  <td>90.43.5_2</td>
+                  <td>05/09/2017</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_15">Altro innesto di cute nella mano</content>
+                  </td>
+                  <td>86.62</td>
+                  <td>02/10/2013</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_16">Colesterolo totale</content>
+                  </td>
+                  <td>90.14.3</td>
+                  <td>16/03/2015</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_17">Azotemia</content>
+                  </td>
+                  <td>90.44.1</td>
+                  <td>04/07/2014</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_18">Microalbuminuria</content>
+                  </td>
+                  <td>90.33.4</td>
+                  <td>04/07/2014</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_19">Got (ast/transaminasi) ematica</content>
+                  </td>
+                  <td>90.09.2</td>
+                  <td>21/09/2016</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_20">Analisi cinematica arto superiore dx</content>
+                  </td>
+                  <td>93.05.1</td>
+                  <td>26/06/2013</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_21">Analisi dinamometrica arto superiore sx</content>
+                  </td>
+                  <td>93.05.2</td>
+                  <td>26/06/2013</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_22">Altra incisione/drenaggio vie lacrimali/ dotto nasolacrimale occhio sx</content>
+                  </td>
+                  <td>09.59</td>
+                  <td>18/01/2017</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_23">Altra incisione/drenaggio vie lacrimali/ dotto nasolacrimale occhio sx</content>
+                  </td>
+                  <td>09.59</td>
+                  <td>29/07/2015</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_24">Altro innesto di cute nella mano</content>
+                  </td>
+                  <td>86.62</td>
+                  <td>29/07/2015</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_25">EMOCROMO (Hb, GR, GB, HCT, PLT, IND. DERIV., F. L.)</content>
+                  </td>
+                  <td>90.62.2_0</td>
+                  <td>23/05/2017</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_26">FERRO [S]</content>
+                  </td>
+                  <td>90.22.5_0</td>
+                  <td>23/05/2017</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_27">Glicemia</content>
+                  </td>
+                  <td>90.27.1</td>
+                  <td>03/08/2016</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_28">Colesterolo hdl</content>
+                  </td>
+                  <td>90.14.1</td>
+                  <td>03/08/2016</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_29">Microalbuminuria</content>
+                  </td>
+                  <td>90.33.4</td>
+                  <td>03/08/2016</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_30">Glicemia</content>
+                  </td>
+                  <td>90.27.1</td>
+                  <td>28/01/2016</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_31">Creatinina ematica</content>
+                  </td>
+                  <td>90.16.3</td>
+                  <td>28/01/2016</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_32">Microalbuminuria</content>
+                  </td>
+                  <td>90.33.4</td>
+                  <td>28/01/2016</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_33">Anticorpi anticlamidia igg</content>
+                  </td>
+                  <td>90.89.1</td>
+                  <td>21/11/2011</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_34">Analisi dinamometrica tronco</content>
+                  </td>
+                  <td>93.05.2</td>
+                  <td>16/05/2012</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_35">Emoglobina glicata</content>
+                  </td>
+                  <td>90.28.1</td>
+                  <td>16/05/2012</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_36">Glicemia</content>
+                  </td>
+                  <td>90.27.1</td>
+                  <td>16/05/2012</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_37">Emocromo completo con formula e piastrine</content>
+                  </td>
+                  <td>90.62.2</td>
+                  <td>16/05/2012</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_38">Glicemia</content>
+                  </td>
+                  <td>90.27.1</td>
+                  <td>04/04/2013</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_39">Colesterolo ldl</content>
+                  </td>
+                  <td>90.14.2</td>
+                  <td>24/02/2012</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_40">Microalbuminuria</content>
+                  </td>
+                  <td>90.33.4</td>
+                  <td>16/03/2015</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_41">Esame chimico fisico e microscopico delle urine</content>
+                  </td>
+                  <td>90.44.3</td>
+                  <td>16/03/2015</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_42">Glicemia</content>
+                  </td>
+                  <td>90.27.1</td>
+                  <td>07/05/2015</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_43">Emoglobina glicata</content>
+                  </td>
+                  <td>90.28.1</td>
+                  <td>07/05/2015</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_44">Bilirubina totale e frazionata ematica</content>
+                  </td>
+                  <td>90.10.5</td>
+                  <td>07/05/2015</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_45">Altro innesto di cute nella mano</content>
+                  </td>
+                  <td>86.62</td>
+                  <td>13/10/2016</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_46">Emoglobina glicata</content>
+                  </td>
+                  <td>90.28.1</td>
+                  <td>21/09/2016</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_47">Emoglobina glicata</content>
+                  </td>
+                  <td>90.28.1</td>
+                  <td>11/05/2015</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_48">Glicemia</content>
+                  </td>
+                  <td>90.27.1</td>
+                  <td>11/05/2015</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_49">Uricemia</content>
+                  </td>
+                  <td>90.43.5</td>
+                  <td>24/11/2014</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_50">Visita diabetologica</content>
+                  </td>
+                  <td>89.7</td>
+                  <td>04/04/2013</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_51">Creatinina ematica</content>
+                  </td>
+                  <td>90.16.3</td>
+                  <td>03/10/2011</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_52">Glicemia</content>
+                  </td>
+                  <td>90.27.1</td>
+                  <td>03/10/2011</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_53">Colesterolo ldl</content>
+                  </td>
+                  <td>90.14.2</td>
+                  <td>28/03/2014</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_54">Altra incisione/drenaggio vie lacrimali/ dotto nasolacrimale occhio sx</content>
+                  </td>
+                  <td>09.59</td>
+                  <td>01/10/2014</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_55">Analisi cinematica arto superiore dx</content>
+                  </td>
+                  <td>93.05.1</td>
+                  <td>19/03/2013</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_56">Altre procedure diagnostiche apparato lacrimale</content>
+                  </td>
+                  <td>09.19</td>
+                  <td>03/10/2011</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_57">Altre procedure diagnostiche apparato lacrimale</content>
+                  </td>
+                  <td>09.19</td>
+                  <td>03/10/2011</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_58">Analisi dinamometrica arto superiore sx</content>
+                  </td>
+                  <td>93.05.2</td>
+                  <td>14/12/2012</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_59">Colesterolo totale</content>
+                  </td>
+                  <td>90.14.3</td>
+                  <td>28/01/2016</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_60">Got (ast/transaminasi) ematica</content>
+                  </td>
+                  <td>90.09.2</td>
+                  <td>28/01/2016</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_61">ANTIGENE PROSTATICO SPECIFICO (PSA) TOTALE</content>
+                  </td>
+                  <td>90.56.5_2</td>
+                  <td>05/09/2017</td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="Prestazione_62">BATTERI ANTIBIOGRAMMA DA COLTURA (M.I.C., almeno 10 antibiotici).</content>
+                  </td>
+                  <td>90.85.2_0</td>
+                  <td>05/09/2017</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.28.5" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Insulina (curva da carico o dopo test farmacologici, max. 5)" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20161013" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_0" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{0060B928-7DA1-45BE-AA4B-3222417645C9}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.27.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Glicemia" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20140328" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_1" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{067E12A1-1108-4735-BBA6-92B73274D16C}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.44.4" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Urine: esame parziale (acetone e glucosio quantitativo)" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20140328" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_2" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{067E12A1-1108-4735-BBA6-92B73274D16C}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.28.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Emoglobina glicata" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20140328" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_3" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{067E12A1-1108-4735-BBA6-92B73274D16C}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.27.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Glicemia" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20120224" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_4" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{12217DCB-36E7-44A7-9025-8EC4793C6316}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.14.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Colesterolo hdl" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20120224" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_5" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{12217DCB-36E7-44A7-9025-8EC4793C6316}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.43.2" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Trigliceridi" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20120224" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_6" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{12217DCB-36E7-44A7-9025-8EC4793C6316}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="93.05.2" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Analisi dinamometrica arto superiore sx" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20130319" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_7" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{140B0EEF-0CEB-43B2-99FF-76964181E34C}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.16.3" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Creatinina ematica" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20111121" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_8" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{148DDD8D-CEAE-4754-BF1F-7AC0676F2EE3}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="89.7" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Visita diabetologica" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20141124" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_9" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{174CE249-03E2-4A85-8276-B1AC157EF8C8}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.14.3_0" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="COLESTEROLO TOTALE" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20170905" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_10" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{1D003B79-1BE9-4724-B9EA-B376B004BF0A}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.44.3_0" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="URINE ESAME COMPLETO" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20170905" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_11" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{1D003B79-1BE9-4724-B9EA-B376B004BF0A}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.15.4_2" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="CREATINCHINASI (CPK O CK)" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20170905" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_12" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{1D003B79-1BE9-4724-B9EA-B376B004BF0A}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.33.4_2" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="MICROALBUMINURIA" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20170905" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_13" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{1D003B79-1BE9-4724-B9EA-B376B004BF0A}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.43.5_2" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="URATO (ACIDO URICO) [S] " />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20170905" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_14" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{1D003B79-1BE9-4724-B9EA-B376B004BF0A}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="86.62" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Altro innesto di cute nella mano" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20131002" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_15" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{2C7A9D0B-2F8F-4104-9D34-D807935F718F}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.14.3" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Colesterolo totale" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20150316" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_16" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{2EA240AC-EB00-4838-82FD-7FB8D24F2A03}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.44.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Azotemia" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20140704" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_17" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{3D69C269-D67A-414C-B029-18ED39D762DF}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.33.4" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Microalbuminuria" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20140704" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_18" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{3D69C269-D67A-414C-B029-18ED39D762DF}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.09.2" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Got (ast/transaminasi) ematica" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20160921" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_19" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{462C689D-1408-4AE3-8649-27A9DA29DCD2}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="93.05.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Analisi cinematica arto superiore dx" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20130626" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_20" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{47FE611D-2EC3-479A-8A07-C92D03285182}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="93.05.2" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Analisi dinamometrica arto superiore sx" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20130626" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_21" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{47FE611D-2EC3-479A-8A07-C92D03285182}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="09.59" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Altra incisione/drenaggio vie lacrimali/ dotto nasolacrimale occhio sx" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20170118" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_22" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{4A339BBB-2F8E-4814-8110-069804DE11C4}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="09.59" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Altra incisione/drenaggio vie lacrimali/ dotto nasolacrimale occhio sx" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20150729" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_23" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{4A61D610-5657-4E86-AE7E-E021A84A11F3}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="86.62" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Altro innesto di cute nella mano" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20150729" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_24" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{4A61D610-5657-4E86-AE7E-E021A84A11F3}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.62.2_0" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="EMOCROMO (Hb, GR, GB, HCT, PLT, IND. DERIV., F. L.)" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20170523" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_25" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{5B367D1D-6BFF-49FC-8264-DF25CEE9DC59}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.22.5_0" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="FERRO [S]" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20170523" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_26" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{5B367D1D-6BFF-49FC-8264-DF25CEE9DC59}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.27.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Glicemia" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20160803" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_27" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{67368D17-7E33-4B72-81AE-407447B7B018}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.14.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Colesterolo hdl" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20160803" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_28" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{67368D17-7E33-4B72-81AE-407447B7B018}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.33.4" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Microalbuminuria" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20160803" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_29" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{67368D17-7E33-4B72-81AE-407447B7B018}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.27.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Glicemia" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20160128" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_30" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{6D1A63C3-9F1C-4F45-BDA5-780EF517894D}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.16.3" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Creatinina ematica" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20160128" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_31" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{6D1A63C3-9F1C-4F45-BDA5-780EF517894D}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.33.4" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Microalbuminuria" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20160128" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_32" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{6D1A63C3-9F1C-4F45-BDA5-780EF517894D}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.89.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Anticorpi anticlamidia igg" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20111121" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_33" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{6ED468F2-C652-433E-BBAE-10DF52519C68}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="93.05.2" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Analisi dinamometrica tronco" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20120516" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_34" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{7163E404-AAB0-47DF-B157-135CC022C363}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.28.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Emoglobina glicata" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20120516" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_35" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{7963A89B-5D41-4360-B25C-A037B6FE7465}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.27.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Glicemia" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20120516" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_36" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{7963A89B-5D41-4360-B25C-A037B6FE7465}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.62.2" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Emocromo completo con formula e piastrine" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20120516" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_37" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{7963A89B-5D41-4360-B25C-A037B6FE7465}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.27.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Glicemia" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20130404" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_38" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{7FEF86A9-37EE-4B1C-9AA7-04503EDDCA18}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.14.2" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Colesterolo ldl" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20120224" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_39" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{85AE2B4A-B55F-4C1E-BDC7-5CE393E152EB}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.33.4" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Microalbuminuria" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20150316" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_40" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{8ADD10F2-0ECB-401A-84C7-497D083D3F0D}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.44.3" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Esame chimico fisico e microscopico delle urine" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20150316" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_41" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{8ADD10F2-0ECB-401A-84C7-497D083D3F0D}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.27.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Glicemia" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20150507" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_42" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{8B51636B-0119-4D8B-843B-5EC9E397A3EF}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.28.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Emoglobina glicata" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20150507" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_43" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{8B51636B-0119-4D8B-843B-5EC9E397A3EF}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.10.5" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Bilirubina totale e frazionata ematica" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20150507" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_44" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{8B51636B-0119-4D8B-843B-5EC9E397A3EF}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="86.62" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Altro innesto di cute nella mano" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20161013" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_45" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{9152C90A-CB5F-4730-A2CE-DDE12923EE38}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.28.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Emoglobina glicata" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20160921" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_46" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{931DCF9D-2F39-4BCA-8231-46C1D20E8B02}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.28.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Emoglobina glicata" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20150511" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_47" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{A3D3CA6A-1E39-4AD0-AE30-84E77E497F61}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.27.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Glicemia" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20150511" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_48" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{A3D3CA6A-1E39-4AD0-AE30-84E77E497F61}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.43.5" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Uricemia" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20141124" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_49" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{B1676476-4B42-4D8C-8637-D4B56F41F8DC}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="89.7" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Visita diabetologica" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20130404" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_50" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{B71AC21F-928C-4CE6-94F5-3827E0162ADE}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.16.3" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Creatinina ematica" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20111003" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_51" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{D6917DF1-BCED-4E25-8BB5-6F76E62FA9E7}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.27.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Glicemia" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20111003" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_52" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{D6917DF1-BCED-4E25-8BB5-6F76E62FA9E7}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.14.2" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Colesterolo ldl" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20140328" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_53" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{D73D16EA-96DD-49A7-8A06-A223AB817D7E}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="09.59" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Altra incisione/drenaggio vie lacrimali/ dotto nasolacrimale occhio sx" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20141001" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_54" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{E09C7905-B410-435B-A31C-A3A6D855FDD8}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="93.05.1" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Analisi cinematica arto superiore dx" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20130319" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_55" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{F318AB69-8800-4873-A71B-EAF8E39BA3C7}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="09.19" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Altre procedure diagnostiche apparato lacrimale" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20111003" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_56" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{F3EA703F-56EA-4A90-AC37-F2D277FFDB51}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="09.19" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Altre procedure diagnostiche apparato lacrimale" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20111003" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_57" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{F3EA703F-56EA-4A90-AC37-F2D277FFDB51}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="93.05.2" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Analisi dinamometrica arto superiore sx" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20121214" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_58" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{F4877C46-5BC3-4DF6-8CEE-711E8CF3B9A5}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.14.3" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Colesterolo totale" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20160128" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_59" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{F5E0069C-7E18-45BA-90EF-0B6A90778A88}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.09.2" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="Got (ast/transaminasi) ematica" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20160128" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_60" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="{F5E0069C-7E18-45BA-90EF-0B6A90778A88}" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.56.5_2" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="ANTIGENE PROSTATICO SPECIFICO (PSA) TOTALE" />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20170905" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_61" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="1200A4108213938" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.1.25" />
+              <code code="90.85.2_0" codeSystem="2.16.840.1.113883.2.9.2.80.6.1.11" codeSystemName="Catalogo Nazionale" displayName="BATTERI ANTIBIOGRAMMA DA COLTURA (M.I.C., almeno 10 antibiotici)." />
+              <statusCode code="new" />
+              <effectiveTime>
+                <high value="20170905" />
+              </effectiveTime>
+              <value xsi:type="CD" nullFlavor="OTH">
+                <originalText>
+                  <reference value="#Prestazione_62" />
+                </originalText>
+              </value>
+              <entryRelationship typeCode="COMP">
+                <observation moodCode="EVN" classCode="OBS">
+                  <code code="48766-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Information source" />
+                  <statusCode code="completed" />
+                  <value xsi:type="ST">Unknown</value>
+                </observation>
+              </entryRelationship>
+              <reference typeCode="REFR">
+                <externalDocument classCode="DOC" moodCode="EVN">
+                  <id root="2.16.840.1.113883.2.9.2.80.4.8" extension="1200A4108215573" displayable="true" />
+                </externalDocument>
+              </reference>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.13" />
+          <templateId root="2.16.840.1.113883.10.20.1.5" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.17" />
+          <id root="bae7a109-ef69-4df6-9415-68eb41d7fe26" />
+          <code code="47420-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="VALUTAZIONE CAPACITA FUNZIONALE" />
+          <title>Stato del Paziente</title>
+          <text>
+            <paragraph>Non noto</paragraph>
+          </text>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="CDAit.xsl"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 xsd/hl7/infrastructure/cda/C32_CDA.xsd">
+  <realmCode code="IT"/>
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+  <templateId extension="ITPRF_PRESC_FARMA-001" root="2.16.840.1.113883.2.9.10.2.6"/>
+  <id assigningAuthorityName="Regione Lazio"  extension="120101.120101000237.20150210150637.gda3u" root="2.16.840.1.113883.2.9.4.3.6"/>
+  <code code="29305-0" codeSystem="2.16.840.1.113883.6.1"  displayName="Medication prescribed">
+    <translation code="3400" codeSystem="2.16.840.1.113883.2.9.6.1.25" codeSystemName="ITCDADOC_TYPECODE" codeSystemVersion="1" displayName="Prescrizione">
+      <qualifier>
+        <value code="3400-1" codeSystem="2.16.840.1.113883.2.9.6.1.25"  codeSystemName="ITCDADOC_TYPECODE" codeSystemVersion="1" displayName="Prescrizione farmaceutica"/>
+      </qualifier>
+    </translation>
+    <translation code="SSN" codeSystem="2.16.840.1.113883.2.9.6.1.45" codeSystemName="Classe ricetta" displayName="Ricetta SSN">
+      <qualifier>
+        <value code="ALTRO" codeSystem="2.16.840.1.113883.2.9.6.1.46" codeSystemName="Tipologia di prescrizione" displayName="ALTRO"/>
+      </qualifier>
+      <qualifier>
+        <value codeSystem="2.16.840.1.113883.2.9.6.1.47" codeSystemName="Tipo ricetta"/>
+      </qualifier>
+    </translation>
+  </code>
+  <effectiveTime value="20150105150637+0100"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality"/>
+  <languageCode code="it-IT"/>
+  <setId extension="120101.120101000237.20150210150637.gda3u" root="2.16.840.1.113883.2.9.4.3.6"/>
+  <versionNumber value="1"/>
+  <recordTarget>
+    <patientRole>
+      <id extension="RSSMRA75C03F839K" root="2.16.840.1.113883.2.9.4.3.2"/>
+      <addr>
+        <city>Roma</city>
+        <postalCode>00131</postalCode>
+        <streetName>via XXX</streetName>
+        <houseNumber>1</houseNumber>
+        <country>Italia</country>
+      </addr>
+      <patient>
+        <name>
+          <prefix>Sig.</prefix>
+          <given>MARIO</given>
+          <family>ROSSI</family>
+        </name>
+        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19690101"/>
+        <guardian>
+          <id nullFlavor="UNK" root="2.16.840.1.113883.2.9.4.3.2"/>
+          <guardianPerson/>
+        </guardian>
+        <birthplace>
+          <place>
+            <addr>
+              <city>Roma</city>
+              <country>Italia</country>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="20150210150637+0100"/>
+    <assignedAuthor>
+      <id extension="XXXXXX01A01H501X" root="2.16.840.1.113883.2.9.4.3.2"/>
+      <id extension="120101000237" root="2.16.840.1.113883.2.9.2.120.4.2"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dott.</prefix>
+          <given>MMG</given>
+          <family>MEDICO</family>
+        </name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id assigningAuthorityName="Regione Lazio" extension="120101" root="2.16.840.1.113883.2.9.2.120.4.11"/>
+        <name>Studio Medico</name>
+        <addr>
+          <city>Roma</city>
+          <postalCode>00131</postalCode>
+          <streetName>via YYY</streetName>
+          <houseNumber>1</houseNumber>
+          <country>Italia</country>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <legalAuthenticator>
+    <time value="20150210150637+0100"/>
+    <signatureCode code="S"/>
+    <assignedEntity>
+      <id extension="XXXXXX01A01H501X" root="2.16.840.1.113883.2.9.4.3.2"/>
+      <id extension="120101000237" root="2.16.840.1.113883.2.9.2.120.4.2"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dott.</prefix>
+          <given>MMG</given>
+          <family>MEDICO</family>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id assigningAuthorityName="Regione Lazio" extension="120101" root="2.16.840.1.113883.2.9.2.120.4.11"/>
+        <name>Studio Medico</name>
+        <addr>
+          <city>Roma</city>
+          <postalCode>00131</postalCode>
+          <streetName>via YYY</streetName>
+          <houseNumber>1</houseNumber>
+          <country>Italia</country>
+        </addr>
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+  <participant typeCode="IND">
+    <associatedEntity classCode="GUAR">
+      <scopingOrganization>
+        <id assigningAuthorityName="SSN-MIN SALUTE-500001" displayable="true" extension="120101" root="2.16.840.1.113883.2.9.4.1.1"/>
+      </scopingOrganization>
+    </associatedEntity>
+  </participant>
+  <component>
+    <structuredBody>
+      <component>
+        <section ID="ESENZIONI">
+          <code code="ESENZIONI-001" codeSystem="2.16.840.1.113883.2.9.6.1.70" displayName="Esenzioni"/>
+          <text>
+            <paragraph>
+              <content ID="NO_ESENZIONI">Nessuna esenzione rilevata</content>
+            </paragraph>
+          </text>
+          <entry typeCode="COMP">
+            <act classCode="ACT" moodCode="EVN">
+              <code code="OTH" codeSystem="2.16.840.1.113883.2.9.2.120.6.22" codeSystemName="Codifica Esenzioni Regione Lazio">
+                <originalText>
+                  <reference value="#NO_ESENZIONI"/>
+                </originalText>
+              </code>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section ID="PRESCRIZIONI">
+          <code code="29305-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Medication Prescribed"/>
+          <text>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome commerciale</th>
+                  <th>Nr. pezzi</th>
+                  <th>Principio attivo</th>
+                  <th>Priorita'</th>
+                  <th>Quesito/Problema</th>
+                  <th>Nota AIFA</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="PRESCRIZIONE-1">AULIN 100MG 30BS</content>
+                  </td>
+                  <td>1</td>
+                  <td>M01AX17</td>
+                  <td>P</td>
+                  <td/>
+                  <td>
+                    <content ID="NOTA_AIFA-1">066</content>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <content ID="PRESCRIZIONE-2">CARDIOASPIRIN 100MG 30CPR GASTRORES</content>
+                  </td>
+                  <td>1</td>
+                  <td>B01AC06</td>
+                  <td>P</td>
+                  <td/>
+                  <td/>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <substanceAdministration classCode="SBADM"  moodCode="RQO">
+              <code code="M01AX17" codeSystem="2.16.840.1.113883.2.9.6.1.12" codeSystemName="ATC"/>
+              <effectiveTime xsi:type="PIVL_TS">
+                <phase>
+                  <width unit="h" value="24"/>
+                </phase>
+              </effectiveTime>
+              <doseQuantity value="1"/>
+              <consumable>
+                <manufacturedProduct>
+                  <manufacturedLabeledDrug>
+                    <code code="023086150" codeSystem="2.16.840.1.113883.2.9.6.1.5" codeSystemName="AIC">
+                      <originalText>
+                        <reference value="#PRESCRIZIONE-1"/>
+                      </originalText>
+                    </code>
+                    <name>AULIN 100MG 30BS</name>
+                  </manufacturedLabeledDrug>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship typeCode="COMP">
+                <supply classCode="SPLY" moodCode="RQO">
+                  <quantity unit="ARB_U" value="1"/>
+                </supply>
+              </entryRelationship>
+              <entryRelationship typeCode="RSON">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code codeSystem="2.16.840.1.113883.6.2" codeSystemName="ICD9-CM" nullFlavor="NA"/>
+                </observation>
+              </entryRelationship>
+              <entryRelationship typeCode="REFR">
+                <act classCode="INFRM" moodCode="EVN">
+                  <code code="066" codeSystem="2.16.840.1.113883.2.9.6.1.24" codeSystemName="Note AIFA">
+                    <originalText>
+                      <reference value="#NOTA_AIFA-1"/>
+                    </originalText>
+                  </code>
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM"  moodCode="RQO">
+              <code code="B01AC06" codeSystem="2.16.840.1.113883.2.9.6.1.12" codeSystemName="ATC"/>
+              <effectiveTime xsi:type="PIVL_TS">
+                <phase>
+                  <width unit="h" value="24"/>
+                </phase>
+              </effectiveTime>
+              <doseQuantity value="1"/>
+              <consumable>
+                <manufacturedProduct>
+                  <manufacturedLabeledDrug>
+                    <code code="023086150" codeSystem="2.16.840.1.113883.2.9.6.1.5" codeSystemName="AIC">
+                      <originalText>
+                        <reference value="#PRESCRIZIONE-2"/>
+                      </originalText>
+                    </code>
+                    <name>CARDIOASPIRIN 100MG 30CPR GASTRORES</name>
+                  </manufacturedLabeledDrug>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship typeCode="COMP">
+                <supply classCode="SPLY" moodCode="RQO">
+                  <quantity unit="ARB_U" value="1"/>
+                </supply>
+              </entryRelationship>
+              <entryRelationship typeCode="RSON">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code codeSystem="2.16.840.1.113883.6.2" codeSystemName="ICD9-CM" nullFlavor="NA"/>
+                </observation>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>
