@@ -120,6 +120,8 @@ class CDASerializer_IT implements ICDASerializer
     
     buildLegalAuthenticator(sb, cda);
     
+    buildInFulfillmentOf(sb, cda);
+    
     buildParticipant(sb, cda);
     
     buildBody(sb, cda);
@@ -647,6 +649,39 @@ class CDASerializer_IT implements ICDASerializer
       sb.append("</representedOrganization>");
     }
     sb.append("</legalAuthenticator>");
+  }
+  
+  protected 
+  void buildInFulfillmentOf(StringBuilder sb, ClinicalDocument cda)
+    throws Exception
+  {
+    if(sb == null || cda == null) return;
+    
+    String inFulfillmentOf = cda.getInFulfillmentOf();
+    if(inFulfillmentOf == null || inFulfillmentOf.length() == 0) {
+      return;
+    }
+    
+    String root      = "";
+    String extension = "";
+    if(inFulfillmentOf != null && inFulfillmentOf.length() > 10 && inFulfillmentOf.indexOf('.') > 0) {
+      root      = CDAUtils.getRoot(inFulfillmentOf, "2.16.840.1.113883.2.9.4.3.8");
+      extension = CDAUtils.getExtension(inFulfillmentOf);
+    }
+    else if(inFulfillmentOf != null && inFulfillmentOf.length() == 15) {
+      root = "2.16.840.1.113883.2.9.4.3.8"; // NRE
+      extension = inFulfillmentOf;
+    }
+    else if(inFulfillmentOf != null && inFulfillmentOf.length() != 15) {
+      root = "2.16.840.1.113883.2.9.2." + cda.getAuthorityCode();
+      extension = inFulfillmentOf;
+    }
+    
+    sb.append("<inFulfillmentOf>");
+    sb.append("<order classCode=\"ACT\" moodCode=\"RQO\">");
+    sb.append("<id root=\"" + root + "\" extension=\"" + extension + "\" />");
+    sb.append("</order>");
+    sb.append("</inFulfillmentOf>");
   }
   
   protected 
