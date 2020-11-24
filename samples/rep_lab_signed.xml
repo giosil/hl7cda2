@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="CDAit.xsl"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 xsd/hl7/infrastructure/cda/C32_CDA.xsd">
+  <realmCode code="IT"/>
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+  <templateId extension="1.1" root="2.16.840.1.113883.2.9.10.1.1"/>
+  <id assigningAuthorityName="Regione Sicilia" extension="190206123456_1" root="2.16.840.1.113883.2.9.2.190.4.4"/>
+  <code code="11502-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Referto di laboratorio"/>
+  <effectiveTime value="20190207100017+0100"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" displayName="Normal"/>
+  <languageCode code="ita-ITA"/>
+  <setId assigningAuthorityName="Regione Sicilia" extension="190206123456_1" root="2.16.840.1.113883.2.9.2.190.4.4"/>
+  <versionNumber value="1"/>
+  <recordTarget>
+    <patientRole classCode="PAT">
+      <id extension="RSSMRA75C03F839K" root="2.16.840.1.113883.2.9.4.3.2" assigningAuthorityName="Ministero Economia e Finanze" />
+      <addr use="HP">
+        <streetName>Via XXX</streetName>
+        <city>Roma</city>
+        <country>RM</country>
+        <postalCode>00144</postalCode>
+      </addr>
+      <telecom use="HP" value="tel:+(123) - 456-78-90"/>
+      <telecom use="HP" value="tel:0600000000"/>
+      <telecom use="HP" value="mailto://test@mail.com"/>
+      <telecom use="HP" value="mailto://test@pec.mail.com"/>
+      <telecom use="HP" value="http://www.test.com"/>
+      <telecom use="HP" value="https://www.test.com"/>
+      <patient>
+        <name>
+          <family>ROSSI</family>
+          <given>MARIO</given>
+        </name>
+        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7 AdministrativeGender" displayName="Maschio"/>
+        <birthTime value="19750303"/>
+        <birthplace>
+          <place>
+            <addr use="HP">
+              <country/>
+              <city>ROMA</city>
+              <censusTract>00000</censusTract>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="20190207100017+0100"/>
+    <assignedAuthor>
+      <id assigningAuthorityName="Ministero Economia e Finanze" extension="PROVAX00X00X000Z" root="2.16.840.1.113883.2.9.4.3.2"/>
+      <telecom use="HP" value="tel:0600000000"/>
+      <telecom use="HP" value="mailto://test@mail.com"/>
+      <telecom use="HP" value="mailto://test@pec.mail.com"/>
+      <assignedPerson>
+        <name>
+          <given>XXX</given>
+          <family>XXX</family>
+          <prefix>Dott.</prefix>
+        </name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id extension="190206123456" root="2.16.840.1.113883.2.9.2.190206"/>
+        <name>LABORATORIO DI PROVA</name>
+        <telecom use="HP" value="tel:+(123) - 456-78-90"/>
+        <addr use="HP">
+          <streetName>Via Roma snc</streetName>
+          <city>Palermo</city>
+          <country>PA</country>
+          <postalCode>00144</postalCode>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <legalAuthenticator>
+    <time value="20190207100017+0100"/>
+    <signatureCode code="S"/>
+    <assignedEntity classCode="ASSIGNED">
+      <id assigningAuthorityName="Ministero Economia e Finanze" extension="PROVAX00X00X000Z" root="2.16.840.1.113883.2.9.4.3.2"/>
+      <assignedPerson>
+        <name>
+          <given>XXX</given>
+          <family>XXX</family>
+          <prefix>Dott.</prefix>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </legalAuthenticator>
+  <authenticator>
+    <time value="20190207100017+0100"/>
+    <signatureCode code="S"/>
+    <assignedEntity>
+      <id assigningAuthorityName="Ministero Economia e Finanze" extension="PROVAX00X00X000Z" root="2.16.840.1.113883.2.9.4.3.2"/>
+      <addr use="HP">
+        <streetName>Via Roma snc</streetName>
+        <city>Palermo</city>
+        <country>PA</country>
+        <postalCode>00144</postalCode>
+      </addr>
+      <telecom use="HP" value="tel:+(123) - 456-78-90"/>
+      <assignedPerson>
+        <name>
+          <given>XXX</given>
+          <family>XXX</family>
+          <prefix>Dott.</prefix>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </authenticator>
+  <inFulfillmentOf>
+    <order>
+      <id assigningAuthorityName="MEF" extension="1500A4005000011" root="2.16.840.1.113883.2.9.4.3.8"/>
+      <id assigningAuthorityName="MEF" extension="1500A4005000000" root="2.16.840.1.113883.2.9.4.3.8"/>
+      <priorityCode code="R" codeSystem="2.16.804.1.1138835.7" codeSystemName="Hl7 ActPriority"/>
+    </order>
+  </inFulfillmentOf>
+  <component>
+    <structuredBody classCode="DOCBODY" moodCode="EVN">
+      <component typeCode="COMP">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <code code="26436-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Esami di Laboratorio"/>
+          <title>Esami di Laboratorio</title>
+          <component>
+            <section>
+              <code code="90622" codeSystem="2.16.840.1.113883.2.9.2.190.6.11" codeSystemName="Catalogo Regionale" codeSystemVersion="1.0" displayName="EMOCROMO: Hb, GR, GB, HCT, PLT, IND. DERIV., F. L.">
+                <translation code="90622" codeSystem="2.16.840.1.113883.2.9.2.190.6.12" codeSystemName="Nomenclatore Tariffario" codeSystemVersion="1.0" displayName="EMOCROMO: Hb, GR, GB, HCT, PLT, IND. DERIV., F. L."/>
+                <translation code="90.62.2" codeSystem="2.16.840.1.113883.2.9.2.0.6.12" codeSystemName="Nomenclatore Nazionale" codeSystemVersion="1.0" displayName="EMOCROMO:  Hb, GR, GB, HCT, PLT, IND. DERIV., F.L."/>
+                <translation code="74412-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="CBC W Differential panel"/>
+              </code>
+              <text>
+                <paragraph/>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>EMOCROMO</th>
+                    </tr>
+                    <tr>
+                      <th>Esame</th>
+                      <th>Esito</th>
+                      <th>Abnormal Flag</th>
+                      <th>Unita di misura</th>
+                      <th>Range di riferimento</th>
+                      <th>Metodo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>MCV-Volume corpuscolare medio</td>
+                      <td>91.7</td>
+                      <td/>
+                      <td>fl</td>
+                      <td>82.0 - 98.0</td>
+                      <td/>
+                    </tr>
+                    <tr>
+                      <td>HGB-Emoglobina</td>
+                      <td>16.4</td>
+                      <td/>
+                      <td>g/dL</td>
+                      <td>14.0 - 18.0</td>
+                      <td/>
+                    </tr>
+                    <tr>
+                      <td>HCT-Ematocrito</td>
+                      <td>46</td>
+                      <td/>
+                      <td>%</td>
+                      <td>38 - 51</td>
+                      <td/>
+                    </tr>
+                    <tr>
+                      <td>PLT-Piastrine</td>
+                      <td>174</td>
+                      <td/>
+                      <td>mIU/mL</td>
+                      <td>150 - 450</td>
+                      <td/>
+                    </tr>
+                  </tbody>
+                </table>
+                <footnote/>
+                <paragraph/>
+              </text>
+              <entry typeCode="DRIV">
+                <act classCode="ACT" moodCode="EVN">
+                  <code code="90622" codeSystem="2.16.840.1.113883.2.9.2.190.6.11" codeSystemName="Catalogo Regionale" codeSystemVersion="1.0" displayName="EMOCROMO: Hb, GR, GB, HCT, PLT, IND. DERIV., F. L.">
+                    <translation code="90622" codeSystem="2.16.840.1.113883.2.9.2.190.6.12" codeSystemName="Nomenclatore Tariffario" codeSystemVersion="1.0" displayName="EMOCROMO: Hb, GR, GB, HCT, PLT, IND. DERIV., F. L."/>
+                    <translation code="90.62.2" codeSystem="2.16.840.1.113883.2.9.2.0.6.12" codeSystemName="Nomenclatore Nazionale" codeSystemVersion="1.0" displayName="EMOCROMO:  Hb, GR, GB, HCT, PLT, IND. DERIV., F.L."/>
+                    <translation code="74412-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="CBC W Differential panel"/>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20071130120034"/>
+                  <entryRelationship typeCode="COMP">
+                    <organizer classCode="BATTERY" moodCode="EVN">
+                      <code code="90622" codeSystem="2.16.840.1.113883.2.9.2.190.6.11" codeSystemName="Catalogo Regionale" codeSystemVersion="1.0" displayName="EMOCROMO: Hb, GR, GB, HCT, PLT, IND. DERIV., F. L.">
+                        <translation code="90622" codeSystem="2.16.840.1.113883.2.9.2.190.6.12" codeSystemName="Nomenclatore Tariffario" codeSystemVersion="1.0" displayName="EMOCROMO: Hb, GR, GB, HCT, PLT, IND. DERIV., F. L."/>
+                        <translation code="90.62.2" codeSystem="2.16.840.1.113883.2.9.2.0.6.12" codeSystemName="Nomenclatore Nazionale" codeSystemVersion="1.0" displayName="EMOCROMO:  Hb, GR, GB, HCT, PLT, IND. DERIV., F.L."/>
+                        <translation code="74412-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="CBC W Differential panel"/>
+                      </code>
+                      <statusCode code="completed"/>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="90622_08" codeSystem="2.16.840.1.113883.2.9.2.190.6.11" codeSystemName="Codifica Interna Regionale" displayName="MCV-Volume corpuscolare medio">
+                            <translation code="787-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19"/>
+                          </code>
+                          <statusCode code="completed"/>
+                          <effectiveTime value="20161026101529"/>
+                          <value unit="fL" value="91.7" xsi:type="PQ"/>
+                          <referenceRange typeCode="REFV">
+                            <observationRange classCode="OBS" moodCode="EVN.CRT">
+                              <value xsi:type="IVL_PQ">
+                                <low unit="fL" value="82.0"/>
+                                <high unit="fL" value="98.0"/>
+                              </value>
+                              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" codeSystemName="ObservationInterpretation" displayName="N"/>
+                            </observationRange>
+                          </referenceRange>
+                          <referenceRange typeCode="REFV">
+                            <observationRange classCode="OBS" moodCode="EVN.CRT">
+                              <value xsi:type="ST">82.0 - 98.0</value>
+                              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" codeSystemName="ObservationInterpretation" displayName="N"/>
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="90622_03" codeSystem="2.16.840.1.113883.2.9.2.190.6.11" codeSystemName="Codifica Interna Regionale" displayName="HGB-Emoglobina">
+                            <translation code="718-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19"/>
+                          </code>
+                          <statusCode code="completed"/>
+                          <effectiveTime value="20161026101529"/>
+                          <value unit="g/dL" value="16.4" xsi:type="PQ"/>
+                          <referenceRange typeCode="REFV">
+                            <observationRange classCode="OBS" moodCode="EVN.CRT">
+                              <value xsi:type="IVL_PQ">
+                                <low unit="g/dL" value="14.0"/>
+                                <high unit="g/dL" value="18.0"/>
+                              </value>
+                              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" codeSystemName="ObservationInterpretation" displayName="N"/>
+                            </observationRange>
+                          </referenceRange>
+                          <referenceRange typeCode="REFV">
+                            <observationRange classCode="OBS" moodCode="EVN.CRT">
+                              <value xsi:type="ST">14.0 - 18.0</value>
+                              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" codeSystemName="ObservationInterpretation" displayName="N"/>
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="90622_06" codeSystem="2.16.840.1.113883.2.9.2.190.6.11" codeSystemName="Codifica Interna Regionale" displayName="HCT-Ematocrito">
+                            <translation code="4544-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19"/>
+                          </code>
+                          <statusCode code="completed"/>
+                          <effectiveTime value="20161026101529"/>
+                          <value unit="%" value="46" xsi:type="PQ"/>
+                          <referenceRange typeCode="REFV">
+                            <observationRange classCode="OBS" moodCode="EVN.CRT">
+                              <value xsi:type="IVL_PQ">
+                                <low unit="%" value="38"/>
+                                <high unit="%" value="51"/>
+                              </value>
+                              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" codeSystemName="ObservationInterpretation" displayName="N"/>
+                            </observationRange>
+                          </referenceRange>
+                          <referenceRange typeCode="REFV">
+                            <observationRange classCode="OBS" moodCode="EVN.CRT">
+                              <value xsi:type="ST">38 - 51</value>
+                              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" codeSystemName="ObservationInterpretation" displayName="N"/>
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="90622_05" codeSystem="2.16.840.1.113883.2.9.2.190.6.11" codeSystemName="Codifica Interna Regionale" displayName="PLT-Piastrine">
+                            <translation code="777-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19"/>
+                          </code>
+                          <statusCode code="completed"/>
+                          <effectiveTime value="20161026101529"/>
+                          <value unit="mIU/mL" value="174" xsi:type="PQ"/>
+                          <referenceRange typeCode="REFV">
+                            <observationRange classCode="OBS" moodCode="EVN.CRT">
+                              <value xsi:type="IVL_PQ">
+                                <low unit="mIU/mL" value="150"/>
+                                <high unit="mIU/mL" value="450"/>
+                              </value>
+                              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" codeSystemName="ObservationInterpretation" displayName="N"/>
+                            </observationRange>
+                          </referenceRange>
+                          <referenceRange typeCode="REFV">
+                            <observationRange classCode="OBS" moodCode="EVN.CRT">
+                              <value xsi:type="ST">150 - 450</value>
+                              <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" codeSystemName="ObservationInterpretation" displayName="N"/>
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                    </organizer>
+                  </entryRelationship>
+                </act>
+              </entry>
+            </section>
+          </component>
+          <component>
+            <section>
+              <code code="90143" codeSystem="2.16.840.1.113883.2.9.2.190.6.11" codeSystemName="Catalogo Regionale" codeSystemVersion="1.0" displayName="COLESTEROLO TOTALE">
+                <translation code="90143" codeSystem="2.16.840.1.113883.2.9.2.190.6.12" codeSystemName="Nomenclatore Tariffario" codeSystemVersion="1.0" displayName="COLESTEROLO TOTALE"/>
+                <translation code="90.14.3" codeSystem="2.16.840.1.113883.2.9.2.0.6.12" codeSystemName="Nomenclatore Nazionale" codeSystemVersion="1.0" displayName="COLESTEROLO TOTALE"/>
+                <translation code="9830-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Cholesterol.total"/>
+              </code>
+              <text>
+                <paragraph/>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Esame</th>
+                      <th>Esito</th>
+                      <th>Abnormal Flag</th>
+                      <th>Unita di misura</th>
+                      <th>Range di riferimento</th>
+                      <th>Metodo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Colesterolo Totale</td>
+                      <td>180</td>
+                      <td/>
+                      <td>mg/dL</td>
+                      <td>&lt; 200</td>
+                      <td/>
+                    </tr>
+                  </tbody>
+                </table>
+                <footnote/>
+                <paragraph/>
+              </text>
+              <entry typeCode="DRIV">
+                <act classCode="ACT" moodCode="EVN">
+                  <code code="90143" codeSystem="2.16.840.1.113883.2.9.2.190.6.11" codeSystemName="Catalogo Regionale" codeSystemVersion="1.0" displayName="COLESTEROLO TOTALE">
+                    <translation code="90143" codeSystem="2.16.840.1.113883.2.9.2.190.6.12" codeSystemName="Nomenclatore Tariffario" codeSystemVersion="1.0" displayName="COLESTEROLO TOTALE"/>
+                    <translation code="90.14.3" codeSystem="2.16.840.1.113883.2.9.2.0.6.12" codeSystemName="Nomenclatore Nazionale" codeSystemVersion="1.0" displayName="COLESTEROLO TOTALE"/>
+                    <translation code="9830-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Cholesterol.total"/>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20071130120034"/>
+                  <entryRelationship typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <code code="90143" codeSystem="2.16.840.1.113883.2.9.2.190.6.11" codeSystemName="Catalogo Regionale" codeSystemVersion="1.0" displayName="COLESTEROLO TOTALE">
+                        <translation code="90143" codeSystem="2.16.840.1.113883.2.9.2.190.6.12" codeSystemName="Nomenclatore Tariffario" codeSystemVersion="1.0" displayName="COLESTEROLO TOTALE"/>
+                        <translation code="90.14.3" codeSystem="2.16.840.1.113883.2.9.2.0.6.12" codeSystemName="Nomenclatore Nazionale" codeSystemVersion="1.0" displayName="COLESTEROLO TOTALE"/>
+                        <translation code="9830-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Cholesterol.total"/>
+                      </code>
+                      <statusCode code="completed"/>
+                      <effectiveTime value="20161026111008"/>
+                      <value unit="mg/dL" value="180" xsi:type="PQ"/>
+                      <referenceRange typeCode="REFV">
+                        <observationRange classCode="OBS" moodCode="EVN.CRT">
+                          <value xsi:type="IVL_PQ">
+                            <low unit="mg/dL" value="100"/>
+                            <high unit="mg/dL" value="200"/>
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" codeSystemName="ObservationInterpretation" displayName="N"/>
+                        </observationRange>
+                      </referenceRange>
+                      <referenceRange typeCode="REFV">
+                        <observationRange classCode="OBS" moodCode="EVN.CRT">
+                          <value xsi:type="ST">&lt; 200</value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" codeSystemName="ObservationInterpretation" displayName="N"/>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </entryRelationship>
+                </act>
+              </entry>
+            </section>
+          </component>
+          <component>
+            <section>
+              <code code="90432" codeSystem="2.16.840.1.113883.2.9.2.190.6.11" codeSystemName="Catalogo Regionale" codeSystemVersion="1.0" displayName="TRIGLICERIDI">
+                <translation code="90432" codeSystem="2.16.840.1.113883.2.9.2.190.6.12" codeSystemName="Nomenclatore Tariffario" codeSystemVersion="1.0" displayName="TRIGLICERIDI"/>
+                <translation code="90.43.2" codeSystem="2.16.840.1.113883.2.9.2.0.6.12" codeSystemName="Nomenclatore Nazionale" codeSystemVersion="1.0" displayName="TRIGLICERIDI"/>
+                <translation code="14927-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Triglyceride"/>
+              </code>
+              <text>
+                <paragraph/>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Esame</th>
+                      <th>Esito</th>
+                      <th>Abnormal Flag</th>
+                      <th>Unita di misura</th>
+                      <th>Range di riferimento</th>
+                      <th>Metodo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Trigliceridi</td>
+                      <td>74</td>
+                      <td/>
+                      <td>mg/dL</td>
+                      <td>&lt; 170</td>
+                      <td/>
+                    </tr>
+                  </tbody>
+                </table>
+                <footnote/>
+                <paragraph/>
+              </text>
+              <entry typeCode="DRIV">
+                <act classCode="ACT" moodCode="EVN">
+                  <code code="90432" codeSystem="2.16.840.1.113883.2.9.2.190.6.11" codeSystemName="Catalogo Regionale" codeSystemVersion="1.0" displayName="TRIGLICERIDI">
+                    <translation code="90432" codeSystem="2.16.840.1.113883.2.9.2.190.6.12" codeSystemName="Nomenclatore Tariffario" codeSystemVersion="1.0" displayName="TRIGLICERIDI"/>
+                    <translation code="90.43.2" codeSystem="2.16.840.1.113883.2.9.2.0.6.12" codeSystemName="Nomenclatore Nazionale" codeSystemVersion="1.0" displayName="TRIGLICERIDI"/>
+                    <translation code="14927-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Triglyceride"/>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20071130120034"/>
+                  <entryRelationship typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <code code="90432" codeSystem="2.16.840.1.113883.2.9.2.190.6.11" codeSystemName="Catalogo Regionale" codeSystemVersion="1.0" displayName="TRIGLICERIDI">
+                        <translation code="90432" codeSystem="2.16.840.1.113883.2.9.2.190.6.12" codeSystemName="Nomenclatore Tariffario" codeSystemVersion="1.0" displayName="TRIGLICERIDI"/>
+                        <translation code="90.43.2" codeSystem="2.16.840.1.113883.2.9.2.0.6.12" codeSystemName="Nomenclatore Nazionale" codeSystemVersion="1.0" displayName="TRIGLICERIDI"/>
+                        <translation code="14927-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" codeSystemVersion="2.19" displayName="Triglyceride"/>
+                      </code>
+                      <statusCode code="completed"/>
+                      <effectiveTime value="20161026111008"/>
+                      <value unit="mg/dL" value="74" xsi:type="PQ"/>
+                      <referenceRange typeCode="REFV">
+                        <observationRange classCode="OBS" moodCode="EVN.CRT">
+                          <value xsi:type="IVL_PQ">
+                            <low unit="mg/dL" value="35"/>
+                            <high unit="mg/dL" value="170"/>
+                          </value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" codeSystemName="ObservationInterpretation" displayName="N"/>
+                        </observationRange>
+                      </referenceRange>
+                      <referenceRange typeCode="REFV">
+                        <observationRange classCode="OBS" moodCode="EVN.CRT">
+                          <value xsi:type="ST">&lt; 170</value>
+                          <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" codeSystemName="ObservationInterpretation" displayName="N"/>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </entryRelationship>
+                </act>
+              </entry>
+            </section>
+          </component>
+        </section>
+      </component>
+      <component>
+        <section>
+          <code code="11502-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+          <entry>
+            <observationMedia classCode="OBS" moodCode="EVN">
+              <value mediaType="application/pdf" representation="B64">JVBERi0xLjQKJeLjz9MKMyAwIG9iago8PC9MZW5ndGggMTE0Ny9GaWx0ZXIvRmxhdGVEZWNvZGU+PnN0cmVhbQp4nK2X227jNhCG7/0UvNy92IRHHS7dRBu4XSde2w3Qxd4IthKokK1EVrZAH6NP2EcpdRia4lBZC2iQxAI5M9+Q84sevs5+2c6EIhGXZLufUfKJ0/6BBc3D9WdGGCfbp9kH8nH7Z/+fEmPFJtq3Vv45HrdPyXb2dfba/nHyq5640886TUYaU0ZESCKqwxw6WNDC1oubZLudk2T9cDffzpvAOs7rjF4FYSQFoVcRFTHXnzFXMibVc7PsUEVEcUUEJVU2e9LWsYxpazX47K1FRHjArxThP7fncXg10UUjgngyArvYO0f1+F94qZt+4pzlAZ61XQGrPYBnYTxUQPup9qmdG4viUJg1L4DCgCIQhRmKsCgoypDSbMfBsi1gWw+AG1K6KeAVo1EcSnieb2w7SthTnJGzi4MOAd05jIW2x8GvieS+FWGgtB28F6p9L27TOif7rChSUuW7rK7T/tVwXPUr0jpy0rzQ2vGm3Gt78jk/7dIia0P8k55O+anO6xLH4HHcbBWEYRBmtX54nH+jtPul3/x07tLv3w5ZVZJ1lzJJCv1Rlcd8l5LvH+7XyfePoylwNwUWUzqXtP/h/gyom4HeuJTsc6LTeE7/zstjNr6BPZkicnBN+TWnLPJCg8iFLvbZsc6f9DLr/EfZseuyysaQJoK9WH2Es0/NUtmFp2Cgz9DhKRg1lopq9bHeRsUBOpgcq06mPsP3TjylJtj3iCkuDYJNR0xx0QgZTkb4XPC+S89avfvuM3w34+mbMslFI8T0TcEu3i+zoWKHR3MjQHN+arsC5HsAz+Ep3E2152o7NxbFoYTn+ca2o4Q9pRsZUEKgdHNjURyKsuZDoCighIiiDCW0KCiKQxHWvAKKAIpCFGEoyqKgKA6FWfMCKAwoAlGYoQiLgqIMKdKqm4LqS6i+QtWXpvrKqj6O4lCsukmovoTqOyNnFwdtJCEtSeDQ9jj4oYSUSxIwKLxsNYw2FsWhWCWWIBQJQpFIKNIIRVpCwVEcilViCUKRIBSJhCKNUKQlFBxlSBFWiSUIRYBQJBKKMEKRllBwFIdiVVOALAQIRaBjQpgqC6v2OIpDseomoPoCqu+MnF0ctJGEsCSBQ9vj4OfrRgMuxrvRjLxU2aluG6vc3xxR5jRHK90NaaeT7oxG+yFwOvdD3uAqcoP37e5LVe7Lujat1xjIBDAgKgRVuvOifmDgAm+z067K28ZyFBK4kPvFMtn8/mVxm5DlH1/m93qcLu/IzcNytU42m0R/Id6s1v4MpJvB17dUN5v1v/1aR/ta42nS8PfQiruEx7TK+965vT/0m6ob6dNL1uxyWrQ60BtRv7PX3OVvyuYW8tZFhpL5c0IqWpa6te6T+nHO7ymtDunOH0QitbSXg/zYlM+6IIwtQCKx/ORiIJFaLtC+RGrxl0kiIUzUvkR6oEI11woe+4FIFxdoX6Ki/5asVut5K3CyXjw20tfa9xNR1S/VurzwABFIEv+P1gWSyvz5OS+rY3rQN8PyfbELfMhM0qlACkI6/Q8TdGPCCmVuZHN0cmVhbQplbmRvYmoKNSAwIG9iago8PC9SZXNvdXJjZXM8PC9Qcm9jU2V0IFsvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJXS9Gb250PDwvRjEgMSAwIFIvRjIgMiAwIFI+Pj4+L01lZGlhQm94WzAgMCA1OTUgODQyXS9QYXJlbnQgNCAwIFIvQ29udGVudHMgMyAwIFIvVHlwZS9QYWdlPj4KZW5kb2JqCjEgMCBvYmoKPDwvRW5jb2RpbmcvV2luQW5zaUVuY29kaW5nL1R5cGUvRm9udC9TdWJ0eXBlL1R5cGUxL0Jhc2VGb250L0hlbHZldGljYT4+CmVuZG9iagoyIDAgb2JqCjw8L0VuY29kaW5nL1dpbkFuc2lFbmNvZGluZy9UeXBlL0ZvbnQvU3VidHlwZS9UeXBlMS9CYXNlRm9udC9IZWx2ZXRpY2EtQm9sZD4+CmVuZG9iago0IDAgb2JqCjw8L0NvdW50IDEvVHlwZS9QYWdlcy9LaWRzWzUgMCBSXT4+CmVuZG9iago2IDAgb2JqCjw8L1BhZ2VzIDQgMCBSL1R5cGUvQ2F0YWxvZz4+CmVuZG9iago3IDAgb2JqCjw8L01vZERhdGUoRDoyMDE5MDIwNzEwMDAyOSswMScwMCcpL1Byb2R1Y2VyKGlUZXh0IDIuMS41IFwoYnkgbG93YWdpZS5jb21cKSkvQ3JlYXRpb25EYXRlKEQ6MjAxOTAyMDcxMDAwMjkrMDEnMDAnKT4+CmVuZG9iagp4cmVmCjAgOAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDEzOTYgMDAwMDAgbiAKMDAwMDAwMTQ4NCAwMDAwMCBuIAowMDAwMDAwMDE1IDAwMDAwIG4gCjAwMDAwMDE1NzcgMDAwMDAgbiAKMDAwMDAwMTIzMCAwMDAwMCBuIAowMDAwMDAxNjI4IDAwMDAwIG4gCjAwMDAwMDE2NzMgMDAwMDAgbiAKdHJhaWxlcgo8PC9TaXplIDgvUm9vdCA2IDAgUi9JRCBbPDlkNDg0NDcxYmVmZTQ5NzI1YTc2ZGY2ZDU3NTI3YjhmPjw0MWZhZWViMzBiMWIzNWZmYzg1MjI0MjRmYmE0ODFmMD5dL0luZm8gNyAwIFI+PgpzdGFydHhyZWYKMTgwNQolJUVPRgo=</value>
+            </observationMedia>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+  <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:SignedInfo>
+      <ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+      <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <ds:Reference URI="">
+        <ds:Transforms>
+          <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+          <ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/>
+        </ds:Transforms>
+        <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <ds:DigestValue>t877bquk6yfvg1Ei1GJGJI0AyH2QRL0AnR/lLkO2CLY=</ds:DigestValue>
+      </ds:Reference>
+    </ds:SignedInfo>
+    <ds:SignatureValue>
+      YH38GLM4vzs6aJirUCbArNXpeFrN/zh43mJ0iNndrJxpRNmUQovUPPikAzctacDPba20r4KXwJ4l 
+      6DJumone/XkcKZk02ZRyCC/y5I9w7g5WJYkIqJpTeKuIP8NxYHIXSLDp5OaJPn68TEwlqe4c4bu6 
+      yUkG0Dd6cRnTIzdSFwWNXwCHCRRxCq/PgVhmtbwJs1FAwMTg/RMwvD+GRdFEk5VSa2tDfeXwigHI 
+      gH7JWL343UMl5f/TDQE36JxdMHblb1wj2RxKpjnaDbW+6a8O458NUGjZfjhXBdhwImK72bB334f4 
+      rWrKPa6TT3MGBeOy2GBK5ngN+NI0eiNt9kCR9g==
+    </ds:SignatureValue>
+    <ds:KeyInfo>
+      <ds:KeyValue>
+        <ds:RSAKeyValue>
+          <ds:Modulus>
+            0rwCVmjltJTI7VGFpjaEp2FDkfHlRpzCrOU8Jg+cm+SXXKE0cme3VNSGZgzrUkQHwW/kM+28833R 
+            4Sk0DMkSUQoK5j/1QlJDdGG4kkOB+kERssnB+ydpUvbIgGcigXR6OVo3jtjlFuWGVSgLb+u6QI5w 
+            gBgYTdUV7b0jpcteBZqy6LLbzEr9tZZ8eTajZtcwB2eVIuHRXBZAtWNFFphlrPfNX4jyKB16fPXX 
+            n9xDjOgPgBioQO60d13nlFk2fnMooHK2FbLFPQTgRGtSntCgzJa6PvtTf3g5ENd9a9VWhAgwUcoj 
+            yFp+m3MaEaHuXgEzZHZWtfti/wb9W3KqayeAWw==</ds:Modulus>
+          <ds:Exponent>AQAB</ds:Exponent>
+        </ds:RSAKeyValue>
+      </ds:KeyValue>
+      <ds:X509Data>
+        <ds:X509Certificate>
+          MIID1zCCAr+gAwIBAgIIF1iuWfWyU3owDQYJKoZIhvcNAQELBQAwNTELMAkGA1UEBhMCSVQxDjAM 
+          BgNVBAoTBVNvZ2VpMRYwFAYDVQQDEw1DQSBTb2dlaSBUZXN0MB4XDTE4MDExMDEzNDQzMloXDTIx 
+          MDExMDEzNDQzMlowWzELMAkGA1UEBhMCSVQxDjAMBgNVBAoMBVNvZ2VpMRAwDgYDVQQLDAdTYW5p 
+          dMOgMSowKAYDVQQDDCE5OTgwMDYwMDAwMDAvRnNlRkRJbmlTb2dlaVRlc3QvMDEwggEiMA0GCSqG 
+          SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDSvAJWaOW0lMjtUYWmNoSnYUOR8eVGnMKs5TwmD5yb5Jdc 
+          oTRyZ7dU1IZmDOtSRAfBb+Qz7bzzfdHhKTQMyRJRCgrmP/VCUkN0YbiSQ4H6QRGyycH7J2lS9siA 
+          ZyKBdHo5WjeO2OUW5YZVKAtv67pAjnCAGBhN1RXtvSOly14FmrLostvMSv21lnx5NqNm1zAHZ5Ui 
+          4dFcFkC1Y0UWmGWs981fiPIoHXp89def3EOM6A+AGKhA7rR3XeeUWTZ+cyigcrYVssU9BOBEa1Ke 
+          0KDMlro++1N/eDkQ131r1VaECDBRyiPIWn6bcxoRoe5eATNkdla1+2L/Bv1bcqprJ4BbAgMBAAGj 
+          gcQwgcEwHwYDVR0jBBgwFoAUV8N8zRWiYRMKaz7hxknsTkMfw4cwbwYDVR0fBGgwZjBkoGKgYIZe 
+          bGRhcDovL2NhZHMuc29nZWkuZmluYW56ZS5pdC9jbiUzZENBJTIwU29nZWklMjBUZXN0LG8lM2RT 
+          b2dlaSxjJTNkaXQ/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdDAdBgNVHQ4EFgQUM/yz7RUXrWpM 
+          2NoCFM5/I5vKliEwDgYDVR0PAQH/BAQDAgZAMA0GCSqGSIb3DQEBCwUAA4IBAQBl/dWga/ZSo/Ay 
+          2waXnHMjUm1XdW7GCsTVzXJ9Ig2qnj/ncMSssi4yZ9Y/ddoRva+oAUyeVtQQmexZFPd1NEXYwuH5 
+          af8HpbZvu6ep+jwkzSHmssZysjoO3zo2lzHpZKp6+sem24M0D8fmDOZKJqfmAxJrhamwNFPoSvqU 
+          PGf4q63kN7XSFRhW/BbmRi8UzZT3loF7MRmimBkYzYWHEg5UqH8RtWGkXHjoEfh76BAZv2FHh7IL 
+          odphVdonCwInwiZJTT+vpYTwjFNtKYX4RfIxJkB0SNMtYPE1Wgnw47q4dKspLcmvFhgC00zcvo/L 
+          rD06YbSgLTVsXR/BIk8SQAN1
+        </ds:X509Certificate>
+      </ds:X509Data>
+    </ds:KeyInfo>
+  </ds:Signature>
+</ClinicalDocument>

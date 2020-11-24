@@ -126,6 +126,11 @@ class CDASerializer_IT implements ICDASerializer
     
     buildBody(sb, cda);
     
+    String signature = cda.getSignature();
+    if(signature != null && signature.length() > 0) {
+      sb.append(signature);
+    }
+    
     sb.append("</ClinicalDocument>");
     
     return sb.toString();
