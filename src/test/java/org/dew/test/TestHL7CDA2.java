@@ -3,6 +3,8 @@ package org.dew.test;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.dew.cda.*;
 import org.dew.hl7.*;
@@ -71,6 +73,16 @@ public class TestHL7CDA2 extends TestCase {
     throws Exception 
   {
     ICDARenderer cdaRenderer = new CDARenderer();
+    
+    Map<String, Object> renderOptions = new HashMap<String, Object>();
+    renderOptions.put("style",     "body{ color: #202020; margin: 8 8 8 8; }");
+    renderOptions.put("table",     "width: 100%;");
+    renderOptions.put("th",        "background-color: #a8d7f7;");
+    renderOptions.put("td",        "background-color: #cfeafc;");
+    renderOptions.put("title",     "color: #000080;");
+    renderOptions.put("paragraph", "font-style: italic;");
+    
+    cdaRenderer.setOptions(renderOptions);
     
     String html = cdaRenderer.toHTML(clinicalDocument);
     

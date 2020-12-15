@@ -65,7 +65,7 @@ class CDAUtils
   public static
   String getDate(Date date)
   {
-    if(date == null) date = new Date();
+    if(date == null) return "";
     
     Calendar cal = Calendar.getInstance();
     cal.setTimeInMillis(date.getTime());
@@ -74,9 +74,20 @@ class CDAUtils
   }
   
   public static
+  String getDate(Date date, String sep)
+  {
+    if(date == null) return "";
+    
+    Calendar cal = Calendar.getInstance();
+    cal.setTimeInMillis(date.getTime());
+    
+    return getDate(cal, sep);
+  }
+  
+  public static
   String getDate(Calendar cal)
   {
-    if(cal == null) cal = Calendar.getInstance();
+    if(cal == null) return "";
     
     int iYear   = cal.get(java.util.Calendar.YEAR);
     int iMonth  = cal.get(java.util.Calendar.MONTH) + 1;
@@ -84,13 +95,31 @@ class CDAUtils
     String sYear   = String.valueOf(iYear);
     String sMonth  = iMonth  < 10 ? "0" + iMonth  : String.valueOf(iMonth);
     String sDay    = iDay    < 10 ? "0" + iDay    : String.valueOf(iDay);
+    
     return sYear + sMonth + sDay;
+  }
+  
+  public static
+  String getDate(Calendar cal, String sep)
+  {
+    if(cal == null) return "";
+    
+    int iYear   = cal.get(java.util.Calendar.YEAR);
+    int iMonth  = cal.get(java.util.Calendar.MONTH) + 1;
+    int iDay    = cal.get(java.util.Calendar.DATE);
+    String sYear   = String.valueOf(iYear);
+    String sMonth  = iMonth  < 10 ? "0" + iMonth  : String.valueOf(iMonth);
+    String sDay    = iDay    < 10 ? "0" + iDay    : String.valueOf(iDay);
+    
+    if(sep == null) sep = "";
+    
+    return sYear + sep + sMonth + sep + sDay;
   }
   
   public static
   String getTimestamp(Date date)
   {
-    if(date == null) date = new Date();
+    if(date == null) return "";
     
     Calendar cal = Calendar.getInstance();
     cal.setTimeInMillis(date.getTime());
@@ -101,7 +130,7 @@ class CDAUtils
   public static
   String getTimestamp(Calendar cal)
   {
-    if(cal == null) cal = Calendar.getInstance();
+    if(cal == null) return "";
     
     int iYear   = cal.get(java.util.Calendar.YEAR);
     int iMonth  = cal.get(java.util.Calendar.MONTH) + 1;

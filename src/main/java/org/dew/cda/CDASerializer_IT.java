@@ -823,7 +823,7 @@ class CDASerializer_IT implements ICDASerializer
         templateId = getSectionTemplateId(section);
       }
       if(code == null || code.length() == 0) {
-        code = getSectionCode(section);
+        code = getSectionCode(section, CDAUtils.getCode(cda));
       }
       if(displayName == null || displayName.length() == 0) {
         displayName = loinc.getDisplayName(code);
@@ -1117,7 +1117,7 @@ class CDASerializer_IT implements ICDASerializer
     
     if(organizer) {
       String organizerTemplateId  = getSectionTemplateId(section);
-      String organizerCode        = getSectionCode(section);
+      String organizerCode        = getSectionCode(section, CDAUtils.getCode(cda));
       String organizerDisplayName = getSectionDisplayName(section);
       
       if(organizerDisplayName == null || organizerDisplayName.length() == 0) {
@@ -1741,7 +1741,7 @@ class CDASerializer_IT implements ICDASerializer
   }
   
   protected 
-  String getSectionCode(Section section)
+  String getSectionCode(Section section, String defaultCode)
   {
     if(section == null) return null;
     
@@ -1752,7 +1752,7 @@ class CDASerializer_IT implements ICDASerializer
     
     String sectionId = section.getId();
     if(sectionId == null || sectionId.length() == 0) {
-      return null;
+      return defaultCode;
     }
     
     String sectionIdLC = sectionId.toLowerCase();
@@ -1797,9 +1797,9 @@ class CDASerializer_IT implements ICDASerializer
       return "29548-5";
     }
     
-    addWarning("Codice sezione non individuato per sectionId=" + sectionId + " (def. 47519-4).");
+    addWarning("Codice sezione non individuato per sectionId=" + sectionId + " (def. " + defaultCode + ").");
     
-    return "47519-4";
+    return defaultCode;
   }
   
   protected 
