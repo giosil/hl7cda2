@@ -74,14 +74,14 @@ class CDAUtils
   }
   
   public static
-  String getDate(Date date, String sep)
+  String getDate(Date date, String pattern)
   {
     if(date == null) return "";
     
     Calendar cal = Calendar.getInstance();
     cal.setTimeInMillis(date.getTime());
     
-    return getDate(cal, sep);
+    return getDate(cal, pattern);
   }
   
   public static
@@ -95,12 +95,11 @@ class CDAUtils
     String sYear   = String.valueOf(iYear);
     String sMonth  = iMonth  < 10 ? "0" + iMonth  : String.valueOf(iMonth);
     String sDay    = iDay    < 10 ? "0" + iDay    : String.valueOf(iDay);
-    
     return sYear + sMonth + sDay;
   }
   
   public static
-  String getDate(Calendar cal, String sep)
+  String getDate(Calendar cal, String pattern)
   {
     if(cal == null) return "";
     
@@ -111,9 +110,18 @@ class CDAUtils
     String sMonth  = iMonth  < 10 ? "0" + iMonth  : String.valueOf(iMonth);
     String sDay    = iDay    < 10 ? "0" + iDay    : String.valueOf(iDay);
     
-    if(sep == null) sep = "";
-    
-    return sYear + sep + sMonth + sep + sDay;
+    if(pattern == null || pattern.length() == 0) {
+      return sYear + sMonth + sDay;
+    }
+    if(pattern != null && pattern.length() == 2) {
+      if(pattern.equalsIgnoreCase("us")) {
+        return sMonth + "/" + sDay + "/" + sYear;
+      }
+      else {
+        return sDay + "/" + sMonth + "/" + sYear;
+      }
+    }
+    return sYear + "-" + sMonth + "-" + sDay;
   }
   
   public static

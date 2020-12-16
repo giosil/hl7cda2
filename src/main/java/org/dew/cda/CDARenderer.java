@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.dew.hl7.ClinicalDocument;
 import org.dew.hl7.ICDARenderer;
+import org.dew.hl7.Organization;
 import org.dew.hl7.Person;
 import org.dew.hl7.Section;
 
@@ -19,8 +20,14 @@ class CDARenderer implements ICDARenderer
   protected String thStyle;
   protected String tdStyle;
   protected String pStyle;
+  protected String titleTag = "h2";
   protected String titleStyle;
   protected String separator;
+  
+  public String DOC_SEC_TITLE = "Caratteristiche generali documento";
+  public String PAT_SEC_TITLE = "Dati relativi al paziente";
+  public String ORG_SEC_TITLE = "Dati relativi alla struttura o all'azienda";
+  public String AUT_SEC_TITLE = "Dati autore del documento";
   
   @Override
   public 
@@ -29,15 +36,16 @@ class CDARenderer implements ICDARenderer
     if(options == null || options.isEmpty()) {
       return;
     }
-    Object optStyle  = options.get("style");
-    Object optHeader = options.get("header");
-    Object optFooter = options.get("footer");
-    Object optTable  = options.get("table");
-    Object optTh     = options.get("th");
-    Object optTd     = options.get("td");
-    Object optTitle  = options.get("title");
-    Object optPar    = options.get("paragraph");
-    Object optSep    = options.get("separator");
+    Object optStyle    = options.get("style");
+    Object optHeader   = options.get("header");
+    Object optFooter   = options.get("footer");
+    Object optTable    = options.get("table");
+    Object optTh       = options.get("th");
+    Object optTd       = options.get("td");
+    Object optTitle    = options.get("title");
+    Object optTitleTag = options.get("titleTag");
+    Object optPar      = options.get("paragraph");
+    Object optSep      = options.get("separator");
     
     if(optStyle != null) {
       style = optStyle.toString();
@@ -60,6 +68,9 @@ class CDARenderer implements ICDARenderer
     if(optTitle != null) {
       titleStyle = optTitle.toString();
     }
+    if(optTitleTag != null) {
+      titleTag = optTitleTag.toString();
+    }
     if(optPar != null) {
       pStyle = optPar.toString();
     }
@@ -69,12 +80,20 @@ class CDARenderer implements ICDARenderer
     else {
       separator = "<hr />";
     }
+    
+    if(titleTag == null || titleTag.length() == 0) {
+      titleTag = "h2";
+    }
   }
   
   @Override
   public 
   String toHTML(ClinicalDocument cda) 
   {
+    if(titleTag == null || titleTag.length() == 0) {
+      titleTag = "h2";
+    }
+    
     StringBuilder sb = new StringBuilder(3000);
     sb.append("<html>\n");
     sb.append("\t<head>\n");
@@ -94,6 +113,8 @@ class CDARenderer implements ICDARenderer
       
       sb.append(getPatientSection(cda));
       
+      sb.append(getCustodianSection(cda));
+      
       List<Section> sections = cda.getStructuredBody();
       if(sections != null) {
         for(int i = 0; i < sections.size(); i++) {
@@ -105,18 +126,18 @@ class CDARenderer implements ICDARenderer
           
           String sectionTitle = section.getTitle();
           if(sectionTitle != null && sectionTitle.length() > 0) {
-            String sH1 = "<h1";
+            String sT = "<" + titleTag;
             if(titleStyle != null && titleStyle.length() > 0) {
               if(titleStyle.indexOf(':') > 0) {
-                sH1 += " style=\"" + titleStyle + "\"";
+                sT += " style=\"" + titleStyle + "\"";
               }
               else {
-                sH1 += " class=\"" + titleStyle + "\"";
+                sT += " class=\"" + titleStyle + "\"";
               }
             }
-            sH1 += ">";
+            sT += ">";
             
-            sb.append("\t\t" + sH1 + CDAUtils.xml(sectionTitle) + "</h1>\n");
+            sb.append("\t\t" + sT + CDAUtils.xml(sectionTitle) + "</" + titleTag + ">\n");
             sb.append("\t\t<br />\n");
           }
           
@@ -208,7 +229,7 @@ class CDARenderer implements ICDARenderer
       sDocId = "&nbsp;";
     }
     Date dEffTime   = cda.getEffectiveTime();
-    String sEffTime = CDAUtils.getDate(dEffTime, "-");
+    String sEffTime = CDAUtils.getDate(dEffTime, "IT");
     if(sEffTime == null || sEffTime.length() == 0) {
       sEffTime = "&nbsp;";
     }
@@ -222,18 +243,18 @@ class CDARenderer implements ICDARenderer
     }
     
     StringBuilder sb = new StringBuilder();
-    String sH1 = "<h1";
+    String sT = "<" + titleTag;
     if(titleStyle != null && titleStyle.length() > 0) {
       if(titleStyle.indexOf(':') > 0) {
-        sH1 += " style=\"" + titleStyle + "\"";
+        sT += " style=\"" + titleStyle + "\"";
       }
       else {
-        sH1 += " class=\"" + titleStyle + "\"";
+        sT += " class=\"" + titleStyle + "\"";
       }
     }
-    sH1 += ">";
+    sT += ">";
     
-    sb.append("\t\t" + sH1 + "Caratteristiche generali documento</h1>\n");
+    sb.append("\t\t" + sT + DOC_SEC_TITLE + "</" + titleTag + ">\n");
     sb.append("\t\t<br />\n");
     if(tableStyle != null && tableStyle.length() > 0) {
       if(tableStyle.indexOf(':') > 0) {
@@ -326,18 +347,18 @@ class CDARenderer implements ICDARenderer
     }
     
     StringBuilder sb = new StringBuilder();
-    String sH1 = "<h1";
+    String sT = "<" + titleTag;
     if(titleStyle != null && titleStyle.length() > 0) {
       if(titleStyle.indexOf(':') > 0) {
-        sH1 += " style=\"" + titleStyle + "\"";
+        sT += " style=\"" + titleStyle + "\"";
       }
       else {
-        sH1 += " class=\"" + titleStyle + "\"";
+        sT += " class=\"" + titleStyle + "\"";
       }
     }
-    sH1 += ">";
+    sT += ">";
     
-    sb.append("\t\t" + sH1 + "Dati relativi al paziente</h1>\n");
+    sb.append("\t\t" + sT + PAT_SEC_TITLE + "</" + titleTag + ">\n");
     sb.append("\t\t<br />\n");
     if(tableStyle != null && tableStyle.length() > 0) {
       if(tableStyle.indexOf(':') > 0) {
@@ -391,6 +412,90 @@ class CDARenderer implements ICDARenderer
   }
   
   protected
+  String getCustodianSection(ClinicalDocument cda)
+  {
+    if(cda == null) return "";
+    
+    Organization organization = cda.getCustodian();
+    if(organization == null) {
+      return "";
+    }
+    
+    String sOrgId = organization.getId();
+    if(sOrgId == null || sOrgId.length() == 0) {
+      sOrgId = "&nbsp;";
+    }
+    String sOrgName = organization.getName();
+    if(sOrgName == null || sOrgName.length() == 0) {
+      sOrgName = "Azienda Sanitaria";
+    }
+    
+    StringBuilder sb = new StringBuilder();
+    String sT = "<" + titleTag;
+    if(titleStyle != null && titleStyle.length() > 0) {
+      if(titleStyle.indexOf(':') > 0) {
+        sT += " style=\"" + titleStyle + "\"";
+      }
+      else {
+        sT += " class=\"" + titleStyle + "\"";
+      }
+    }
+    sT += ">";
+    
+    sb.append("\t\t" + sT + ORG_SEC_TITLE + "</" + titleTag + ">\n");
+    sb.append("\t\t<br />\n");
+    if(tableStyle != null && tableStyle.length() > 0) {
+      if(tableStyle.indexOf(':') > 0) {
+        sb.append("\t\t<table style=\"" + tableStyle + "\">");
+      }
+      else {
+        sb.append("\t\t<table class=\"" + tableStyle + "\">");
+      }
+    }
+    else {
+      sb.append("\t\t<table>");
+    }
+    
+    String sTH = "";
+    if(thStyle != null && thStyle.length() > 0) {
+      if(thStyle.indexOf(':') > 0) {
+        sTH = "<th style=\"" + thStyle + "\">";
+      }
+      else {
+        sTH = "<th class=\"" + thStyle + "\">";
+      }
+    }
+    else {
+      sTH = "<th>";
+    }
+    String sTD = "";
+    if(tdStyle != null && tdStyle.length() > 0) {
+      if(tdStyle.indexOf(':') > 0) {
+        sTD = "<td style=\"" + tdStyle + "\">";
+      }
+      else {
+        sTD = "<td class=\"" + tdStyle + "\">";
+      }
+    }
+    else {
+      sTD = "<td>";
+    }
+    
+    sb.append("<tr>");
+    sb.append(sTH + "Codice Identificativo</th>");
+    sb.append(sTD + sOrgId + "</td>");
+    sb.append(sTH + "Denominazione</th>");
+    sb.append(sTD + sOrgName + "</td>");
+    sb.append("</tr>");
+    
+    sb.append("</table>\n");
+    if(separator != null && separator.length() > 0) {
+      sb.append("\t\t" + separator + "\n");
+    }
+    return sb.toString();
+  }
+  
+  protected
   String getAuthorSection(ClinicalDocument cda)
   {
     if(cda == null) return "";
@@ -423,18 +528,18 @@ class CDARenderer implements ICDARenderer
     }
     
     StringBuilder sb = new StringBuilder();
-    String sH1 = "<h1";
+    String sT = "<" + titleTag;
     if(titleStyle != null && titleStyle.length() > 0) {
       if(titleStyle.indexOf(':') > 0) {
-        sH1 += " style=\"" + titleStyle + "\"";
+        sT += " style=\"" + titleStyle + "\"";
       }
       else {
-        sH1 += " class=\"" + titleStyle + "\"";
+        sT += " class=\"" + titleStyle + "\"";
       }
     }
-    sH1 += ">";
+    sT += ">";
     
-    sb.append("\t\t" + sH1 + "Dati autore del documento</h1>\n");
+    sb.append("\t\t" + sT + AUT_SEC_TITLE + "</" + titleTag + ">\n");
     sb.append("\t\t<br />\n");
     if(tableStyle != null && tableStyle.length() > 0) {
       if(tableStyle.indexOf(':') > 0) {
