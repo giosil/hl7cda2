@@ -1,8 +1,5 @@
 package org.dew.cda;
 
-import org.dew.hl7.ICDAValidator;
-import org.dew.hl7.ValidationResult;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
@@ -13,6 +10,9 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
+
+import org.dew.hl7.ICDAValidator;
+import org.dew.hl7.ValidationResult;
 
 public 
 class CDAValidator implements ICDAValidator 
