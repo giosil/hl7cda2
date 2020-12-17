@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.dew.cda.*;
@@ -34,6 +35,8 @@ public class TestHL7CDA2 extends TestCase {
     ClinicalDocument cda1 = buildEmergencyReport();
     
     String xml1 = cdaSerialize(cda1);
+    
+    validate(xml1);
     
     ClinicalDocument cda2 = cdaDeserialize(xml1);
     
@@ -69,10 +72,50 @@ public class TestHL7CDA2 extends TestCase {
   }
   
   protected 
+  void validate(String content) 
+    throws Exception 
+  {
+    if(content == null) {
+      System.out.println("content is null");
+      return;
+    }
+    
+    if(content.length() < 20) {
+      System.out.println("content is not valid: \"" + content + "\"");
+      return;
+    }
+    
+    ICDAValidator validator = new CDAValidator();
+    
+    ValidationResult result = validator.validate(content.getBytes());
+    
+    if(result.isSuccess()) {
+      System.out.println("content is valid");
+      return;
+    }
+    
+    List<String> errors = result.getErrors();
+    if(errors != null && errors.size() > 0) {
+      System.out.println("Validation errors:");
+      for(int i = 0; i < errors.size(); i++) {
+        System.out.println(errors.get(i));
+      }
+    }
+    
+    List<String> fatals = result.getFatals();
+    if(fatals != null && fatals.size() > 0) {
+      System.out.println("Validation fatals:");
+      for(int i = 0; i < fatals.size(); i++) {
+        System.out.println(fatals.get(i));
+      }
+    }
+  }
+  
+  protected 
   String cdaRenderer(ClinicalDocument clinicalDocument) 
     throws Exception 
   {
-    ICDARenderer cdaRenderer = new CDARenderer();
+    ICDARenderer cdaRenderer = new CDARenderer_IT();
     
     Map<String, Object> renderOptions = new HashMap<String, Object>();
     renderOptions.put("style",     "body{ color: #202020; margin: 8 8 8 8; }");

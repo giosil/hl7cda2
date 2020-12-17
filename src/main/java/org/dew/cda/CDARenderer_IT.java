@@ -11,7 +11,7 @@ import org.dew.hl7.Person;
 import org.dew.hl7.Section;
 
 public 
-class CDARenderer implements ICDARenderer 
+class CDARenderer_IT implements ICDARenderer 
 {
   protected String style;
   protected String header;
