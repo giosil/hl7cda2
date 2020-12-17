@@ -4,7 +4,7 @@ An extensible library to manage HL7 CDA2 documents.
 
 ## Examples
 
-### Serialize Clinical Document
+### Serialize a Clinical Document
 
 ```java
 ClinicalDocument cda = buildClinicalDocument();
@@ -14,7 +14,7 @@ ICDASerializer ser = new CDASerializer_IT();
 String xml = ser.toXML(cda);
 ```
 
-### Deserialize Clinical Document
+### Deserialize a Clinical Document
 
 ```java
 ICDADeserializer dser = new CDADeserializer();
@@ -22,6 +22,36 @@ ICDADeserializer dser = new CDADeserializer();
 dser.load(xml);
 
 ClinicalDocument cda = dser.getClinicalDocument();
+```
+
+### Render a Clinical Document
+
+```java
+ICDARenderer ren = new CDARenderer_IT();
+
+Map<String, Object> opt = new HashMap<String, Object>();
+opt.put("style",     "body{ color: #202020; margin: 4 8 4 8; }");
+opt.put("table",     "width: 100%;");
+opt.put("th",        "background-color: #a8d7f7;");
+opt.put("td",        "background-color: #cfeafc;");
+opt.put("title",     "color: #000080;");
+opt.put("paragraph", "font-style: italic;");
+
+ren.setOptions(opt);
+    
+String html = ren.toHTML(cda);
+```
+
+### Validate a Clinical Document
+
+```java
+ICDAValidator val = new CDAValidator();
+
+ValidationResult result = val.validate(xml);
+
+System.out.println(result.isSuccess());
+System.out.println(result.getErrors());
+System.out.println(result.getFatals());
 ```
 
 ## Build

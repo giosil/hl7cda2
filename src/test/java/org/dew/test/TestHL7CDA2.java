@@ -118,7 +118,7 @@ public class TestHL7CDA2 extends TestCase {
     ICDARenderer cdaRenderer = new CDARenderer_IT();
     
     Map<String, Object> renderOptions = new HashMap<String, Object>();
-    renderOptions.put("style",     "body{ color: #202020; margin: 8 8 8 8; }");
+    renderOptions.put("style",     "body{ color: #202020; margin: 4 8 4 8; }");
     renderOptions.put("table",     "width: 100%;");
     renderOptions.put("th",        "background-color: #a8d7f7;");
     renderOptions.put("td",        "background-color: #cfeafc;");
@@ -150,7 +150,7 @@ public class TestHL7CDA2 extends TestCase {
     clinicalDocument.setCustodian(new Organization("120201", "ROMA 1"));
     
     clinicalDocument.addSection("DIAGNOSI", "Diagnosi")
-      .addEntry("Diagnosi",     "Scompenso cardiaco");
+      .addEntry("Diagnosi", "Scompenso cardiaco");
     
     clinicalDocument.addSection("PDF", "application/pdf", pdfReferto);
     
