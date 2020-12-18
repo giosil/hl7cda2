@@ -43,7 +43,7 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
   @Override
   public
   void load(String file)
-      throws Exception
+    throws Exception
   {
     cda = new ClinicalDocument();
     
@@ -72,7 +72,7 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
   @Override
   public
   void load(byte[] content)
-      throws Exception
+    throws Exception
   {
     cda = new ClinicalDocument();
     
@@ -139,7 +139,7 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
   @Override
   public
   void startDocument()
-      throws SAXException
+    throws SAXException
   {
     stackElements = new Stack<String>();
     
@@ -151,14 +151,14 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
   @Override
   public
   void endDocument()
-      throws SAXException
+    throws SAXException
   {
   }
   
   @Override
   public
   void startElement(String uri, String localName, String qName, Attributes attributes)
-      throws SAXException
+    throws SAXException
   {
     stackElements.push(localName);
     int iStackSize = stackElements.size();
@@ -280,6 +280,14 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
         String sLocalName = attributes.getLocalName(i);
         if(sLocalName.equalsIgnoreCase("value")) {
           getPatient().setBirthTime(toDate(attributes.getValue(i)));
+        }
+      }
+    }
+    else if(currentTag.endsWith("clinicaldocument|recordtarget|patientrole|patient|guardian|id")) {
+      for(int i = 0; i < attributes.getLength(); i++) {
+        String sLocalName = attributes.getLocalName(i);
+        if(sLocalName.equalsIgnoreCase("extension")) {
+          getGuardian().setId(attributes.getValue(i));
         }
       }
     }
@@ -523,23 +531,35 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
         }
       }
     }
-    else if(currentTag.endsWith("act|code")) {
+    else if(currentTag.endsWith("entry|effectiveTime")) {
+      for(int i = 0; i < attributes.getLength(); i++) {
+        String sLocalName = attributes.getLocalName(i);
+        if(sLocalName.equalsIgnoreCase("value")) {
+          getCurrentEntry().setEffectiveTime(toDate(attributes.getValue(i)));
+        }
+      }
+    }
+    else if(currentTag.endsWith("entry|effectiveTime|low")) {
+      for(int i = 0; i < attributes.getLength(); i++) {
+        String sLocalName = attributes.getLocalName(i);
+        if(sLocalName.equalsIgnoreCase("value")) {
+          getCurrentEntry().setLow(toDate(attributes.getValue(i)));
+        }
+      }
+    }
+    else if(currentTag.endsWith("entry|effectiveTime|high")) {
+      for(int i = 0; i < attributes.getLength(); i++) {
+        String sLocalName = attributes.getLocalName(i);
+        if(sLocalName.equalsIgnoreCase("value")) {
+          getCurrentEntry().setHigh(toDate(attributes.getValue(i)));
+        }
+      }
+    }
+    else if(currentTag.endsWith("manufacturedLabeledDrug|code")) {
       for(int i = 0; i < attributes.getLength(); i++) {
         String sLocalName = attributes.getLocalName(i);
         if(sLocalName.equalsIgnoreCase("code")) {
-          getCurrentEntry().setCode(attributes.getValue(i));
-        }
-        else if(sLocalName.equalsIgnoreCase("codeSystem")) {
-          getCurrentEntry().setCodeSystem(attributes.getValue(i));
-        }
-        else if(sLocalName.equalsIgnoreCase("codeSystemName")) {
-          getCurrentEntry().setCodeSystemName(attributes.getValue(i));
-        }
-        else if(sLocalName.equalsIgnoreCase("displayName")) {
-          getCurrentEntry().setDisplayName(attributes.getValue(i));
-        }
-        else if(sLocalName.equalsIgnoreCase("nullFlavor")) {
-          getCurrentEntry().setNullFlavor(attributes.getValue(i));
+          getCurrentEntry().setManufacturedProduct(attributes.getValue(i));
         }
       }
     }
@@ -548,7 +568,7 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
   @Override
   public
   void endElement(String uri, String localName, String qName)
-      throws SAXException
+    throws SAXException
   {
     if(currentTag.endsWith("clinicaldocument|title")) {
       cda.setTitle(currentValue);
@@ -582,6 +602,15 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
     }
     else if(currentTag.endsWith("clinicaldocument|recordtarget|patientrole|patient|birthplace|place|addr|country")) {
       getPatient().setBirthCountry(currentValue);
+    }
+    else if(currentTag.endsWith("clinicaldocument|recordtarget|patientrole|patient|guardian|guardianperson|name|prefix")) {
+      getGuardian().setPrefix(currentValue);
+    }
+    else if(currentTag.endsWith("clinicaldocument|recordtarget|patientrole|patient|guardian|guardianperson|name|given")) {
+      getGuardian().setGiven(currentValue);
+    }
+    else if(currentTag.endsWith("clinicaldocument|recordtarget|patientrole|patient|guardian|guardianperson|name|family")) {
+      getGuardian().setFamily(currentValue);
     }
     else if(currentTag.endsWith("clinicaldocument|author|assignedauthor|assignedperson|name|prefix")) {
       getAuthor().setPrefix(currentValue);
@@ -658,7 +687,7 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
   @Override
   public
   void characters(char[] ch, int start, int length)
-      throws SAXException
+    throws SAXException
   {
     currentValue += new String(ch, start, length).trim();
   }
@@ -683,6 +712,17 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
     if(result == null) {
       result = new Person();
       cda.setPatient(result);
+    }
+    return result;
+  }
+  
+  protected 
+  Person getGuardian()
+  {
+    Person result = cda.getGuardian();
+    if(result == null) {
+      result = new Person();
+      cda.setGuardian(result);
     }
     return result;
   }

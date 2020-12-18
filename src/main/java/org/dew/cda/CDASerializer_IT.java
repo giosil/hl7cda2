@@ -262,7 +262,7 @@ class CDASerializer_IT implements ICDASerializer
   
   protected 
   void buildRecordTarget(StringBuilder sb, ClinicalDocument cda)
-      throws Exception
+    throws Exception
   {
     if(sb == null || cda == null) return;
     
@@ -277,6 +277,8 @@ class CDASerializer_IT implements ICDASerializer
       addWarning("ClinicalDocument.patient.id is null");
       return;
     }
+    
+    Person guardian = cda.getGuardian();
     
     String authorityCode = cda.getAuthorityCode();
     if(authorityCode == null || authorityCode.length() == 0) {
@@ -363,6 +365,35 @@ class CDASerializer_IT implements ICDASerializer
     }
     if(birthTime != null) {
       sb.append("<birthTime value=\"" + CDAUtils.getDate(birthTime) + "\" />");
+    }
+    if(guardian != null && guardian.getFamily() != null) {
+      String guardianId     = guardian.getId();
+      String guardianPrefix = guardian.getPrefix();
+      String guardianGiven  = guardian.getGiven();
+      String guardianFamily = guardian.getFamily();
+      sb.append("<guardian>");
+      if(guardianId != null && guardianId.length() > 0) {
+        String rootGuardian = "2.16.840.1.113883.2.9.4.3.2";
+        if(guardianId.length() != 16) {
+          rootGuardian = OID_HL7_IT + "." + authorityCode + ".4.2";
+        }
+        else if(Character.isDigit(guardianId.charAt(0)) || !Character.isDigit(guardianId.charAt(6)) || Character.isDigit(guardianId.charAt(8))) {
+          rootGuardian = OID_HL7_IT + "." + authorityCode + ".4.2";
+        }
+        sb.append("<id extension=\"" + guardianId + "\" root=\"" + rootGuardian + "\" />");
+      }
+      sb.append("<guardianPerson>");
+      if(guardianPrefix != null && guardianPrefix.length() > 0) {
+        sb.append("<prefix>" + CDAUtils.xml(guardianPrefix) + "</prefix>");
+      }
+      if(guardianGiven != null && guardianGiven.length() > 0) {
+        sb.append("<given>" + CDAUtils.xml(guardianGiven) + "</given>");
+      }
+      if(guardianFamily != null && guardianFamily.length() > 0) {
+        sb.append("<family>" + CDAUtils.xml(guardianFamily) + "</family>");
+      }
+      sb.append("</guardianPerson>");
+      sb.append("</guardian>");
     }
     if(birthPlace != null && birthPlace.length() > 0) {
       sb.append("<birthplace>");
