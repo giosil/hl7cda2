@@ -1,8 +1,20 @@
 package org.dew.cda;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
+import java.net.URL;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import javax.xml.transform.Result;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 
 import org.dew.hl7.ClinicalDocument;
 import org.dew.hl7.ICDARenderer;
@@ -84,6 +96,70 @@ class CDARenderer_IT implements ICDARenderer
     if(titleTag == null || titleTag.length() == 0) {
       titleTag = "h2";
     }
+  }
+  
+  @Override
+  public 
+  String transform(byte[] content, String xslFile)
+    throws Exception
+  {
+    if(content == null || content.length == 0) {
+      return "";
+    }
+    if(xslFile == null || xslFile.length() == 0) {
+      return new String(content);
+    }
+    
+    URL urlFile = toURL(xslFile);
+    if(urlFile == null) return new String(content);
+    
+    Source xslSource = new StreamSource(urlFile.toString());
+    Source xmlSource = new StreamSource(new ByteArrayInputStream(content));
+    
+    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+    
+    Transformer transformer = transformerFactory.newTransformer(xslSource);
+    
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    Result streamResult = new StreamResult(baos);
+    
+    transformer.transform(xmlSource, streamResult);
+    
+    byte[] result = baos.toByteArray();
+    
+    return new String(result);
+  }
+  
+  @Override
+  public 
+  String transform(String content, String xslFile)
+    throws Exception
+  {
+    if(content == null || content.length() == 0) {
+      return "";
+    }
+    if(xslFile == null || xslFile.length() == 0) {
+      return content;
+    }
+    
+    URL urlFile = toURL(xslFile);
+    if(urlFile == null) return content;
+    
+    Source xslSource = new StreamSource(urlFile.toString());
+    Source xmlSource = new StreamSource(new ByteArrayInputStream(content.getBytes()));
+    
+    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+    
+    Transformer transformer = transformerFactory.newTransformer(xslSource);
+    
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    Result streamResult = new StreamResult(baos);
+    
+    transformer.transform(xmlSource, streamResult);
+    
+    byte[] result = baos.toByteArray();
+    
+    return new String(result);
   }
   
   @Override
@@ -590,5 +666,26 @@ class CDARenderer_IT implements ICDARenderer
       sb.append("\t\t" + separator + "\n");
     }
     return sb.toString();
+  }
+  
+  protected
+  URL toURL(String file)
+    throws Exception
+  {
+    if(file == null || file.length() == 0) {
+      return null;
+    }
+    
+    if(file.indexOf(':') > 0) {
+      return new URL(file);
+    }
+    
+    int iFileSep = file.indexOf('/');
+    if(iFileSep < 0) iFileSep = file.indexOf('\\');
+    if(iFileSep < 0) {
+      return Thread.currentThread().getContextClassLoader().getResource(file);
+    }
+    
+    return new URL("file:///" + file);
   }
 }

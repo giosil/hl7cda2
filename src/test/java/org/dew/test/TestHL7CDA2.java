@@ -43,6 +43,8 @@ public class TestHL7CDA2 extends TestCase {
     cdaSerialize(cda2);
     
     cdaRenderer(cda2);
+    
+    transform(xml1);
   }
   
   protected 
@@ -109,6 +111,27 @@ public class TestHL7CDA2 extends TestCase {
         System.out.println(fatals.get(i));
       }
     }
+  }
+  
+  protected 
+  void transform(String content) 
+    throws Exception 
+  {
+    if(content == null) {
+      System.out.println("content is null");
+      return;
+    }
+    
+    if(content.length() < 20) {
+      System.out.println("content is not valid: \"" + content + "\"");
+      return;
+    }
+    
+    ICDARenderer cdaRenderer = new CDARenderer_IT();
+    
+    String html = cdaRenderer.transform(content, "CDAit.xsl");
+    
+    System.out.println(html);
   }
   
   protected 

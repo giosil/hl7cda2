@@ -42,6 +42,14 @@ ren.setOptions(opt);
 String html = ren.toHTML(cda);
 ```
 
+### Transform a Clinical Document
+
+```java
+ICDARenderer ren = new CDARenderer_IT();
+    
+String html = ren.transform(xml, "CDAit.xsl");
+```
+
 ### Validate a Clinical Document
 
 ```java
