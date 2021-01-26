@@ -3,7 +3,7 @@ package org.dew.hl7;
 import java.util.Map;
 
 /**
- * Interfaccia per il rendering di oggetti ClinicalDocument.
+ * Interfaccia per il rendering di ClinicalDocument.
  */
 public 
 interface ICDARenderer 
@@ -19,6 +19,7 @@ interface ICDARenderer
    * Trasforma il contenuto tramite file stylesheet.
    * 
    * @param content byte[]
+   * @param xslFile stylesheet
    * @throws Exception Error
    * @return transformation
    */
@@ -28,6 +29,7 @@ interface ICDARenderer
    * Trasforma il contenuto tramite file stylesheet.
    * 
    * @param content String
+   * @param xslFile stylesheet
    * @throws Exception Error
    * @return transformation
    */
