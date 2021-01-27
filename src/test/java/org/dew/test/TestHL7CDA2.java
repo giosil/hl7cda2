@@ -75,6 +75,17 @@ public class TestHL7CDA2 extends TestCase {
     return clinicalDocument;
   }
   
+  protected
+  void cdaSign()
+    throws Exception
+  {
+    ClinicalDocument cda = buildClinicalDocument();
+    
+    String xml = cdaSerialize(cda);
+    
+    sign(xml);
+  }
+  
   protected 
   void validate(String content) 
     throws Exception 

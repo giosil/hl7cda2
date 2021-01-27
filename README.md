@@ -62,6 +62,16 @@ System.out.println(result.getErrors());
 System.out.println(result.getFatals());
 ```
 
+### Sign a Clinical Document
+
+```java
+ICDASigner sig = new CDASignerXAdES();
+
+byte[] signed = sig.sign(xml);
+
+System.out.println(new String(signed));
+```
+
 ## Build
 
 - `git clone https://github.com/giosil/hl7cda2.git`

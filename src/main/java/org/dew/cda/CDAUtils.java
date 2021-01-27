@@ -313,4 +313,46 @@ class CDAUtils
     }
     return result;
   }
+  
+  public static
+  String toISO8601Timestamp_Z(Calendar c)
+  {
+    if(c == null) return null;
+    
+    Calendar cal = Calendar.getInstance();
+    cal.set(Calendar.YEAR,        c.get(Calendar.YEAR));
+    cal.set(Calendar.MONTH,       c.get(Calendar.MONTH));
+    cal.set(Calendar.DATE,        c.get(Calendar.DATE));
+    cal.set(Calendar.HOUR_OF_DAY, c.get(Calendar.HOUR_OF_DAY));
+    cal.set(Calendar.MINUTE,      c.get(Calendar.MINUTE));
+    cal.set(Calendar.SECOND,      c.get(Calendar.SECOND));
+    
+    int iZoneOffset = cal.get(Calendar.ZONE_OFFSET);
+    cal.add(Calendar.MILLISECOND, -iZoneOffset);
+    int iDST_Offset = cal.get(Calendar.DST_OFFSET);
+    cal.add(Calendar.MILLISECOND, -iDST_Offset);
+    
+    int iYear  = cal.get(Calendar.YEAR);
+    int iMonth = cal.get(Calendar.MONTH) + 1;
+    int iDay   = cal.get(Calendar.DATE);
+    int iHour  = cal.get(Calendar.HOUR_OF_DAY);
+    int iMin   = cal.get(Calendar.MINUTE);
+    int iSec   = cal.get(Calendar.SECOND);
+    String sYear   = String.valueOf(iYear);
+    String sMonth  = iMonth < 10 ? "0" + iMonth : String.valueOf(iMonth);
+    String sDay    = iDay   < 10 ? "0" + iDay   : String.valueOf(iDay);
+    String sHour   = iHour  < 10 ? "0" + iHour  : String.valueOf(iHour);
+    String sMin    = iMin   < 10 ? "0" + iMin   : String.valueOf(iMin);
+    String sSec    = iSec   < 10 ? "0" + iSec   : String.valueOf(iSec);
+    if(iYear < 10) {
+      sYear = "000" + sYear;
+    }
+    else if(iYear < 100) {
+      sYear = "00" + sYear;
+    }
+    else if(iYear < 1000) {
+      sYear = "0" + sYear;
+    }
+    return sYear + "-" + sMonth + "-" + sDay + "T" + sHour + ":" + sMin + ":" + sSec + "Z";
+  }
 }

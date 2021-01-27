@@ -19,16 +19,20 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
+import javax.xml.crypto.dom.DOMStructure;
 import javax.xml.crypto.dsig.CanonicalizationMethod;
 import javax.xml.crypto.dsig.DigestMethod;
 import javax.xml.crypto.dsig.Reference;
 import javax.xml.crypto.dsig.SignatureMethod;
 import javax.xml.crypto.dsig.SignedInfo;
 import javax.xml.crypto.dsig.Transform;
+import javax.xml.crypto.dsig.XMLObject;
 import javax.xml.crypto.dsig.XMLSignature;
 import javax.xml.crypto.dsig.XMLSignatureFactory;
 import javax.xml.crypto.dsig.dom.DOMSignContext;
@@ -139,7 +143,7 @@ class CDASignerXAdES implements ICDASigner
   byte[] sign(byte[] content) 
     throws Exception 
   {
-    if(this.privateKey == null) loadKey();
+    if(this.privateKey == null) loadPrivateKey();
     
     if(this.privateKey == null) {
       throw new Exception("privatekey unavailable");
@@ -151,15 +155,19 @@ class CDASignerXAdES implements ICDASigner
       throw new Exception("Invalid content");
     }
     
-    Element node = byteArrayToElement(content);
+    DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+    Document document = documentBuilder.parse(new ByteArrayInputStream(content));
     
-    XMLSignature xmlSignature = createXMLSignature();
+    XMLSignature xmlSignature = createXMLSignature(document);
     
-    DOMSignContext domSignContext = new DOMSignContext(privateKey, node);
+    Element rootNode = document.getDocumentElement();
+    
+    DOMSignContext domSignContext = new DOMSignContext(privateKey, rootNode);
     
     xmlSignature.sign(domSignContext);
     
-    return nodeToByteArray(node);
+    return nodeToByteArray(rootNode);
   }
   
   @Override
@@ -167,7 +175,7 @@ class CDASignerXAdES implements ICDASigner
   byte[] sign(String content) 
     throws Exception 
   {
-    if(this.privateKey == null) loadKey();
+    if(this.privateKey == null) loadPrivateKey();
     
     if(this.privateKey == null) {
       throw new Exception("privatekey unavailable");
@@ -179,92 +187,90 @@ class CDASignerXAdES implements ICDASigner
       throw new Exception("Invalid content");
     }
     
-    Element node = stringToElement(content);
+    DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+    Document document = documentBuilder.parse(new ByteArrayInputStream(content.getBytes()));
     
-    XMLSignature xmlSignature = createXMLSignature();
+    XMLSignature xmlSignature = createXMLSignature(document);
     
-    DOMSignContext domSignContext = new DOMSignContext(privateKey, node);
+    Element rootNode = document.getDocumentElement();
+    
+    DOMSignContext domSignContext = new DOMSignContext(privateKey, rootNode);
     
     xmlSignature.sign(domSignContext);
     
-    return nodeToByteArray(node);
+    return nodeToByteArray(rootNode);
   }
   
   protected 
-  XMLSignature createXMLSignature()
+  XMLSignature createXMLSignature(Document document)
     throws Exception
   {
+    // Defaults:
+    //
     // typAlgorithm = "http://www.w3.org/2000/09/xmldsig#enveloped-signature";
     // canAlgorithm = "http://www.w3.org/2006/12/xml-c14n11#WithComments";
     // digAlgorithm = "http://www.w3.org/2001/04/xmlenc#sha256";
     // sigAlgorithm = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256";
     
-    XMLSignatureFactory signFactory   = XMLSignatureFactory.getInstance("DOM", new org.apache.jcp.xml.dsig.internal.dom.XMLDSigRI());
-    CanonicalizationMethod c14nMethod = signFactory.newCanonicalizationMethod(canAlgorithm, (C14NMethodParameterSpec) null);
-    DigestMethod         digestMethod = signFactory.newDigestMethod(digAlgorithm, null);
-    SignatureMethod        signMethod = signFactory.newSignatureMethod(sigAlgorithm, null);
-    Transform            sigTransform = signFactory.newTransform(typAlgorithm, (TransformParameterSpec) null);
-    Transform            canTransform = signFactory.newTransform(canAlgorithm, (TransformParameterSpec) null);
+    XMLSignatureFactory xmlSignatureFactory = XMLSignatureFactory.getInstance("DOM", new org.apache.jcp.xml.dsig.internal.dom.XMLDSigRI());
+    CanonicalizationMethod c14nMethod = xmlSignatureFactory.newCanonicalizationMethod(canAlgorithm, (C14NMethodParameterSpec) null);
+    DigestMethod         digestMethod = xmlSignatureFactory.newDigestMethod(digAlgorithm, null);
+    SignatureMethod        signMethod = xmlSignatureFactory.newSignatureMethod(sigAlgorithm, null);
+    Transform            sigTransform = xmlSignatureFactory.newTransform(typAlgorithm, (TransformParameterSpec) null);
+    Transform            canTransform = xmlSignatureFactory.newTransform(canAlgorithm, (TransformParameterSpec) null);
     
-    List<Transform> transformList = new ArrayList<Transform>();
-    transformList.add(sigTransform);
-    transformList.add(canTransform);
+    List<Transform> transforms = new ArrayList<Transform>();
+    transforms.add(sigTransform);
+    transforms.add(canTransform);
     
-    Reference reference = signFactory.newReference("", digestMethod, transformList, null, null);
+    String sQualifyingPropertiesId = "QualifyingProperties_ID";
     
-    SignedInfo signInfo = signFactory.newSignedInfo(c14nMethod, signMethod, Collections.singletonList(reference));
+    Reference referenceDoc = xmlSignatureFactory.newReference("", digestMethod, transforms, null, null);
+    Reference referenceQuP = xmlSignatureFactory.newReference("#" + sQualifyingPropertiesId, xmlSignatureFactory.newDigestMethod(digAlgorithm, null));
     
-    KeyInfoFactory keyInfoFactory = signFactory.getKeyInfoFactory();
+    List<Reference> references = new ArrayList<Reference>();
+    references.add(referenceDoc);
+    references.add(referenceQuP);
+    
+    SignedInfo signedInfo = xmlSignatureFactory.newSignedInfo(c14nMethod, signMethod, references);
+    
+    KeyInfoFactory keyInfoFactory = xmlSignatureFactory.getKeyInfoFactory();
     X509Data x509Data = keyInfoFactory.newX509Data(Collections.singletonList(certificate));
     KeyInfo keyInfo   = keyInfoFactory.newKeyInfo(Collections.singletonList(x509Data));
     
-    return signFactory.newXMLSignature(signInfo, keyInfo);
+    Element qualifyingPropertiesElement = buildQualifyingProperties(document, sQualifyingPropertiesId);
+    DOMStructure qualifyingPropertiesObject = new DOMStructure(qualifyingPropertiesElement);
+    XMLObject qualifyingPropertiesXMLObject = xmlSignatureFactory.newXMLObject(Collections.singletonList(qualifyingPropertiesObject), null, null, null);
+    
+    List<XMLObject> objects = new ArrayList<XMLObject>();
+    objects.add(qualifyingPropertiesXMLObject);
+    
+    return xmlSignatureFactory.newXMLSignature(signedInfo, keyInfo, objects, "xmldsig-" + UUID.randomUUID(), null);
   }
   
-  protected static
-  Element byteArrayToElement(byte[] xml)
+  protected 
+  Element buildQualifyingProperties(Document document, String sId)
     throws Exception
   {
-    if(xml == null || xml.length == 0) {
-      return null;
+    String signingTime = CDAUtils.toISO8601Timestamp_Z(Calendar.getInstance());
+    
+    Element qualifyingPropertiesElement = document.createElement("QualifyingProperties");
+    if(sId != null && sId.length() > 0) {
+      qualifyingPropertiesElement.setAttribute("Id", sId);
+      qualifyingPropertiesElement.setIdAttribute("Id", true);
     }
     
-    DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-    DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-    Document document = documentBuilder.parse(new ByteArrayInputStream(xml));
-    return document.getDocumentElement();
-  }
-  
-  protected static
-  Element stringToElement(String xml)
-    throws Exception
-  {
-    if(xml == null || xml.length() == 0) {
-      return null;
-    }
+    Element signedPropertiesElement = document.createElement("SignedProperties");
+    Element signedSignaturePropertiesElement = document.createElement("SignedSignatureProperties");
+    Element signingTimeElement = document.createElement("SigningTime");
+    signingTimeElement.setTextContent(signingTime);
     
-    DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-    DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-    Document document = documentBuilder.parse(new ByteArrayInputStream(xml.getBytes()));
-    return document.getDocumentElement();
-  }
-  
-  protected
-  String nodeToString(Node node)
-    throws Exception
-  {
-    StringWriter stringWriter = new StringWriter();
-    try {
-      Transformer transformer = TransformerFactory.newInstance().newTransformer();
-      transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, omitDec ? "yes" : "no");
-      transformer.setOutputProperty(OutputKeys.INDENT, indent ? "yes" : "no");
-      transformer.transform(new DOMSource(node), new StreamResult(stringWriter));
-    } 
-    catch (Exception ex) {
-      ex.printStackTrace();
-      throw ex;
-    }
-    return stringWriter.toString();
+    qualifyingPropertiesElement.appendChild(signedPropertiesElement);
+    signedPropertiesElement.appendChild(signedSignaturePropertiesElement);
+    signedSignaturePropertiesElement.appendChild(signingTimeElement);
+    
+    return qualifyingPropertiesElement;
   }
   
   protected
@@ -286,7 +292,7 @@ class CDASignerXAdES implements ICDASigner
   }
   
   protected
-  void loadKey()
+  void loadPrivateKey()
     throws Exception
   {
     certificate = null;
@@ -316,10 +322,10 @@ class CDASignerXAdES implements ICDASigner
     }
     
     if(certificate == null) {
-      certificate = loadCertificate();
+      certificate = loadCertificateFile();
     }
     if(privateKey == null) {
-      privateKey = loadPrivateKey();
+      privateKey = loadPrivateKeyFile();
     }
   }
   
@@ -352,7 +358,7 @@ class CDASignerXAdES implements ICDASigner
   }
   
   protected
-  X509Certificate loadCertificate()
+  X509Certificate loadCertificateFile()
     throws Exception
   {
     if(certificateFile == null || certificateFile.length() == 0) {
@@ -392,7 +398,7 @@ class CDASignerXAdES implements ICDASigner
   }
   
   protected
-  PrivateKey loadPrivateKey()
+  PrivateKey loadPrivateKeyFile()
     throws Exception
   {
     if(privateKeyFile == null || privateKeyFile.length() == 0) {
