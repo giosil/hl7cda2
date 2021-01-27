@@ -302,4 +302,15 @@ class CDAUtils
     }
     return value.substring(sep + 1);
   }
+  
+  public static
+  String toNotEmptyString(Object value, String sDefaultValue)
+  {
+    if(value == null) return sDefaultValue;
+    String result = value.toString();
+    if(result == null || result.length() == 0) {
+      return sDefaultValue;
+    }
+    return result;
+  }
 }
