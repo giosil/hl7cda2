@@ -62,7 +62,7 @@ System.out.println(result.getErrors());
 System.out.println(result.getFatals());
 ```
 
-### Sign a Clinical Document
+### XAdES signature
 
 ```java
 ICDASigner sig = new CDASignerXAdES();
@@ -70,6 +70,14 @@ ICDASigner sig = new CDASignerXAdES();
 byte[] signed = sig.sign(xml);
 
 System.out.println(new String(signed));
+```
+
+### CAdES signature
+
+```java
+ICDASigner sig = new CDASignerCAdES();
+
+byte[] pkcs7 = sig.sign(xml);
 ```
 
 ## Build
