@@ -10,9 +10,11 @@ import java.io.StringWriter;
 import java.net.URL;
 
 import java.security.Key;
+import java.security.KeyException;
 import java.security.KeyPair;
 import java.security.KeyStore;
 import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.security.Security;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
@@ -25,7 +27,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.xml.crypto.AlgorithmMethod;
+import javax.xml.crypto.KeySelector;
+import javax.xml.crypto.KeySelectorException;
+import javax.xml.crypto.KeySelectorResult;
+import javax.xml.crypto.XMLCryptoContext;
 import javax.xml.crypto.dom.DOMStructure;
+
 import javax.xml.crypto.dsig.CanonicalizationMethod;
 import javax.xml.crypto.dsig.DigestMethod;
 import javax.xml.crypto.dsig.Reference;
@@ -36,8 +44,10 @@ import javax.xml.crypto.dsig.XMLObject;
 import javax.xml.crypto.dsig.XMLSignature;
 import javax.xml.crypto.dsig.XMLSignatureFactory;
 import javax.xml.crypto.dsig.dom.DOMSignContext;
+import javax.xml.crypto.dsig.dom.DOMValidateContext;
 import javax.xml.crypto.dsig.keyinfo.KeyInfo;
 import javax.xml.crypto.dsig.keyinfo.KeyInfoFactory;
+import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import javax.xml.crypto.dsig.keyinfo.X509Data;
 import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
 import javax.xml.crypto.dsig.spec.TransformParameterSpec;
@@ -54,6 +64,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.openssl.PEMReader;
@@ -76,7 +87,7 @@ class CDASignerXAdES implements ICDASigner
   protected X509Certificate certificate;
   
   protected boolean omitDec = true;
-  protected boolean indent  = true;
+  protected boolean indent  = false;
   
   protected String typAlgorithm = "http://www.w3.org/2000/09/xmldsig#enveloped-signature";
   protected String canAlgorithm = "http://www.w3.org/2006/12/xml-c14n11#WithComments";
@@ -125,17 +136,17 @@ class CDASignerXAdES implements ICDASigner
       }
     }
     
-    this.keystoreFile    = CDAUtils.toNotEmptyString(options.get("keystore_file"),    keystoreFile);
-    this.keystorePass    = CDAUtils.toNotEmptyString(options.get("keystore_pass"),    keystorePass);
-    this.keystoreAlias   = CDAUtils.toNotEmptyString(options.get("keystore_alias"),   keystoreAlias);
-    this.privateKeyPass  = CDAUtils.toNotEmptyString(options.get("privatekey_pass"),  privateKeyPass);
-    this.privateKeyFile  = CDAUtils.toNotEmptyString(options.get("privatekey_file"),  privateKeyFile);
-    this.certificateFile = CDAUtils.toNotEmptyString(options.get("certificate_file"), certificateFile);
+    this.keystoreFile    = CDAUtils.toString(options.get("keystore_file"),    keystoreFile);
+    this.keystorePass    = CDAUtils.toString(options.get("keystore_pass"),    keystorePass);
+    this.keystoreAlias   = CDAUtils.toString(options.get("keystore_alias"),   keystoreAlias);
+    this.privateKeyPass  = CDAUtils.toString(options.get("privatekey_pass"),  privateKeyPass);
+    this.privateKeyFile  = CDAUtils.toString(options.get("privatekey_file"),  privateKeyFile);
+    this.certificateFile = CDAUtils.toString(options.get("certificate_file"), certificateFile);
     
-    this.typAlgorithm = CDAUtils.toNotEmptyString(options.get("type_algorithm"), typAlgorithm);
-    this.canAlgorithm = CDAUtils.toNotEmptyString(options.get("can_algorithm"),  canAlgorithm);
-    this.digAlgorithm = CDAUtils.toNotEmptyString(options.get("dig_algorithm"),  digAlgorithm);
-    this.sigAlgorithm = CDAUtils.toNotEmptyString(options.get("sign_algorithm"), sigAlgorithm);
+    this.typAlgorithm = CDAUtils.toString(options.get("type_algorithm"), typAlgorithm);
+    this.canAlgorithm = CDAUtils.toString(options.get("can_algorithm"),  canAlgorithm);
+    this.digAlgorithm = CDAUtils.toString(options.get("dig_algorithm"),  digAlgorithm);
+    this.sigAlgorithm = CDAUtils.toString(options.get("sign_algorithm"), sigAlgorithm);
   }
   
   @Override
@@ -200,6 +211,65 @@ class CDASignerXAdES implements ICDASigner
     xmlSignature.sign(domSignContext);
     
     return nodeToByteArray(rootNode);
+  }
+  
+  @Override
+  public 
+  X509Certificate validate(byte[] signed) 
+    throws Exception 
+  {
+    DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+    
+    documentBuilderFactory.setNamespaceAware(true);
+    
+    DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+    
+    Document document = documentBuilder.parse(new ByteArrayInputStream(signed));
+    
+    NodeList nodeListQP = document.getElementsByTagName("QualifyingProperties");
+    if (nodeListQP != null && nodeListQP.getLength() > 0) {
+      for (int i = 0; i < nodeListQP.getLength(); ++i) {
+        Element elementQP = (Element) nodeListQP.item(i);
+        if (elementQP != null) {
+          elementQP.setIdAttribute("Id", true);
+        }
+      }
+    }
+    
+    NodeList nodeListSignature = document.getElementsByTagNameNS(XMLSignature.XMLNS, "Signature");
+    if (nodeListSignature.getLength() == 0) {
+      return null;
+    }
+    
+    DOMValidateContext domValidateContext = new DOMValidateContext(new KeyValueKeySelector(), nodeListSignature.item(0));
+    
+    XMLSignatureFactory xmlSignatureFactory = XMLSignatureFactory.getInstance("DOM");
+    
+    XMLSignature xmlSignature = xmlSignatureFactory.unmarshalXMLSignature(domValidateContext);
+    
+    boolean isValid = false;
+    try {
+      isValid = xmlSignature.validate(domValidateContext);
+    }
+    catch(Exception ex) {
+      System.err.println("validate: " + ex);
+    }
+    if(isValid) {
+      return getCertificate(xmlSignature.getKeyInfo());
+    }
+    return null;
+  }
+  
+  @Override
+  public 
+  X509Certificate validate(String signed) 
+    throws Exception 
+  {
+    if(signed == null || signed.length() == 0) {
+      return null;
+    }
+    
+    return validate(signed.getBytes());
   }
   
   protected 
@@ -440,6 +510,89 @@ class CDASignerXAdES implements ICDASigner
     URL url = Thread.currentThread().getContextClassLoader().getResource(fileName);
     if(url == null) return null;
     return url.openStream();
+  }
+  
+  protected static
+  X509Certificate getCertificate(KeyInfo keyInfo)
+  {
+    if (keyInfo == null) return null;
+    
+    List<?> keyInfoContent = keyInfo.getContent();
+    
+    for (int i = 0; i < keyInfoContent.size(); i++) {
+      Object keyInfoItem = keyInfoContent.get(i);
+      
+      if(keyInfoItem instanceof X509Data) {
+        List<?> x509DataContent = ((X509Data) keyInfoItem).getContent();
+        for (int j = 0; j < x509DataContent.size(); j++) {
+          Object x509Item = x509DataContent.get(i);
+          if(x509Item instanceof X509Certificate) {
+            return ((X509Certificate) x509Item);
+          }
+        }
+      }
+    }
+    
+    return null;
+  }
+  
+  private static 
+  class KeyValueKeySelector extends KeySelector 
+  {
+    public 
+    KeySelectorResult select(KeyInfo keyInfo, KeySelector.Purpose purpose, AlgorithmMethod method, XMLCryptoContext context)
+      throws KeySelectorException 
+    {
+      if (keyInfo == null) {
+        throw new KeySelectorException("KeyInfo is null");
+      }
+      List<?> keyInfoContent = keyInfo.getContent();
+      PublicKey publicKey = null;
+      for (int i = 0; i < keyInfoContent.size(); i++) {
+        Object keyInfoItem = keyInfoContent.get(i);
+        
+        if (keyInfoItem instanceof KeyValue) {
+          try {
+            publicKey = ((KeyValue) keyInfoItem).getPublicKey();
+            break;
+          } 
+          catch (KeyException ke) {
+            throw new KeySelectorException(ke);
+          }
+        }
+        else if(keyInfoItem instanceof X509Data) {
+          List<?> x509DataContent = ((X509Data) keyInfoItem).getContent();
+          for (int j = 0; j < x509DataContent.size(); j++) {
+            Object x509Item = x509DataContent.get(i);
+            if(x509Item instanceof Certificate) {
+              publicKey = ((Certificate) x509Item).getPublicKey();
+              break;
+            }
+          }
+        }
+      }
+      if(publicKey != null) {
+        return new SimpleKeySelectorResult(publicKey);
+      }
+      throw new KeySelectorException("No PublicKey found");
+    }
+  }
+  
+  private static
+  class SimpleKeySelectorResult implements KeySelectorResult 
+  {
+    PublicKey publicKey;
+    
+    public SimpleKeySelectorResult(PublicKey publicKey)
+    {
+      this.publicKey = publicKey;
+    }
+    
+    public
+    Key getKey()
+    {
+      return publicKey;
+    }
   }
 }
 

@@ -1,5 +1,6 @@
 package org.dew.hl7;
 
+import java.security.cert.X509Certificate;
 import java.util.Map;
 
 /**
@@ -32,4 +33,22 @@ interface ICDASigner
    * @return signature
    */
   public byte[] sign(String content) throws Exception;
+  
+  /**
+   * Verifica la firma digitale.
+   * 
+   * @param signed byte[]
+   * @throws Exception Error
+   * @return null if not valid, X509Certificate instance if valid.
+   */
+  public X509Certificate validate(byte[] signed) throws Exception;
+  
+  /**
+   * Verifica la firma digitale.
+   * 
+   * @param signed String
+   * @throws Exception Error
+   * @return null if not valid, X509Certificate instance if valid.
+   */
+  public X509Certificate validate(String signed) throws Exception;
 }

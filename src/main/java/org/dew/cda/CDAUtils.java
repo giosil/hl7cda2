@@ -304,7 +304,7 @@ class CDAUtils
   }
   
   public static
-  String toNotEmptyString(Object value, String sDefaultValue)
+  String toString(Object value, String sDefaultValue)
   {
     if(value == null) return sDefaultValue;
     String result = value.toString();
