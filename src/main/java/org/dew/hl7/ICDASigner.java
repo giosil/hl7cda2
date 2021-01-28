@@ -51,4 +51,13 @@ interface ICDASigner
    * @return null if not valid, X509Certificate instance if valid.
    */
   public X509Certificate validate(String signed) throws Exception;
+  
+  /**
+   * Estra il contenuto dalla firma digitale.
+   * 
+   * @param signed byte[]
+   * @throws Exception Error
+   * @return content
+   */
+  public byte[] extract(byte[] signed) throws Exception;
 }

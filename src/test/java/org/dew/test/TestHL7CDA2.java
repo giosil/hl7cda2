@@ -1,5 +1,6 @@
 package org.dew.test;
 
+import java.security.cert.X509Certificate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -44,8 +45,6 @@ public class TestHL7CDA2 extends TestCase {
     
     cdaRenderer(cda2);
     
-    sign(xml1);
-    
     transform(xml1);
   }
   
@@ -83,7 +82,7 @@ public class TestHL7CDA2 extends TestCase {
     
     String xml = cdaSerialize(cda);
     
-    sign(xml);
+    signCAdES(xml);
   }
   
   protected 
@@ -156,7 +155,7 @@ public class TestHL7CDA2 extends TestCase {
   }
   
   protected 
-  void sign(String content) 
+  void signXAdES(String content) 
     throws Exception 
   {
     if(content == null) {
@@ -184,6 +183,41 @@ public class TestHL7CDA2 extends TestCase {
     else {
       System.out.println(new String(signature));
     }
+  }
+  
+  protected 
+  void signCAdES(String content) 
+    throws Exception 
+  {
+    if(content == null) {
+      System.out.println("content is null");
+      return;
+    }
+    
+    if(content.length() < 20) {
+      System.out.println("content is not valid: \"" + content + "\"");
+      return;
+    }
+    
+    ICDASigner cdaSigner = new CDASignerCAdES();
+    
+    System.out.println("sign...");
+    
+    byte[] signature = cdaSigner.sign(content);
+    
+    if(signature == null) {
+      System.out.println("signature is null");
+    }
+    else if(signature.length == 0) {
+      System.out.println("signature is 0 length");
+    }
+    else {
+      System.out.println("signature has " + signature.length);
+    }
+    
+    X509Certificate certificate = cdaSigner.validate(signature);
+    
+    System.out.println(certificate);
   }
   
   protected 

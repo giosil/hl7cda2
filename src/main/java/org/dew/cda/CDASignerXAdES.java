@@ -16,6 +16,7 @@ import java.security.KeyStore;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.Security;
+
 import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
@@ -74,7 +75,7 @@ import org.dew.hl7.ICDASigner;
 
 @SuppressWarnings("deprecation")
 public 
-class CDASignerXAdES implements ICDASigner 
+class CDASignerXAdES implements ICDASigner
 {
   protected String keystoreFile    = "keystore.jks";
   protected String keystorePass    = "password";
@@ -117,10 +118,9 @@ class CDASignerXAdES implements ICDASigner
       this.omitDec = ((Boolean) oOmitXmlDeclaration).booleanValue();
     }
     else if(oOmitXmlDeclaration != null) {
-      String sOmitXmlDeclaration = oOmitXmlDeclaration.toString();
-      if(sOmitXmlDeclaration != null && sOmitXmlDeclaration.length() > 0) {
-        char c0 = sOmitXmlDeclaration.charAt(0);
-        this.omitDec = "1TYStys".indexOf(c0) >= 0;
+      String value = oOmitXmlDeclaration.toString();
+      if(value != null && value.length() > 0) {
+        this.omitDec = "1TYStys".indexOf(value.charAt(0)) >= 0;
       }
     }
     
@@ -129,10 +129,9 @@ class CDASignerXAdES implements ICDASigner
       this.indent = ((Boolean) oIdent).booleanValue();
     }
     else if(oIdent != null) {
-      String sIdent = oIdent.toString();
-      if(sIdent != null && sIdent.length() > 0) {
-        char c0 = sIdent.charAt(0);
-        this.indent = "1TYStys".indexOf(c0) >= 0;
+      String value = oIdent.toString();
+      if(value != null && value.length() > 0) {
+        this.indent = "1TYStys".indexOf(value.charAt(0)) >= 0;
       }
     }
     
@@ -186,31 +185,7 @@ class CDASignerXAdES implements ICDASigner
   byte[] sign(String content) 
     throws Exception 
   {
-    if(this.privateKey == null) loadPrivateKey();
-    
-    if(this.privateKey == null) {
-      throw new Exception("privatekey unavailable");
-    }
-    if(this.certificate == null) {
-      throw new Exception("certificate unavailable");
-    }
-    if(content == null || content.length() == 0) {
-      throw new Exception("Invalid content");
-    }
-    
-    DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-    DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-    Document document = documentBuilder.parse(new ByteArrayInputStream(content.getBytes()));
-    
-    XMLSignature xmlSignature = createXMLSignature(document);
-    
-    Element rootNode = document.getDocumentElement();
-    
-    DOMSignContext domSignContext = new DOMSignContext(privateKey, rootNode);
-    
-    xmlSignature.sign(domSignContext);
-    
-    return nodeToByteArray(rootNode);
+    return sign(content.getBytes());
   }
   
   @Override
@@ -270,6 +245,14 @@ class CDASignerXAdES implements ICDASigner
     }
     
     return validate(signed.getBytes());
+  }
+  
+  @Override
+  public 
+  byte[] extract(byte[] signed) 
+    throws Exception
+  {
+    return signed;
   }
   
   protected 
