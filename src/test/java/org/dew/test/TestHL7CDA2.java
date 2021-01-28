@@ -46,6 +46,8 @@ public class TestHL7CDA2 extends TestCase {
     cdaRenderer(cda2);
     
     transform(xml1);
+    
+    signXAdES(xml1);
   }
   
   protected 
@@ -75,7 +77,7 @@ public class TestHL7CDA2 extends TestCase {
   }
   
   protected
-  void cdaSign()
+  void cdaSignCAdES()
     throws Exception
   {
     ClinicalDocument cda = buildClinicalDocument();
@@ -83,6 +85,17 @@ public class TestHL7CDA2 extends TestCase {
     String xml = cdaSerialize(cda);
     
     signCAdES(xml);
+  }
+  
+  protected
+  void cdaSignXAdES()
+    throws Exception
+  {
+    ClinicalDocument cda = buildClinicalDocument();
+    
+    String xml = cdaSerialize(cda);
+    
+    signXAdES(xml);
   }
   
   protected 
