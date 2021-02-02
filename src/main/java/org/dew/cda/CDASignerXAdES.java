@@ -68,12 +68,14 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.bouncycastle.openssl.PEMReader;
+
+import org.bouncycastle.openssl.PEMKeyPair;
+import org.bouncycastle.openssl.PEMParser;
+import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter;
 
 import org.dew.hl7.Base64Coder;
 import org.dew.hl7.ICDASigner;
 
-@SuppressWarnings("deprecation")
 public 
 class CDASignerXAdES implements ICDASigner
 {
@@ -461,22 +463,28 @@ class CDASignerXAdES implements ICDASigner
     InputStream is = openResource(privateKeyFile);
     if(is == null) return null;
     
-    PEMReader pemReader = null;
+    PEMParser pemParser = null;
     try {
       Security.addProvider(new BouncyCastleProvider());
       
-      pemReader = new PEMReader(new InputStreamReader(is));
+      pemParser = new PEMParser(new InputStreamReader(is));
       
-      Object pemObject = pemReader.readObject();
-      if(pemObject instanceof KeyPair) {
-        return ((KeyPair) pemObject).getPrivate();
+      Object object = pemParser.readObject();
+      
+      if(object instanceof PEMKeyPair) {
+        
+        PEMKeyPair pemKeyPair = (PEMKeyPair) object;
+        
+        KeyPair keyPair = new JcaPEMKeyConverter().getKeyPair(pemKeyPair);
+        
+        return keyPair.getPrivate();
       }
       
       throw new Exception("Invalid pem file " + privateKeyFile);
     }
     finally {
       if(is != null) try{ is.close(); } catch(Exception ex) {}
-      if(pemReader != null) try{ pemReader.close(); } catch(Exception ex) {}
+      if(pemParser != null) try{ pemParser.close(); } catch(Exception ex) {}
     }
   }
   
