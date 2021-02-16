@@ -1273,7 +1273,7 @@ class CDASerializer_IT implements ICDASerializer
       if(isAct) {
         sb.append("</act>");
       }
-      if(isSubAdm) {
+      else if(isSubAdm) {
         sb.append("</substanceAdministration>");
       }
       else {
