@@ -300,7 +300,7 @@ public class TestHL7CDA2 extends TestCase {
     .addEntry("Data",                      "28/01/2021")
     .addEntry("Punto di somministrazione", "AVR - ASL ROMA2 - ROMA")
     .addEntry("Lotto",                     "EL1484")
-    .addEntry("Farmaco",                   "049269018", "COMIRNATY BioNTech/Pfizer");
+    .addEntry("Farmaco",                   "049269018", "COMIRNATY BioNTech/Pfizer", 1, toDate(28, 1, 2021));
     
     clinicalDocument.addSection("PDF", "application/pdf", pdfCertificate);
     

@@ -3,6 +3,7 @@ package org.dew.hl7;
 import java.io.Serializable;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public 
@@ -197,6 +198,22 @@ class Section implements Serializable
     }
     
     Entry entry = new Entry(code, value, displayName);
+    
+    if(entries == null) {
+      entries = new ArrayList<Entry>();
+    }
+    
+    entries.add(entry);
+    
+    return this;
+  }
+  
+  public Section addEntry(String code, String value, String displayName, int doseQuantity, Date effectiveTime) {
+    if(value == null || value.length() == 0) {
+      return this;
+    }
+    
+    Entry entry = new Entry(code, value, displayName, doseQuantity, effectiveTime);
     
     if(entries == null) {
       entries = new ArrayList<Entry>();

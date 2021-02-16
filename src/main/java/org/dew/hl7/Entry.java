@@ -7,7 +7,7 @@ import java.util.Date;
 public 
 class Entry implements Serializable
 {
-  private static final long serialVersionUID = -8969866182850025459L;
+  private static final long serialVersionUID = -2474533096705804967L;
   
   private String id;
   private String typeCode;
@@ -25,6 +25,7 @@ class Entry implements Serializable
   private String value;
   private String type;
   private String unit;
+  private int    doseQuantity;
   private String text;
   private String reference;
   private String manufacturedProduct;
@@ -94,6 +95,45 @@ class Entry implements Serializable
             this.value = value.substring(0,sep);
             this.unit  = value.substring(sep+1);
           }
+        }
+      }
+    }
+  }
+  
+  public Entry(String code, String value, String displayName, int doseQuantity, Date effectiveTime)
+  {
+    this.code  = code;
+    this.value = value;
+    this.displayName = displayName;
+    this.doseQuantity = doseQuantity;
+    this.effectiveTime = effectiveTime;
+    
+    if(value != null) {
+      value = value.trim();
+      if(value.length() > 2 && Character.isDigit(value.charAt(0))) {
+        int sep = value.indexOf(' ');
+        if(sep > 0) {
+          this.value = value.substring(0,sep);
+          this.unit  = value.substring(sep+1);
+        }
+      }
+    }
+  }
+  
+  public Entry(String code, String value, String displayName, Date effectiveTime)
+  {
+    this.code  = code;
+    this.value = value;
+    this.displayName = displayName;
+    this.effectiveTime = effectiveTime;
+    
+    if(value != null) {
+      value = value.trim();
+      if(value.length() > 2 && Character.isDigit(value.charAt(0))) {
+        int sep = value.indexOf(' ');
+        if(sep > 0) {
+          this.value = value.substring(0,sep);
+          this.unit  = value.substring(sep+1);
         }
       }
     }
@@ -234,6 +274,14 @@ class Entry implements Serializable
 
   public void setUnit(String unit) {
     this.unit = unit;
+  }
+  
+  public int getDoseQuantity() {
+    return doseQuantity;
+  }
+
+  public void setDoseQuantity(int doseQuantity) {
+    this.doseQuantity = doseQuantity;
   }
 
   public String getText() {

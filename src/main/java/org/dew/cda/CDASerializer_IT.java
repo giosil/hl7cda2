@@ -1263,6 +1263,16 @@ class CDASerializer_IT implements ICDASerializer
       }
       else if(isSubAdm) {
         sb.append("<substanceAdministration classCode=\"SBADM\" moodCode=\"EVN\">");
+        
+        Date etime = entry.getEffectiveTime();
+        if(etime != null) {
+          sb.append("<effectiveTime value=\"" + CDAUtils.getTimestamp(etime) + "\" />");
+        }
+        
+        int doseQuantity = entry.getDoseQuantity();
+        if(doseQuantity != 0) {
+          sb.append("<doseQuantity value=\"" + doseQuantity + "\" />");
+        }
       }
       else {
         sb.append("<observation classCode=\"OBS\" moodCode=\"EVN\">");
