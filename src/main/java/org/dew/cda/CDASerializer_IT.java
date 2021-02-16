@@ -964,6 +964,14 @@ class CDASerializer_IT implements ICDASerializer
         firstEncounter = true;
       }
     }
+    int sectNum = 0;
+    int lastSep = sectionId.lastIndexOf('-');
+    if(lastSep < 0) {
+      lastSep = sectionId.lastIndexOf('_');
+    }
+    if(lastSep > 0) {
+      try { sectNum = Integer.parseInt(sectionId.substring(lastSep + 1)); } catch(Exception ex) {}
+    }
     
     sb.append("<text>");
     sb.append("<table>");
@@ -980,7 +988,10 @@ class CDASerializer_IT implements ICDASerializer
       String edesc   = entry.getDisplayName();
       
       String prefix  = "";
-      if(item.indexOf(" post") > 0 && !firstEncounter) {
+      if(sectNum > 0) {
+        prefix = "S" + sectNum + "-";
+      }
+      else if(item.indexOf(" post") > 0 && !firstEncounter) {
         prefix = "POS-";
       }
       else if(item.indexOf(" iniz") < 0 && item.indexOf(" first") < 0 && !firstEncounter) {
@@ -1057,6 +1068,9 @@ class CDASerializer_IT implements ICDASerializer
       }
       else if(item.indexOf("pupil") >= 0) {
         entry.setReference(prefix + "VAL-PUP");
+      }
+      else if(item.indexOf("farmaco") >= 0) {
+        entry.setReference(prefix + "FARMACO");
       }
       else {
         if(!isNotValuableEntry(entry)) {
@@ -1228,6 +1242,8 @@ class CDASerializer_IT implements ICDASerializer
       
       boolean isAct = isAct(entry);
       
+      boolean isSubAdm = isSubstanceAdministration(entry);
+      
       if(organizer) {
         sb.append("<component typeCode=\"COMP\">");
       }
@@ -1245,6 +1261,9 @@ class CDASerializer_IT implements ICDASerializer
       if(isAct) {
         sb.append("<act classCode=\"INFRM\" moodCode=\"EVN\">");
       }
+      else if(isSubAdm) {
+        sb.append("<substanceAdministration classCode=\"SBADM\" moodCode=\"EVN\">");
+      }
       else {
         sb.append("<observation classCode=\"OBS\" moodCode=\"EVN\">");
       }
@@ -1253,6 +1272,9 @@ class CDASerializer_IT implements ICDASerializer
       
       if(isAct) {
         sb.append("</act>");
+      }
+      if(isSubAdm) {
+        sb.append("</substanceAdministration>");
       }
       else {
         sb.append("</observation>");
@@ -1283,6 +1305,9 @@ class CDASerializer_IT implements ICDASerializer
     }
     
     if(item.startsWith("data"))     return true;
+    if(item.startsWith("dose"))     return true;
+    if(item.startsWith("punto"))    return true;
+    if(item.startsWith("lotto"))    return true;
     if(item.startsWith("luogo"))    return true;
     if(item.startsWith("motivo"))   return true;
     if(item.startsWith("dinamica")) return true;
@@ -1484,6 +1509,11 @@ class CDASerializer_IT implements ICDASerializer
     else if(item.indexOf("esame") >= 0 && item.indexOf("ob") >= 0) {
       
       buildLOINCVal(sb, loinc, "22029-3", eref, evalue, eunit, edesc, etime);
+      
+    }
+    else if(item.indexOf("farmac") >= 0) {
+      
+      buildManufacturedProduct(sb, eref, evalue, eunit, edesc, etime);
       
     }
     else if(item.indexOf("valutaz") >= 0 || item.indexOf("sanit") >= 0) {
@@ -1691,6 +1721,26 @@ class CDASerializer_IT implements ICDASerializer
   }
   
   protected 
+  void buildManufacturedProduct(StringBuilder sb, String eref, String evalue, String eunit, String edesc, Date etime)
+      throws Exception
+  {
+    sb.append("<consumable>");
+    sb.append("<manufacturedProduct>");
+    sb.append("<templateId root=\"2.16.840.1.113883.2.9.10.1.4.3.2.2\" />");
+    sb.append("<manufacturedMaterial>");
+    sb.append("<code code=\"" + evalue + "\" codeSystem=\"2.16.840.1.113883.2.9.6.1.5\" codeSystemName=\"AIC\" displayName=\"" + edesc + "\">");
+    if(eref != null && eref.length() > 0) {
+      sb.append("<originalText>");
+      sb.append("<reference value=\"#" + eref + "\" />");
+      sb.append("</originalText>");
+    }
+    sb.append("</code>");
+    sb.append("</manufacturedMaterial>");
+    sb.append("</manufacturedProduct>");
+    sb.append("</consumable>");
+  }
+  
+  protected 
   boolean isAct(Entry entry)
   {
     if(entry == null) return false;
@@ -1716,6 +1766,21 @@ class CDASerializer_IT implements ICDASerializer
     else if(item.startsWith("trat")) {
       return true;
     }
+    return false;
+  }
+  
+  protected 
+  boolean isSubstanceAdministration(Entry entry)
+  {
+    if(entry == null) return false;
+    
+    String item = getItem(entry);
+    if(item == null) return false;
+    
+    if(item.indexOf("farmac") >= 0) {
+        return true;
+    }
+    
     return false;
   }
   
@@ -1758,6 +1823,10 @@ class CDASerializer_IT implements ICDASerializer
         // Scheda 118 - Missione
         return "2.16.840.1.113883.2.9.10.1.6.21";
       }
+    }
+    else if(sectionIdLC.startsWith("sommin") || sectionIdLC.indexOf("farmac") >= 0) {
+      // Somministrazioni / Terapie farmacologiche
+      return "2.16.840.1.113883.2.9.10.1.4.2.2";
     }
     else if(sectionIdLC.startsWith("terap") || sectionIdLC.startsWith("trat")) {
       // Terapia / Trattamenti
@@ -1826,6 +1895,10 @@ class CDASerializer_IT implements ICDASerializer
     else if(sectionIdLC.indexOf("diag") >= 0) {
       // Diagnosi
       return "29548-5";
+    }
+    else if(sectionIdLC.indexOf("sommin") >= 0 || sectionIdLC.indexOf("farmac") >= 0) {
+      // Somministrazioni / Terapie farmacologiche
+      return "10160-0";
     }
     
     addWarning("Codice sezione non individuato per sectionId=" + sectionId + " (def. " + defaultCode + ").");

@@ -33,6 +33,9 @@ class LOINC_IT implements ICodeSystem
   public static final String sDOC_VACCINAZIONI           = "11369-6";
   // Scheda paziente 118
   public static final String sDOC_SCHEDA_PAZIENTE_118    = "78341-5";
+  // Certificato e scheda vaccinale
+  public static final String sDOC_CERTIFICATO_VACCINALE  = "82593-5";
+  public static final String sDOC_SCHEDA_VACCINALE       = "87273-9";
   
   @Override
   public String getCodeSystem() {
@@ -99,6 +102,12 @@ class LOINC_IT implements ICodeSystem
     if(displayNameLC.indexOf("emerg") >= 0 || displayNameLC.equals("eds")) {
       return sDOC_EMERGENCY_DATA_SET;
     }
+    if(displayNameLC.indexOf("vaccin") >= 0 || displayNameLC.indexOf("sched") >= 0) {
+      return sDOC_SCHEDA_VACCINALE;
+    }
+    if(displayNameLC.indexOf("vaccin") >= 0 || displayNameLC.indexOf("cert") >= 0) {
+      return sDOC_CERTIFICATO_VACCINALE;
+    }
     if(displayNameLC.indexOf("vaccin") >= 0 || displayNameLC.indexOf("immun") >= 0) {
       return sDOC_VACCINAZIONI;
     }
@@ -143,6 +152,8 @@ class LOINC_IT implements ICodeSystem
     if(code.equals(sDOC_RICHIESTA_TRASPORTO))    return "Richiesta di trasporto";
     if(code.equals(sDOC_VACCINAZIONI))           return "Vaccinazioni";
     if(code.equals(sDOC_SCHEDA_PAZIENTE_118))    return "Scheda paziente 118";
+    if(code.equals(sDOC_CERTIFICATO_VACCINALE))  return "Certificato vaccinale";
+    if(code.equals(sDOC_SCHEDA_VACCINALE))       return "Scheda vaccinale";
     
     // Sezioni
     if(code.equals("54094-8")) return "Note Triage";
@@ -153,6 +164,7 @@ class LOINC_IT implements ICodeSystem
     if(code.equals("8716-3"))  return "Parametri vitali";
     if(code.equals("62387-6")) return "Interventi";
     if(code.equals("29548-5")) return "Diagnosi";
+    if(code.equals("10160-0")) return "Terapie farmacologiche";
     
     // Parametri
     if(code.equals("11378-7")) return "Pressione arteriosa sistolica iniziale";
@@ -217,6 +229,8 @@ class LOINC_IT implements ICodeSystem
     if(code.equals(sDOC_RICHIESTA_TRASPORTO))    return "2.16.840.1.113883.2.9.10.2.7";
     if(code.equals(sDOC_VACCINAZIONI))           return "2.16.840.1.113883.2.9.10.2.6";
     if(code.equals(sDOC_SCHEDA_PAZIENTE_118))    return "2.16.840.1.113883.2.9.10.1.6.1";
+    if(code.equals(sDOC_SCHEDA_VACCINALE))       return "2.16.840.1.113883.2.9.10.1.6.1";
+    if(code.equals(sDOC_CERTIFICATO_VACCINALE))  return "2.16.840.1.113883.2.9.10.1.6.1";
     
     return "";
   }
@@ -273,6 +287,8 @@ class LOINC_IT implements ICodeSystem
     if(code.equals(sDOC_RICHIESTA_TRASPORTO))    return "ITPRF_PRESC_TRAS-001";
     if(code.equals(sDOC_VACCINAZIONI))           return "ITPRF_VACC-001";
     if(code.equals(sDOC_SCHEDA_PAZIENTE_118))    return "ITPRF_SCHEDA_PAZ-001";
+    if(code.equals(sDOC_SCHEDA_VACCINALE))       return "ITPRF_SCHEDA_VAC-001";
+    if(code.equals(sDOC_CERTIFICATO_VACCINALE))  return "ITPRF_CERT_VAC-001";
     
     return "";
   }

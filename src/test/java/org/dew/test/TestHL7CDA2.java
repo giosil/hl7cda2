@@ -279,6 +279,34 @@ public class TestHL7CDA2 extends TestCase {
     return clinicalDocument;
   }
   
+  protected  
+  ClinicalDocument buildVaccinationCertificate() 
+  {
+    byte[] pdfCertificate = "%PDF-1.1".getBytes();
+    
+    ClinicalDocument clinicalDocument = new ClinicalDocument("120", "Regione Lazio");
+    
+    clinicalDocument.setId("REF-20201102-0001");
+    clinicalDocument.setEffectiveTime(toDate(2, 11, 2020, 16, 30));
+    clinicalDocument.setCode("82593-5");
+    clinicalDocument.setTitle("Certificato Vaccinale");
+    
+    clinicalDocument.setPatient(new Person("RSSMRA75C03F839K", "ROSSI", "MARIO", "M", toDate(03, 3, 1975), "NAPOLI"));
+    clinicalDocument.setAuthor(new Person("XXXXXX01A01H501X", "XXX", "XXX", "Dott."));
+    clinicalDocument.setCustodian(new Organization("120201", "ROMA 1"));
+    
+    clinicalDocument.addSection("SOMMINISTRAZIONE-1", "Somministrazione 1")
+    .addEntry("Dose",                      "1")
+    .addEntry("Data",                      "28/01/2021")
+    .addEntry("Punto di somministrazione", "AVR - ASL ROMA2 - ROMA")
+    .addEntry("Lotto",                     "EL1484")
+    .addEntry("Farmaco",                   "049269018", "COMIRNATY BioNTech/Pfizer");
+    
+    clinicalDocument.addSection("PDF", "application/pdf", pdfCertificate);
+    
+    return clinicalDocument;
+  }
+  
   protected
   ClinicalDocument buildEmergencyReport() 
   {
