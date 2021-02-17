@@ -52,7 +52,6 @@
   </dependencies>
   
   <build>
-    
     <pluginManagement>
       <plugins>
         <plugin>
@@ -83,7 +82,6 @@
         </plugin>
       </plugins>
     </pluginManagement>
-    
     <plugins>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -103,6 +101,5 @@
         </executions>
       </plugin>
     </plugins>
-    
   </build>
 </project>
