@@ -263,7 +263,11 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
       for(int i = 0; i < attributes.getLength(); i++) {
         String sLocalName = attributes.getLocalName(i);
         if(sLocalName.equalsIgnoreCase("extension")) {
-          getPatient().setId(attributes.getValue(i));
+          Person patient = getPatient();
+          String patientId = patient.getId();
+          if(patientId == null || patientId.length() != 16) {
+            patient.setId(attributes.getValue(i));
+          }
         }
       }
     }
@@ -287,7 +291,11 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
       for(int i = 0; i < attributes.getLength(); i++) {
         String sLocalName = attributes.getLocalName(i);
         if(sLocalName.equalsIgnoreCase("extension")) {
-          getGuardian().setId(attributes.getValue(i));
+          Person guardian = getGuardian();
+          String guardianId = guardian.getId();
+          if(guardianId == null || guardianId.length() != 16) {
+            guardian.setId(attributes.getValue(i));
+          }
         }
       }
     }
@@ -295,7 +303,11 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
       for(int i = 0; i < attributes.getLength(); i++) {
         String sLocalName = attributes.getLocalName(i);
         if(sLocalName.equalsIgnoreCase("extension")) {
-          getAuthor().setId(attributes.getValue(i));
+          Person author = getAuthor();
+          String authorId = author.getId();
+          if(authorId == null || authorId.length() != 16) {
+            author.setId(attributes.getValue(i));
+          }
         }
       }
     }
@@ -303,7 +315,11 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
       for(int i = 0; i < attributes.getLength(); i++) {
         String sLocalName = attributes.getLocalName(i);
         if(sLocalName.equalsIgnoreCase("extension")) {
-          getInformant().setId(attributes.getValue(i));
+          Person informant = getInformant();
+          String informantId = informant.getId();
+          if(informantId == null || informantId.length() != 16) {
+            informant.setId(attributes.getValue(i));
+          }
         }
       }
     }
@@ -311,7 +327,11 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
       for(int i = 0; i < attributes.getLength(); i++) {
         String sLocalName = attributes.getLocalName(i);
         if(sLocalName.equalsIgnoreCase("extension")) {
-          getLegalAuthenticator().setId(attributes.getValue(i));
+          Person legalAuthenticator = getLegalAuthenticator();
+          String legalAuthenticatorId = legalAuthenticator.getId();
+          if(legalAuthenticatorId == null || legalAuthenticatorId.length() != 16) {
+            legalAuthenticator.setId(attributes.getValue(i));
+          }
         }
       }
     }
