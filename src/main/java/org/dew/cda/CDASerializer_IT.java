@@ -1436,7 +1436,7 @@ class CDASerializer_IT implements ICDASerializer
     
     StringBuilder sb = new StringBuilder();
     
-    if(item.indexOf("crit") >= 0 || (item.indexOf("cod") >= 0 &&  item.indexOf("fine") >= 0)) {
+    if(item.indexOf("cri") >= 0 || (item.indexOf("cod") >= 0 && item.indexOf("fin") >= 0)) {
       
       buildCritVal(sb, eref, evalue, edesc, etime);
       

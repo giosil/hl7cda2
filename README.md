@@ -84,6 +84,8 @@ byte[] pkcs7 = sig.sign(xml);
 
 - `git clone https://github.com/giosil/hl7cda2.git`
 - `mvn clean install`
+- `mvn cobertura:cobertura` - To run the unit tests and generate a Cobertura report.
+- `mvn checkstyle:checkstyle` - To check source code respect the rules defined in checkstyle.xml.
 
 ## Contributors
 

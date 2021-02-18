@@ -16,9 +16,16 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 public class TestHL7CDA2 extends TestCase {
+  protected boolean trace = false;
 
   public TestHL7CDA2(String testName) {
     super(testName);
+    
+    String traceOpt = System.getProperty("trace");
+    if(traceOpt != null && traceOpt.length() > 0) {
+      char c0 = traceOpt.charAt(0);
+      trace = "1JSTYjsty".indexOf(c0) >= 0;
+    }
   }
   
   public static Test suite() {
@@ -58,7 +65,7 @@ public class TestHL7CDA2 extends TestCase {
     
     String xml = cdaSerializer.toXML(clinicalDocument);
     
-    System.out.println(xml);
+    if(trace) System.out.println(xml);
     
     return xml;
   }
@@ -164,7 +171,7 @@ public class TestHL7CDA2 extends TestCase {
     
     String html = cdaRenderer.transform(content, "CDAit.xsl");
     
-    System.out.println(html);
+    if(trace) System.out.println(html);
   }
   
   protected 
@@ -194,7 +201,7 @@ public class TestHL7CDA2 extends TestCase {
       System.out.println("signature is 0 length");
     }
     else {
-      System.out.println(new String(signature));
+      if(trace) System.out.println(new String(signature));
     }
   }
   
@@ -230,7 +237,7 @@ public class TestHL7CDA2 extends TestCase {
     
     X509Certificate certificate = cdaSigner.validate(signature);
     
-    System.out.println(certificate);
+    if(trace) System.out.println(certificate);
   }
   
   protected 
@@ -251,7 +258,7 @@ public class TestHL7CDA2 extends TestCase {
     
     String html = cdaRenderer.toHTML(clinicalDocument);
     
-    System.out.println(html);
+    if(trace) System.out.println(html);
     
     return html;
   }
