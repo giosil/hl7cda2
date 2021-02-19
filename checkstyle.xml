@@ -6,111 +6,126 @@
 <module name="Checker">
   
   <module name="TreeWalker">
-  
-<!-- verifica che classi con solo COSTANTI o STATIC abbiano un costruttore -->
+    
+<!-- Class Design -->
+    
+<!-- Makes sure that utility classes (classes that contain only static methods or fields in their API) do not have a public constructor. -->
     <module name="HideUtilityClassConstructor">
       <property name="severity" value="warning"/>
     </module>
-<!-- verifica che vi siano piu' classi nello stesso file -->
+<!-- Checks that each top-level class, interface, enum or annotation resides in a source file of its own. -->
     <module name="OneTopLevelClass"/>
-<!-- override di equals() senza gestire l'override con equals(object) -->
+    
+<!-- Coding -->
+    
+<!-- Checks that classes and records which define a covariant equals() method also override method equals(Object). -->
     <module name="CovariantEquals"/>
-<!-- override di equals() senza gestire l'override con EqualsHashCode() -->
+<!-- Checks that classes that either override equals() or hashCode() also overrides the other.  -->
     <module name="EqualsHashCode"/>
-<!-- verifica ; senza senso -->
+<!-- Detects empty statements (standalone ";" semicolon). Empty statements often introduce bugs that are hard to spot -->
     <module name="EmptyStatement">
       <property name="severity" value="warning"/>
     </module>
-<!-- verifica che l'elemento NULL sia a sinistra di una comparazione-->
+<!-- Checks that any combination of String literals is on the left side of an equals() comparison. -->
     <module name="EqualsAvoidNull">
       <property name="severity" value="warning"/>
     </module>
-<!-- verifica che variabili locali mai cambiate non siano FINAL -->
+<!-- Checks that local variables that never have their values changed are declared final. -->
     <module name="FinalLocalVariable">
       <property name="severity" value="warning"/>
       <property name="tokens" value="VARIABLE_DEF,PARAMETER_DEF"/>
     </module>
-<!-- verifica che variabili locali abbiano un dublicato nella stessa classe a meno di COSTUTTORE e SETTER  -->
+<!-- Checks that a local variable or a parameter does not shadow a field that is defined in the same class.  -->
     <module name="HiddenField">
       <property name="severity" value="warning"/>
       <property name="ignoreConstructorParameter" value="true"/>
-      <property name="ignoreSetter" value="true"/>        
+      <property name="ignoreSetter" value="true"/>
       <property name="tokens" value="VARIABLE_DEF"/>
     </module>
-<!-- For performance reasons, it is preferable to use the predefined constants TRUE and FALSE respect Boolean istance -->
+<!-- For performance reasons, it is preferable to use the predefined constants TRUE and FALSE respect Boolean instance. -->
     <module name="IllegalInstantiation">
       <property name="classes" value="java.lang.Boolean"/>
     </module>
-<!-- verifica di utilizzare token tipici -->
+<!-- Checks for illegal tokens. By default labels are prohibited. -->
     <module name="IllegalToken">
       <property name="tokens" value="LITERAL_NATIVE"/>
     </module>
-<!-- verifica INNER ASSIGMENT come: String s = Integer.toString(i = 2); -->
+<!-- Checks for assignments in subexpressions, such as in String s = Integer.toString(i = 2);. -->
     <module name="InnerAssignment">
       <property name="severity" value="warning"/>
     </module>
-<!-- verifica che in cicli for la variabile di ciclo venga modificata -->
+<!-- Checks that for loop control variables are not modified inside the for block. An example is: for (int i = 0; i < 1; i++) { i++; //violation } -->
     <module name="ModifiedControlVariable"/>
-<!-- verifica scritture con booleani complesse -->
+<!-- Checks for over-complicated boolean expressions. Currently finds code like if (b == true), b || true, !false, etc. -->
     <module name="SimplifyBooleanExpression"/>
+<!-- Checks for over-complicated boolean return statements. For example the following code: if (valid()) return false; else return true; -->
     <module name="SimplifyBooleanReturn"/>
-<!-- verifica string = invece di equals -->
+<!-- Checks that string literals are not used with == or !=. Since == will compare the object references, not the actual value of the strings, String.equals() should be used. -->
     <module name="StringLiteralEquality"/>
-<!-- verifica catch -->
+<!-- Checks that certain exception types do not appear in a catch statement. -->
     <module name="IllegalCatch">
       <property name="illegalClassNames" value="java.lang.Throwable, java.lang.RuntimeException"/>
     </module>
-
+<!-- Ensures that a class has a package declaration, and (optionally) whether the package name matches the directory name for the source file. -->
     <module name="PackageDeclaration"/>
-
+<!-- Checks that each variable declaration is in its own statement and on its own line. -->
     <module name="MultipleVariableDeclarations"/>
-
+<!-- Checks if unnecessary parentheses are used in a statement or expression. -->
     <module name="UnnecessaryParentheses">
       <property name="severity" value="warning"/>
     </module>
-
+<!-- Checks that there is only one statement per line. Rationale: It's very difficult to read multiple statements on one line. -->
     <module name="OneStatementPerLine"/>
-
-<!-- verifica che non vi siano main nelle classi -->
+    
+<!-- Miscellaneous -->
+    
+<!-- Detects uncommented main methods. Rationale: A main method is often used for debugging purposes. When debugging is finished, developers often forget to remove the method. -->
     <module name="UncommentedMain"/>
-
-<!-- verifica complessita' ciclomatica -->
+    
+<!-- Complexity code  -->
+    
+<!-- Checks cyclomatic complexity against a specified limit. It is a measure of the minimum number of possible paths through the source and therefore the number of required tests, it is not a about quality of code! It is only applied to methods, c-tors, static initializers and instance initializers. -->
     <module name="CyclomaticComplexity">
       <property name="severity" value="warning"/>
       <property name="max" value="30"/>
     </module>
-<!-- numero massimo di AND OR NOT in  una espressione  -->
+<!-- Restricts the number of boolean operators in an expression. Rationale: Too many conditions leads to code that is difficult to read and hence debug and maintain. -->
     <module name="BooleanExpressionComplexity">
+      <property name="severity" value="warning"/>
       <property name="max" value="5"/>
     </module>
-
+<!-- Checks the NPATH complexity against a specified limit. The NPATH metric computes the number of possible execution paths through a function(method). It takes into account the nesting of conditional statements and multi-part boolean expressions. -->
     <module name="NPathComplexity">
       <property name="severity" value="warning"/>
     </module>
-
-<!-- names -->
+    
+<!-- Naming Conventions -->
+    
+<!-- Checks that package names conform to a specified pattern.-->
     <module name="PackageName">
       <property name="format" value="^org.dew.[a-z0-9]+(\.[a-zA-Z_][a-zA-Z0-9_]*)*$"/>
     </module>
+<!-- Checks that constant names conform to a specified pattern. -->
     <module name="ConstantName">
-      <property name="format" value="^[a-zA-Z][a-zA-Z0-9_]*$"/>
+      <property name="severity" value="warning"/>
+      <property name="format" value="^[A-Z][A-Z0-9_]*$"/>
     </module>
-<!-- class Names -->
+<!-- Checks that class names conform to a specified pattern. -->
     <module name="TypeName">
       <property name="format" value="^[A-Z][a-zA-Z0-9_]*$"/>
       <property name="tokens" value="CLASS_DEF"/>
     </module>
-<!-- interface names -->
+<!-- Checks that interface names conform to a specified pattern. -->
     <module name="TypeName">
       <property name="format" value="^I[A-Z][a-zA-Z0-9_]*$"/>
       <property name="tokens" value="INTERFACE_DEF"/>
     </module>
-<!-- verifica ANNOTATION sulla stessa riga -->
+<!-- Checks location of annotation on language elements. -->
     <module name="AnnotationLocation">
       <property name="allowSamelineMultipleAnnotations" value="false"/>
       <property name="allowSamelineSingleParameterlessAnnotation" value="true"/>
     </module>
-  
+    
   </module>
-
+  
 </module>
