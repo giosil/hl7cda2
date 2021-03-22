@@ -1910,6 +1910,9 @@ class CDASerializer_IT implements ICDASerializer
       // Somministrazioni / Terapie farmacologiche
       return "10160-0";
     }
+    else if(sectionIdLC.equals("pdf")){
+      return defaultCode;
+    }
     
     addWarning("Codice sezione non individuato per sectionId=" + sectionId + " (def. " + defaultCode + ").");
     
