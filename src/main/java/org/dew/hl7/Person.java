@@ -7,7 +7,7 @@ import java.util.Date;
 public 
 class Person implements Serializable
 {
-  private static final long serialVersionUID = -968637875488632886L;
+  private static final long serialVersionUID = -4605910514317881661L;
   
   private String id;
   private String prefix;
@@ -41,6 +41,17 @@ class Person implements Serializable
     this.family = family;
     this.given  = given;
     this.prefix = prefix;
+  }
+  
+  public Person(String id, String family, String given, String prefix, String orgId, String orgName)
+  {
+    this.id     = id;
+    this.family = family;
+    this.given  = given;
+    this.prefix = prefix;
+    if(orgId != null && orgId.length() > 0) {
+      this.organization = new Organization(orgId, orgName);
+    }
   }
   
   public Person(String id, String family, String given, String gender, Date birthTime)

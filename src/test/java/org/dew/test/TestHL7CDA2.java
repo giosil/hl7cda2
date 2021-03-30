@@ -275,7 +275,7 @@ public class TestHL7CDA2 extends TestCase {
     clinicalDocument.setTitle("Referto ambulatoriale");
     
     clinicalDocument.setPatient(new Person("RSSMRA75C03F839K", "ROSSI", "MARIO", "M", toDate(03, 3, 1975), "NAPOLI"));
-    clinicalDocument.setAuthor(new Person("XXXXXX01A01H501X", "XXX", "XXX", "Dott."));
+    clinicalDocument.setAuthor(new Person("XXXXXX01A01H501X", "XXX", "XXX", "Dott.", "120201", "ROMA 1"));
     clinicalDocument.setCustodian(new Organization("120201", "ROMA 1"));
     clinicalDocument.setScopingOrg(new Organization("120201", "ROMA 1"));
     

@@ -506,13 +506,27 @@ class CDASerializer_IT implements ICDASerializer
         if(orgName != null && orgName.length() > 0) {
           sb.append("<name>" + CDAUtils.xml(orgName) + "</name>");
         }
+        if(scopOrganization != null) {
+          String scoId   = scopOrganization.getId();
+          String scoName = scopOrganization.getName();
+          if(scoId != null && scoId.length() > 0) {
+            sb.append("<asOrganizationPartOf>");
+            sb.append("<wholeOrganization>");
+            sb.append("<id assigningAuthorityName=\"" + authorityName + "\" extension=\"" + scoId + "\" root=\"" + orgIdRoot + "\" />");
+            if(scoName != null && scoName.length() > 0) {
+              sb.append("<name>" + CDAUtils.xml(scoName) + "</name>");
+            }
+            sb.append("</wholeOrganization>");
+            sb.append("</asOrganizationPartOf>");
+          }
+        }
         sb.append("</representedOrganization>");
       }
     }
     else if(scopOrganization != null) {
-      String orgId   = scopOrganization.getId();
-      String orgName = scopOrganization.getName();
-      if(orgId != null && orgId.length() > 0) {
+      String scoId   = scopOrganization.getId();
+      String scoName = scopOrganization.getName();
+      if(scoId != null && scoId.length() > 0) {
         String authorityName = cda.getAuthorityName();
         if(authorityName == null || authorityName.length() == 0) {
           authorityName = getAuthorityName(authorityCode);
@@ -520,9 +534,9 @@ class CDASerializer_IT implements ICDASerializer
         }
         String orgIdRoot = OID_HL7_IT + "." + authorityCode + ".4.11";
         sb.append("<representedOrganization>");
-        sb.append("<id assigningAuthorityName=\"" + authorityName + "\" extension=\"" + orgId + "\" root=\"" + orgIdRoot + "\" />");
-        if(orgName != null && orgName.length() > 0) {
-          sb.append("<name>" + CDAUtils.xml(orgName) + "</name>");
+        sb.append("<id assigningAuthorityName=\"" + authorityName + "\" extension=\"" + scoId + "\" root=\"" + orgIdRoot + "\" />");
+        if(scoName != null && scoName.length() > 0) {
+          sb.append("<name>" + CDAUtils.xml(scoName) + "</name>");
         }
         sb.append("</representedOrganization>");
       }
