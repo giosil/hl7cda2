@@ -489,6 +489,44 @@ class CDASerializer_IT implements ICDASerializer
       sb.append("</name>");
       sb.append("</assignedPerson>");
     }
+    Organization authOrganization = author.getOrganization();
+    Organization scopOrganization = cda.getScopingOrg();
+    if(authOrganization != null) {
+      String orgId   = authOrganization.getId();
+      String orgName = authOrganization.getName();
+      if(orgId != null && orgId.length() > 0) {
+        String authorityName = cda.getAuthorityName();
+        if(authorityName == null || authorityName.length() == 0) {
+          authorityName = getAuthorityName(authorityCode);
+          cda.setAuthorityName(authorityName);
+        }
+        String orgIdRoot = OID_HL7_IT + "." + authorityCode + ".4.11";
+        sb.append("<representedOrganization>");
+        sb.append("<id assigningAuthorityName=\"" + authorityName + "\" extension=\"" + orgId + "\" root=\"" + orgIdRoot + "\" />");
+        if(orgName != null && orgName.length() > 0) {
+          sb.append("<name>" + CDAUtils.xml(orgName) + "</name>");
+        }
+        sb.append("</representedOrganization>");
+      }
+    }
+    else if(scopOrganization != null) {
+      String orgId   = scopOrganization.getId();
+      String orgName = scopOrganization.getName();
+      if(orgId != null && orgId.length() > 0) {
+        String authorityName = cda.getAuthorityName();
+        if(authorityName == null || authorityName.length() == 0) {
+          authorityName = getAuthorityName(authorityCode);
+          cda.setAuthorityName(authorityName);
+        }
+        String orgIdRoot = OID_HL7_IT + "." + authorityCode + ".4.11";
+        sb.append("<representedOrganization>");
+        sb.append("<id assigningAuthorityName=\"" + authorityName + "\" extension=\"" + orgId + "\" root=\"" + orgIdRoot + "\" />");
+        if(orgName != null && orgName.length() > 0) {
+          sb.append("<name>" + CDAUtils.xml(orgName) + "</name>");
+        }
+        sb.append("</representedOrganization>");
+      }
+    }
     sb.append("</assignedAuthor>");
     sb.append("</author>");
   }
@@ -656,7 +694,7 @@ class CDASerializer_IT implements ICDASerializer
       sb.append("</assignedPerson>");
     }
     sb.append("</assignedEntity>");
-    if(orgId != null && orgId.length() > 1) {
+    if(orgId != null && orgId.length() > 0) {
       sb.append("<representedOrganization>");
       sb.append("<id assigningAuthorityName=\"" + authorityName + "\" extension=\"" + orgId + "\" root=\"" + orgIdRoot + "\" />");
       if(orgName != null && orgName.length() > 0) {
@@ -665,10 +703,10 @@ class CDASerializer_IT implements ICDASerializer
       if(orgCity != null && orgCity.length() > 1) {
         sb.append("<addr>");
         sb.append("<city>" + orgCity + "</city>");
-        if(orgPostalCode != null && orgPostalCode.length() == 5) {
+        if(orgPostalCode != null && orgPostalCode.length() > 0) {
           sb.append("<postalCode>" + orgPostalCode + "</postalCode>");
         }
-        if(orgStreetName != null && orgStreetName.length() > 1) {
+        if(orgStreetName != null && orgStreetName.length() > 0) {
           sb.append("<streetName>" + CDAUtils.xml(orgStreetName) + "</streetName>");
         }
         if(orgHouseNumber != null && orgHouseNumber.length() > 0) {
@@ -683,6 +721,19 @@ class CDASerializer_IT implements ICDASerializer
         sb.append("</addr>");
       }
       sb.append("</representedOrganization>");
+    }
+    else if(cda.getScopingOrg() != null) {
+      Organization scopOrganization = cda.getScopingOrg();
+      orgId   = scopOrganization.getId();
+      orgName = scopOrganization.getName();
+      if(orgId != null && orgId.length() > 0) {
+        sb.append("<representedOrganization>");
+        sb.append("<id assigningAuthorityName=\"" + authorityName + "\" extension=\"" + orgId + "\" root=\"" + orgIdRoot + "\" />");
+        if(orgName != null && orgName.length() > 0) {
+          sb.append("<name>" + CDAUtils.xml(orgName) + "</name>");
+        }
+        sb.append("</representedOrganization>");
+      }
     }
     sb.append("</legalAuthenticator>");
   }
