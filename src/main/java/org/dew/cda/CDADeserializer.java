@@ -311,6 +311,26 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
         }
       }
     }
+    else if(currentTag.endsWith("clinicaldocument|author|assignedauthor|representedorganization|id")) {
+      String sExtension  = "";
+      for(int i = 0; i < attributes.getLength(); i++) {
+        String sLocalName = attributes.getLocalName(i);
+        if(sLocalName.equalsIgnoreCase("extension")) {
+          sExtension = attributes.getValue(i);
+        }
+      }
+      getScopingOrg().setId(sExtension);
+    }
+    else if(currentTag.endsWith("clinicaldocument|author|assignedauthor|representedorganization|asorganizationpartof|wholeorganization|id")) {
+      String sExtension  = "";
+      for(int i = 0; i < attributes.getLength(); i++) {
+        String sLocalName = attributes.getLocalName(i);
+        if(sLocalName.equalsIgnoreCase("extension")) {
+          sExtension = attributes.getValue(i);
+        }
+      }
+      getScopingOrg().setId(sExtension);
+    }
     else if(currentTag.endsWith("clinicaldocument|informant|assignedentity|id")) {
       for(int i = 0; i < attributes.getLength(); i++) {
         String sLocalName = attributes.getLocalName(i);
@@ -641,6 +661,12 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
     else if(currentTag.endsWith("clinicaldocument|author|assignedauthor|assignedperson|name|family")) {
       getAuthor().setFamily(currentValue);
     }
+    else if(currentTag.endsWith("clinicaldocument|author|assignedauthor|representedorganization|name")) {
+      getScopingOrg().setName(currentValue);
+    }
+    else if(currentTag.endsWith("clinicaldocument|author|assignedauthor|representedorganization|asorganizationpartof|wholeorganization|name")) {
+      getScopingOrg().setName(currentValue);
+    }
     else if(currentTag.endsWith("clinicaldocument|informant|assignedentity|assignedperson|name|prefix")) {
       getInformant().setPrefix(currentValue);
     }
@@ -658,6 +684,9 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
     }
     else if(currentTag.endsWith("clinicaldocument|legalauthenticator|assignedentity|assignedperson|name|family")) {
       getLegalAuthenticator().setFamily(currentValue);
+    }
+    else if(currentTag.endsWith("clinicaldocument|legalauthenticator|assignedentity|representedorganization|name")) {
+      getScopingOrg().setName(currentValue);
     }
     else if(currentTag.endsWith("clinicaldocument|custodian|assignedcustodian|representedcustodianorganization|name")) {
       getCustodian().setName(currentValue);
