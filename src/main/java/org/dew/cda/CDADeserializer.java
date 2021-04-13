@@ -373,6 +373,16 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
         }
       }
     }
+    else if(currentTag.endsWith("clinicaldocument|relateddocument")) {
+      String typeCode = null;
+      for(int i = 0; i < attributes.getLength(); i++) {
+        String sLocalName = attributes.getLocalName(i);
+        if(sLocalName.equalsIgnoreCase("typeCode")) {
+          typeCode = attributes.getValue(i);
+        }
+      }
+      cda.setRelatedDocumentType(typeCode);
+    }
     else if(currentTag.endsWith("clinicaldocument|relateddocument|parentdocument|id")) {
       String sExtension  = "";
       String sRoot = "";
