@@ -122,6 +122,8 @@ class CDASerializer_IT implements ICDASerializer
     
     buildInFulfillmentOf(sb, cda);
     
+    buildRelatedDocument(sb, cda);
+    
     buildParticipant(sb, cda);
     
     buildBody(sb, cda);
@@ -198,7 +200,9 @@ class CDASerializer_IT implements ICDASerializer
       displayName = loinc.getDisplayName(code);
       
       if(displayName == null || displayName.length() == 0) {
-        addWarning("Nessuna descrizione LOINC individuata per " + code);
+        if(code != null && code.length() > 0) {
+          addWarning("Nessuna descrizione LOINC individuata per " + code);
+        }
       }
       else {
         cda.setDisplayName(displayName);
@@ -774,7 +778,7 @@ class CDASerializer_IT implements ICDASerializer
       extension = inFulfillmentOf;
     }
     else if(inFulfillmentOf != null && inFulfillmentOf.length() != 15) {
-      root = "2.16.840.1.113883.2.9.2." + cda.getAuthorityCode();
+      root = "2.16.840.1.113883.2.9.2." + cda.getAuthorityCode() + ".4.4";
       extension = inFulfillmentOf;
     }
     
@@ -783,6 +787,50 @@ class CDASerializer_IT implements ICDASerializer
     sb.append("<id root=\"" + root + "\" extension=\"" + extension + "\" />");
     sb.append("</order>");
     sb.append("</inFulfillmentOf>");
+  }
+  
+  protected 
+  void buildRelatedDocument(StringBuilder sb, ClinicalDocument cda)
+    throws Exception
+  {
+    if(sb == null || cda == null) return;
+    
+    String relatedDocumentId = cda.getRelatedDocumentId();
+    if(relatedDocumentId == null || relatedDocumentId.length() == 0) {
+      return;
+    }
+    
+    String root      = "";
+    String extension = "";
+    if(relatedDocumentId != null && relatedDocumentId.length() > 10 && relatedDocumentId.indexOf('.') > 0) {
+      root      = CDAUtils.getRoot(relatedDocumentId, "2.16.840.1.113883.2.9.4.3.8");
+      extension = CDAUtils.getExtension(relatedDocumentId);
+    }
+    else if(relatedDocumentId != null && relatedDocumentId.length() == 15) {
+      root = "2.16.840.1.113883.2.9.4.3.8"; // NRE
+      extension = relatedDocumentId;
+    }
+    else if(relatedDocumentId != null && relatedDocumentId.length() != 15) {
+      root = "2.16.840.1.113883.2.9.2." + cda.getAuthorityCode() + ".4.4";
+      extension = relatedDocumentId;
+    }
+    
+    String relatedDocumentType = cda.getRelatedDocumentType();
+    if(relatedDocumentType == null || relatedDocumentType.length() == 0) {
+      String code = CDAUtils.getCode(cda);
+      if("11506-3".equals(code)) relatedDocumentType = "XFRM";
+    }
+    
+    if(relatedDocumentType != null && relatedDocumentType.length() > 0) {
+      sb.append("<relatedDocument typeCode=\"" + CDAUtils.xmlAttrib(relatedDocumentType) + "\">");
+    }
+    else {
+      sb.append("<relatedDocument>");
+    }
+    sb.append("<parentDocument>");
+    sb.append("<id root=\"" + root + "\" extension=\"" + extension + "\" />");
+    sb.append("</parentDocument>");
+    sb.append("</relatedDocument>");
   }
   
   protected 
@@ -873,7 +921,9 @@ class CDASerializer_IT implements ICDASerializer
         if(cdaDisplayName == null || cdaDisplayName.length() > 0) {
           cdaDisplayName = loinc.getDisplayName(cdaCode);
           if(cdaDisplayName == null || cdaDisplayName.length() == 0) {
-            addWarning("Nessuna descrizione LOINC individuata per " + cdaCode);
+            if(cdaCode != null && cdaCode.length() > 0) {
+              addWarning("Nessuna descrizione LOINC individuata per " + cdaCode);
+            }
           }
         }
         
@@ -924,7 +974,9 @@ class CDASerializer_IT implements ICDASerializer
       if(displayName == null || displayName.length() == 0) {
         displayName = loinc.getDisplayName(code);
         if(displayName == null || displayName.length() == 0) {
-          addWarning("Nessuna descrizione LOINC individuata per " + code);
+          if(code != null && code.length() > 0) {
+            addWarning("Nessuna descrizione LOINC individuata per " + code);
+          }
         }
       }
       
@@ -1009,6 +1061,26 @@ class CDASerializer_IT implements ICDASerializer
       sb.append("<text>");
       sb.append("</text>");
       return;
+    }
+    
+    if(entries.size() == 1) {
+      Entry entry0 = entries.get(0);
+      if(entry0 == null) {
+        sb.append("<text>");
+        sb.append("</text>");
+        return;
+      }
+      String entry0Code = entry0.getCode();
+      if(entry0Code != null) {
+        if(entry0Code.equalsIgnoreCase("text") || entry0Code.equalsIgnoreCase("testo")) {
+          String entry0Text = entry0.getText();
+          if(entry0Text == null || entry0Text.length() == 0) {
+            entry0Text = entry0.getValue();
+          }
+          sb.append("<text>" + CDAUtils.xml(entry0Text) + "</text>");
+          return;
+        }
+      }
     }
     
     boolean addColDescription = false;
@@ -1380,16 +1452,19 @@ class CDASerializer_IT implements ICDASerializer
     }
     
     if(item.startsWith("data"))     return true;
+    if(item.startsWith("luogo"))    return true;
+    if(item.startsWith("motiv"))    return true;
+    if(item.startsWith("text"))     return true;
+    if(item.startsWith("testo"))    return true;
+    if(item.startsWith("descriz"))  return true;
+    if(item.startsWith("note"))     return true;
     if(item.startsWith("dose"))     return true;
     if(item.startsWith("punto"))    return true;
     if(item.startsWith("lotto"))    return true;
-    if(item.startsWith("luogo"))    return true;
-    if(item.startsWith("motivo"))   return true;
+    if(item.startsWith("lingua"))   return true;
     if(item.startsWith("dinamica")) return true;
-    if(item.startsWith("note"))     return true;
     if(item.startsWith("mimica"))   return true;
     if(item.startsWith("spostam"))  return true;
-    if(item.startsWith("lingua"))   return true;
     
     return false;
   }
@@ -1745,7 +1820,9 @@ class CDASerializer_IT implements ICDASerializer
   {
     String displayName = loinc.getDisplayName(code);
     if(displayName == null || displayName.length() == 0) {
-      addWarning("Nessuna descrizione LOINC individuata per " + code);
+      if(code != null && code.length() > 0) {
+        addWarning("Nessuna descrizione LOINC individuata per " + code);
+      }
     }
     
     if(code != null && code.length() > 0) {
@@ -1977,6 +2054,9 @@ class CDASerializer_IT implements ICDASerializer
     }
     else if(sectionIdLC.equals("pdf")){
       return defaultCode;
+    }
+    else if(sectionIdLC.startsWith("causal") || sectionIdLC.startsWith("motiv")) {
+      return null;
     }
     
     addWarning("Codice sezione non individuato per sectionId=" + sectionId + " (def. " + defaultCode + ").");

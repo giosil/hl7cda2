@@ -171,16 +171,38 @@ class CDAUtils
     StringBuilder sb = new StringBuilder(length);
     for(int i = 0; i < length; i++) {
       char c = value.charAt(i);
-      if(c == '<')  sb.append("&lt;");   else
-        if(c == '>')  sb.append("&gt;");   else
-          if(c == '&')  sb.append("&amp;");  else
-            if(c > 127) {
-              int code = (int) c;
-              sb.append("&#" + code + ";");
-            }
-            else {
-              sb.append(c);
-            }
+      if(c == '<')  sb.append("&lt;");
+      else if(c == '>')  sb.append("&gt;");
+      else if(c == '&')  sb.append("&amp;");
+      else if(c > 127) {
+        int code = (int) c;
+        sb.append("&#" + code + ";");
+      }
+      else {
+        sb.append(c);
+      }
+    }
+    return sb.toString();
+  }
+  
+  public static
+  String xmlAttrib(String value)
+  {
+    if(value == null) return "";
+    int length = value.length();
+    if(length == 0) return "";
+    StringBuilder sb = new StringBuilder(length);
+    for(int i = 0; i < length; i++) {
+      char c = value.charAt(i);
+      if(c == '"') sb.append("&quot;");
+      else if(c < 32) sb.append(" ");
+      else if(c > 127) {
+        int code = (int) c;
+        sb.append("&#" + code + ";");
+      }
+      else {
+        sb.append(c);
+      }
     }
     return sb.toString();
   }

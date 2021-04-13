@@ -15,7 +15,9 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-public class TestHL7CDA2 extends TestCase {
+public 
+class TestHL7CDA2 extends TestCase 
+{
   protected boolean trace = false;
 
   public TestHL7CDA2(String testName) {
@@ -375,6 +377,28 @@ public class TestHL7CDA2 extends TestCase {
       .addEntry("Esito",                              "3", "Trattamento sul posto senza trasporto (consenso esplicito informato)");
     
     clinicalDocument.addSection("PDF", "application/pdf", pdfScheda);
+    
+    return clinicalDocument;
+  }
+  
+  protected
+  ClinicalDocument buildAnnulDocument() 
+  {
+    ClinicalDocument clinicalDocument = new ClinicalDocument("160", "Regione Puglia");
+    
+    clinicalDocument.setId("BA-2020-000510-0-ANN");
+    clinicalDocument.setEffectiveTime(toDate(13, 10, 2020, 16, 30));
+    clinicalDocument.setTitle("Annullamento");
+    
+    clinicalDocument.setPatient(new Person("RSSMRA75C03F839K", "ROSSI", "MARIO", "M", toDate(03, 3, 1975), "NAPOLI"));
+    clinicalDocument.setAuthor(new Person("oper118"));
+    clinicalDocument.setCustodian(new Organization("160114", "ASL BARI", "BARI", "70123", "LUNGOMARE STARITA", "6"));
+    
+    clinicalDocument.setRelatedDocumentId("BA-2020-000510-0");
+    clinicalDocument.setRelatedDocumentType("XFRM");
+    
+    clinicalDocument.addSection("CAUSALE", "Motivazione Annullamento Documento")
+      .addEntry("Text", "Documento annullato per rettifica");
     
     return clinicalDocument;
   }

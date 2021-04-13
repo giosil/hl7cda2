@@ -11,7 +11,7 @@ import java.util.Map;
 public 
 class ClinicalDocument implements Serializable
 {
-  private static final long serialVersionUID = 6982889383709147057L;
+  private static final long serialVersionUID = 5884829576975382082L;
   
   private String authorityCode;
   private String authorityName;
@@ -51,6 +51,7 @@ class ClinicalDocument implements Serializable
   private String inFulfillmentOf;
   private String documentationOf;
   private String relatedDocumentId;
+  private String relatedDocumentType;
   
   private String nonXMLBodyType;
   private String nonXMLBodyContent;
@@ -337,6 +338,14 @@ class ClinicalDocument implements Serializable
 
   public void setRelatedDocumentId(String relatedDocumentId) {
     this.relatedDocumentId = relatedDocumentId;
+  }
+
+  public String getRelatedDocumentType() {
+    return relatedDocumentType;
+  }
+
+  public void setRelatedDocumentType(String relatedDocumentType) {
+    this.relatedDocumentType = relatedDocumentType;
   }
 
   public String getNonXMLBodyType() {
