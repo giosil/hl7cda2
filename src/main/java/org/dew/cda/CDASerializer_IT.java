@@ -452,7 +452,7 @@ class CDASerializer_IT implements ICDASerializer
       authorId = authorId.substring(sep + 1);
     }
     String root = "2.16.840.1.113883.2.9.4.3.2";
-    if(authorId.length() != 16) {
+    if(authorId.length() != 16 || authorId.indexOf('-') >= 0) {
       root = OID_HL7_IT + "." + authorityCode + ".4.2";;
     }
     else if(Character.isDigit(authorId.charAt(0)) || !Character.isDigit(authorId.charAt(6)) || Character.isDigit(authorId.charAt(8))) {
