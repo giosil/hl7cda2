@@ -29,10 +29,6 @@
         </name>
         <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
         <birthTime value="19750303"/>
-        <guardian>
-          <id nullFlavor="UNK" root="2.16.840.1.113883.2.9.4.3.2"/>
-          <guardianPerson/>
-        </guardian>
         <birthplace>
           <place>
             <addr>
