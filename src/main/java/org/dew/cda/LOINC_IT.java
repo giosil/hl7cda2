@@ -36,6 +36,8 @@ class LOINC_IT implements ICodeSystem
   // Certificato e scheda vaccinale
   public static final String sDOC_CERTIFICATO_VACCINALE  = "82593-5";
   public static final String sDOC_SCHEDA_VACCINALE       = "87273-9";
+  public static final String sDOC_DIGITAL_GREEN_CERT     = "97500-3";
+  public static final String sDOC_CERTIFICATO_GUARIGIONE = "97499-8";
   
   @Override
   public String getCodeSystem() {
@@ -108,6 +110,12 @@ class LOINC_IT implements ICodeSystem
     if(displayNameLC.indexOf("vaccin") >= 0 || displayNameLC.indexOf("cert") >= 0) {
       return sDOC_CERTIFICATO_VACCINALE;
     }
+    if(displayNameLC.indexOf("guar") >= 0 || displayNameLC.indexOf("cert") >= 0) {
+      return sDOC_CERTIFICATO_GUARIGIONE;
+    }
+    if(displayNameLC.indexOf("green") >= 0 || displayNameLC.indexOf("cert") >= 0) {
+      return sDOC_DIGITAL_GREEN_CERT;
+    }
     if(displayNameLC.indexOf("vaccin") >= 0 || displayNameLC.indexOf("immun") >= 0) {
       return sDOC_VACCINAZIONI;
     }
@@ -154,6 +162,8 @@ class LOINC_IT implements ICodeSystem
     if(code.equals(sDOC_SCHEDA_PAZIENTE_118))    return "Scheda paziente 118";
     if(code.equals(sDOC_CERTIFICATO_VACCINALE))  return "Certificato vaccinale";
     if(code.equals(sDOC_SCHEDA_VACCINALE))       return "Scheda vaccinale";
+    if(code.equals(sDOC_DIGITAL_GREEN_CERT))     return "Digital Green Certificate";
+    if(code.equals(sDOC_CERTIFICATO_GUARIGIONE)) return "Certificato di guarigione";
     
     // Sezioni
     if(code.equals("54094-8")) return "Note Triage";
@@ -231,6 +241,8 @@ class LOINC_IT implements ICodeSystem
     if(code.equals(sDOC_SCHEDA_PAZIENTE_118))    return "2.16.840.1.113883.2.9.10.1.6.1";
     if(code.equals(sDOC_SCHEDA_VACCINALE))       return "2.16.840.1.113883.2.9.10.1.6.1";
     if(code.equals(sDOC_CERTIFICATO_VACCINALE))  return "2.16.840.1.113883.2.9.10.1.6.1";
+    if(code.equals(sDOC_DIGITAL_GREEN_CERT))     return "2.16.840.1.113883.2.9.10.1.6.1";
+    if(code.equals(sDOC_CERTIFICATO_GUARIGIONE)) return "2.16.840.1.113883.2.9.10.1.6.1";
     
     return "";
   }
