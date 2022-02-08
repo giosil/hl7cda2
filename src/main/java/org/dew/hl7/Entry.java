@@ -7,7 +7,7 @@ import java.util.Date;
 public 
 class Entry implements Serializable
 {
-  private static final long serialVersionUID = -2474533096705804967L;
+  private static final long serialVersionUID = -4257641511439087503L;
   
   private String id;
   private String typeCode;
@@ -29,6 +29,7 @@ class Entry implements Serializable
   private String text;
   private String reference;
   private String manufacturedProduct;
+  private String lotNumberText;
   private String participant;
   private String externalDocument;
   private String mediaId;
@@ -306,6 +307,14 @@ class Entry implements Serializable
 
   public void setManufacturedProduct(String manufacturedProduct) {
     this.manufacturedProduct = manufacturedProduct;
+  }
+  
+  public String getLotNumberText() {
+    return lotNumberText;
+  }
+
+  public void setLotNumberText(String lotNumberText) {
+    this.lotNumberText = lotNumberText;
   }
 
   public String getParticipant() {

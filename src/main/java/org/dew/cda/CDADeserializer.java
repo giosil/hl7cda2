@@ -725,6 +725,9 @@ class CDADeserializer implements ICDADeserializer, ContentHandler
     else if(currentTag.endsWith("|content")) {
       cda.putContent(contentId, currentValue);
     }
+    else if(currentTag.endsWith("|lotNumberText")) {
+      getCurrentEntry().setLotNumberText(currentValue);
+    }
     else if(currentTag.endsWith("section|entry|observationmedia|value")) {
       if(isCurrentSectionMedia()) {
         getCurrentSection().setMediaContent(currentValue);

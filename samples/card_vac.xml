@@ -1,0 +1,123 @@
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 xsd/hl7/infrastructure/cda/C32_CDA.xsd">
+  <realmCode code="IT"/>
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+  <templateId root="2.16.840.1.113883.2.9.10.2.15"/>
+  <id assigningAuthorityName="Regione Lazio" extension="AVR-20220128120354-3b8f7" root="2.16.840.1.113883.2.9.2.120.4.4"/>
+  <code code="87273-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Scheda vaccinale"/>
+  <title>Scheda Vaccinale</title>
+  <effectiveTime value="20220128120354+0100"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality"/>
+  <languageCode code="it-IT"/>
+  <setId assigningAuthorityName="Regione Lazio" extension="AVR-20220128120354-3b8f7" root="2.16.840.1.113883.2.9.2.120.4.4"/>
+  <versionNumber value="1"/>
+  <recordTarget>
+    <patientRole>
+      <id extension="SDTPZT69B01H501F" root="2.16.840.1.113883.2.9.4.3.2"/>
+      <patient>
+        <name>
+          <given>PAZIENTE</given>
+          <family>ISEDTEST</family>
+        </name>
+        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19690201"/>
+        <birthplace>
+          <place>
+            <addr>
+              <city>ROMA</city>
+              <country>Italia</country>
+            </addr>
+          </place>
+        </birthplace>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="20220128120354+0100"/>
+    <assignedAuthor>
+      <id extension="PROVAX00X00X000Y" root="2.16.840.1.113883.2.9.4.3.2"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dott.</prefix>
+          <given>XXX</given>
+          <family>PROVA</family>
+        </name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id assigningAuthorityName="Regione Lazio" extension="120202" root="2.16.840.1.113883.2.9.2.120.4.11"/>
+        <name>ROMA 2</name>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <component>
+    <structuredBody>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.2.9.10.1.4.2.3"/>
+          <id root="SOMMINISTRAZIONE" />
+          <code code="87273-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Immunization note"/>
+          <title>Scheda della singola Vaccinazione</title>
+          <text>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Dose</td>
+                  <td>1</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>Data</td>
+                  <td>13/10/2020</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>Punto di somministrazione</td>
+                  <td>AVR - ASL ROMA2 - ROMA</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>Lotto</td>
+                  <td>EL1484</td>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>Farmaco</td>
+                  <td>
+                    <content ID="S1-FARMACO-COD">049269018</content>
+                  </td>
+                  <td>
+                    <content ID="S1-FARMACO-DES">COMIRNATY BioNTech/Pfizer</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="COMP">
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+              <templateId root="2.16.840.1.113883.2.9.10.1.4.3.3.1"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20201013000000+0200"/>
+              <doseQuantity value="1"/>
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.2.9.10.1.4.3.3.2"/>
+                  <manufacturedMaterial>
+                    <code code="049269018" codeSystem="2.16.840.1.113883.2.9.6.1.5" codeSystemName="AIC" displayName="COMIRNATY BioNTech/Pfizer">
+                      <originalText>
+                        <reference value="#S1-FARMACO"/>
+                      </originalText>
+                    </code>
+                    <lotNumberText>EL1484</lotNumberText>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>
