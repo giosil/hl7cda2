@@ -239,7 +239,7 @@ class LOINC_IT implements ICodeSystem
     if(code.equals(sDOC_RICHIESTA_TRASPORTO))    return "2.16.840.1.113883.2.9.10.2.7";
     if(code.equals(sDOC_VACCINAZIONI))           return "2.16.840.1.113883.2.9.10.2.6";
     if(code.equals(sDOC_SCHEDA_PAZIENTE_118))    return "2.16.840.1.113883.2.9.10.1.6.1";
-    if(code.equals(sDOC_SCHEDA_VACCINALE))       return "2.16.840.1.113883.2.9.10.1.6.1";
+    if(code.equals(sDOC_SCHEDA_VACCINALE))       return "2.16.840.1.113883.2.9.10.2.15";
     if(code.equals(sDOC_CERTIFICATO_VACCINALE))  return "2.16.840.1.113883.2.9.10.1.6.1";
     if(code.equals(sDOC_DIGITAL_GREEN_CERT))     return "2.16.840.1.113883.2.9.10.1.6.1";
     if(code.equals(sDOC_CERTIFICATO_GUARIGIONE)) return "2.16.840.1.113883.2.9.10.1.6.1";

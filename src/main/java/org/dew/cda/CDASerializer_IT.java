@@ -966,7 +966,7 @@ class CDASerializer_IT implements ICDASerializer
       String displayName  = section.getDisplayName();
       
       if(templateId == null || templateId.length() == 0) {
-        templateId = getSectionTemplateId(section);
+        templateId = getSectionTemplateId(cda.getCode(), section);
       }
       if(code == null || code.length() == 0) {
         code = getSectionCode(section, CDAUtils.getCode(cda));
@@ -1298,7 +1298,7 @@ class CDASerializer_IT implements ICDASerializer
     }
     
     if(organizer) {
-      String organizerTemplateId  = getSectionTemplateId(section);
+      String organizerTemplateId  = getSectionTemplateId(cda.getCode(), section);
       String organizerCode        = getSectionCode(section, CDAUtils.getCode(cda));
       String organizerDisplayName = getSectionDisplayName(section);
       
@@ -1663,7 +1663,7 @@ class CDASerializer_IT implements ICDASerializer
     }
     else if(item.indexOf("farmac") >= 0) {
       
-      buildManufacturedProduct(sb, eref, evalue, eunit, edesc, etime);
+      buildManufacturedProduct(sb, eref, evalue, eunit, edesc, etime, entry.getLotNumberText());
       
     }
     else if(item.indexOf("valutaz") >= 0 || item.indexOf("sanit") >= 0) {
@@ -1873,7 +1873,7 @@ class CDASerializer_IT implements ICDASerializer
   }
   
   protected 
-  void buildManufacturedProduct(StringBuilder sb, String eref, String evalue, String eunit, String edesc, Date etime)
+  void buildManufacturedProduct(StringBuilder sb, String eref, String evalue, String eunit, String edesc, Date etime, String lotNumber)
       throws Exception
   {
     sb.append("<consumable>");
@@ -1887,6 +1887,9 @@ class CDASerializer_IT implements ICDASerializer
       sb.append("</originalText>");
     }
     sb.append("</code>");
+    if(lotNumber != null && lotNumber.length() > 0) {
+      sb.append("<lotNumberText>" + CDAUtils.xml(lotNumber) + "</lotNumberText>");
+    }
     sb.append("</manufacturedMaterial>");
     sb.append("</manufacturedProduct>");
     sb.append("</consumable>");
@@ -1937,7 +1940,7 @@ class CDASerializer_IT implements ICDASerializer
   }
   
   protected 
-  String getSectionTemplateId(Section section)
+  String getSectionTemplateId(String documentCode, Section section)
   {
     if(section == null) return null;
     
@@ -1977,8 +1980,14 @@ class CDASerializer_IT implements ICDASerializer
       }
     }
     else if(sectionIdLC.startsWith("sommin") || sectionIdLC.indexOf("farmac") >= 0) {
+      if(documentCode != null && documentCode.endsWith("87273-9")) {
+        return "2.16.840.1.113883.2.9.10.1.4.2.3"; // Scheda vaccinale
+      }
       // Somministrazioni / Terapie farmacologiche
       return "2.16.840.1.113883.2.9.10.1.4.2.2";
+    }
+    else if(sectionIdLC.startsWith("inoc")) {
+      return "2.16.840.1.113883.2.9.10.1.4.2.3";
     }
     else if(sectionIdLC.startsWith("terap") || sectionIdLC.startsWith("trat")) {
       // Terapia / Trattamenti

@@ -12,14 +12,14 @@
   <versionNumber value="1"/>
   <recordTarget>
     <patientRole>
-      <id extension="SDTPZT69B01H501F" root="2.16.840.1.113883.2.9.4.3.2"/>
+      <id extension="RSSMRA75C03F839K" root="2.16.840.1.113883.2.9.4.3.2"/>
       <patient>
         <name>
-          <given>PAZIENTE</given>
-          <family>ISEDTEST</family>
+          <given>MARIO</given>
+          <family>ROSSI</family>
         </name>
         <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
-        <birthTime value="19690201"/>
+        <birthTime value="19750303"/>
         <birthplace>
           <place>
             <addr>
