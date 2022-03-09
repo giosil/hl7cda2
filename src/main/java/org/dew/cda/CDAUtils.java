@@ -2,7 +2,6 @@ package org.dew.cda;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
 
 import org.dew.hl7.ClinicalDocument;
 
@@ -152,13 +151,21 @@ class CDAUtils
     String sHour   = iHour   < 10 ? "0" + iHour   : String.valueOf(iHour);
     String sMinute = iMinute < 10 ? "0" + iMinute : String.valueOf(iMinute);
     String sSecond = iSecond < 10 ? "0" + iSecond : String.valueOf(iSecond);
-    String sOffset = "";
-    if(TimeZone.getDefault().inDaylightTime(cal.getTime())) {
-      sOffset = "+0200";
+    // Get total offset in minutes
+    int iZoneOffsetMin = cal.get(Calendar.ZONE_OFFSET) / 60000;
+    int iDST_OffsetMin = cal.get(Calendar.DST_OFFSET)  / 60000;
+    int iTot_OffsetMin = iZoneOffsetMin + iDST_OffsetMin;
+    boolean negOffset  = false;
+    if(iTot_OffsetMin < 0) {
+      iTot_OffsetMin = iTot_OffsetMin * -1;
+      negOffset = true;
     }
-    else {
-      sOffset = "+0100";
-    }
+    // Format offset
+    int iTot_OffsetHH = iTot_OffsetMin / 60;
+    int iTot_OffsetMM = iTot_OffsetMin % 60;
+    String sOffsetHH  = iTot_OffsetHH < 10 ? "0" + iTot_OffsetHH : String.valueOf(iTot_OffsetHH);
+    String sOffsetMM  = iTot_OffsetMM < 10 ? "0" + iTot_OffsetMM : String.valueOf(iTot_OffsetMM);
+    String sOffset = negOffset ? "-" + sOffsetHH + sOffsetMM : "+" + sOffsetHH + sOffsetMM;
     return sYear + sMonth + sDay + sHour + sMinute + sSecond + sOffset;
   }
   
