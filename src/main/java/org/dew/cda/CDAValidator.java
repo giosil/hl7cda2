@@ -21,6 +21,7 @@ import org.dew.hl7.ICDAValidator;
 import org.dew.hl7.ValidationResult;
 import org.w3c.dom.Document;
 
+import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.io.resource.FileSystemResource;
 import com.helger.schematron.ISchematronResource;
 import com.helger.schematron.svrl.jaxb.FailedAssert;
@@ -147,23 +148,11 @@ class CDAValidator implements ICDAValidator
     int sep = schematron.indexOf('/');
     if(sep < 0) sep = schematron.indexOf('\\');
     if(sep < 0) {
-      URL url = Thread.currentThread().getContextClassLoader().getResource("sch/" + schematron);
-      InputStream is = null;
       try {
-        is = url.openStream();
+        return new SchematronResourceSCH(new ClassPathResource("sch/" + schematron));
       }
       catch(Exception ex) {
         System.err.println("Resource schematron " + schematron + " not available");
-        return null;
-      }
-      finally {
-        if(is != null) try{ is.close(); } catch(Exception ex) {}
-      }
-      try {
-        return new SchematronResourceSCH(new FileSystemResource(url.toURI()));
-      }
-      catch(Exception ex) {
-        System.err.println("Invalid uri schematron " + url);
         return null;
       }
     }
