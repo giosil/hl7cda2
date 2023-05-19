@@ -25,6 +25,30 @@ class ValidationResult implements Serializable, ErrorHandler
     fatals   = new ArrayList<String>();
   }
   
+  public ValidationResult(String error)
+  {
+    warnings = new ArrayList<String>();
+    errors   = new ArrayList<String>();
+    fatals   = new ArrayList<String>();
+    if(error != null && error.length() > 0) {
+      errors.add(error);
+    }
+  }
+  
+  public ValidationResult(Exception ex)
+  {
+    warnings = new ArrayList<String>();
+    errors   = new ArrayList<String>();
+    fatals   = new ArrayList<String>();
+    if(ex != null) {
+      String error = ex.getMessage();
+      if(error == null || error.length() == 0) {
+        error = ex.toString();
+      }
+      errors.add(error);
+    }
+  }
+  
   public List<String> getWarnings() {
     return warnings;
   }
@@ -67,7 +91,7 @@ class ValidationResult implements Serializable, ErrorHandler
   }
   
   public 
-  void clear() 
+  ValidationResult clear() 
   {
     if(warnings == null) warnings = new ArrayList<String>();
     if(errors == null) errors = new ArrayList<String>();
@@ -76,30 +100,68 @@ class ValidationResult implements Serializable, ErrorHandler
     warnings.clear();
     errors.clear();
     fatals.clear();
+    
+    return this;
   }
   
   public 
-  void addWarning(String text) 
+  ValidationResult addWarning(String text) 
   {
-    if(text == null || text.length() == 0) return;
+    if(text == null || text.length() == 0) return this;
     if(warnings == null) warnings = new ArrayList<String>();
     warnings.add(text);
+    
+    return this;
   }
   
   public 
-  void addError(String text) 
+  ValidationResult addError(String text) 
   {
-    if(text == null || text.length() == 0) return;
+    if(text == null || text.length() == 0) return this;
     if(errors == null) errors = new ArrayList<String>();
     errors.add(text);
+    
+    return this;
   }
   
   public 
-  void addFatal(String text) 
+  ValidationResult addFatal(String text) 
   {
-    if(text == null || text.length() == 0) return;
+    if(text == null || text.length() == 0) return this;
     if(fatals == null) fatals = new ArrayList<String>();
     fatals.add(text);
+    
+    return this;
+  }
+  
+  public 
+  ValidationResult addWarnings(List<String> list) 
+  {
+    if(list == null || list.size() == 0) return this;
+    if(warnings == null) warnings = new ArrayList<String>();
+    warnings.addAll(list);
+    
+    return this;
+  }
+  
+  public 
+  ValidationResult addErrors(List<String> list) 
+  {
+    if(list == null || list.size() == 0) return this;
+    if(errors == null) errors = new ArrayList<String>();
+    errors.addAll(list);
+    
+    return this;
+  }
+  
+  public 
+  ValidationResult addFatals(List<String> list) 
+  {
+    if(list == null || list.size() == 0) return this;
+    if(fatals == null) fatals = new ArrayList<String>();
+    fatals.addAll(list);
+    
+    return this;
   }
 
   @Override

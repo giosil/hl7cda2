@@ -10,5 +10,9 @@ interface ICDAValidator
 {
   public ValidationResult validate(InputStream inputStream) throws Exception;
   
+  public ValidationResult validate(InputStream inputStream, String schematron) throws Exception;
+  
   public ValidationResult validate(byte[] content) throws Exception;
+  
+  public ValidationResult validate(byte[] content, String schematron) throws Exception;
 }

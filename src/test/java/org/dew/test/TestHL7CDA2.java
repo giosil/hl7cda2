@@ -1,5 +1,9 @@
 package org.dew.test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.net.URL;
 import java.security.cert.X509Certificate;
 import java.util.Calendar;
 import java.util.Date;
@@ -8,8 +12,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.dew.cda.*;
-import org.dew.hl7.*;
+import org.dew.cda.CDADeserializer;
+import org.dew.cda.CDARenderer_IT;
+import org.dew.cda.CDASerializer_IT;
+import org.dew.cda.CDASignerCAdES;
+import org.dew.cda.CDASignerXAdES;
+import org.dew.cda.CDAValidator;
+
+import org.dew.hl7.ClinicalDocument;
+import org.dew.hl7.ICDADeserializer;
+import org.dew.hl7.ICDARenderer;
+import org.dew.hl7.ICDASerializer;
+import org.dew.hl7.ICDASigner;
+import org.dew.hl7.ICDAValidator;
+import org.dew.hl7.Organization;
+import org.dew.hl7.Person;
+import org.dew.hl7.ValidationResult;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -425,5 +443,31 @@ class TestHL7CDA2 extends TestCase
     Calendar calendar = new GregorianCalendar(iYYYY, iMM-1, iDD, iHH, iMI, iSS);
     
     return calendar.getTime();
+  }
+  
+  protected static
+  byte[] readFile(String file)
+    throws Exception
+  {
+    int sep = file.indexOf('/');
+    if(sep < 0) sep = file.indexOf('\\');
+    InputStream is = null;
+    if(sep < 0) {
+      URL url = Thread.currentThread().getContextClassLoader().getResource(file);
+      is = url.openStream();
+    }
+    else {
+      is = new FileInputStream(file);
+    }
+    try {
+      int n;
+      ByteArrayOutputStream baos = new ByteArrayOutputStream();
+      byte[] buff = new byte[1024];
+      while((n = is.read(buff)) > 0) baos.write(buff, 0, n);
+      return baos.toByteArray();
+    }
+    finally {
+      if(is != null) try{ is.close(); } catch(Exception ex) {}
+    }
   }
 }
