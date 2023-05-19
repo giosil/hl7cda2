@@ -12,7 +12,7 @@ import org.xml.sax.SAXParseException;
 public 
 class ValidationResult implements Serializable, ErrorHandler 
 {
-  private static final long serialVersionUID = 697233768272944314L;
+  private static final long serialVersionUID = 7828908593445728974L;
   
   protected List<String> warnings;
   protected List<String> errors;
@@ -163,7 +163,18 @@ class ValidationResult implements Serializable, ErrorHandler
     
     return this;
   }
-
+  
+  public 
+  ValidationResult add(ValidationResult validationResult)
+  {
+    if(validationResult == null) return this;
+    addWarnings(validationResult.getWarnings());
+    addErrors(validationResult.getErrors());
+    addFatals(validationResult.getFatals());
+    
+    return this;
+  }
+  
   @Override
   public 
   void warning(SAXParseException e) 
