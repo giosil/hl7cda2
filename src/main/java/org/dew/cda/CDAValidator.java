@@ -4,7 +4,6 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.InputStream;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +18,7 @@ import javax.xml.validation.Validator;
 
 import org.dew.hl7.ICDAValidator;
 import org.dew.hl7.ValidationResult;
+
 import org.w3c.dom.Document;
 
 import com.helger.commons.io.resource.ClassPathResource;
@@ -55,6 +55,23 @@ class CDAValidator implements ICDAValidator
     return result;
   }
   
+  /**
+   * Validazione CDA tramite schematron.
+   * Dipendenze:
+   * 
+   * <dependency>
+   *   <groupId>com.helger</groupId>
+   *   <artifactId>ph-schematron</artifactId>
+   *   <version>5.6.5</version>
+   * </dependency>
+   * 
+   * ph-collection-9.5.3.jar
+   * ph-commons-9.5.3.jar
+   * ph-jaxb-9.5.3.jar
+   * ph-schematron-5.6.5.jar
+   * ph-xml-9.5.3.jar
+   * Saxon-HE-10.3.jar
+   */
   @Override
   public 
   ValidationResult validate(InputStream inputStream, String schematron) 
@@ -105,6 +122,23 @@ class CDAValidator implements ICDAValidator
     return result;
   }
   
+  /**
+   * Validazione CDA tramite schematron.
+   * Dipendenze:
+   * 
+   * <dependency>
+   *   <groupId>com.helger</groupId>
+   *   <artifactId>ph-schematron</artifactId>
+   *   <version>5.6.5</version>
+   * </dependency>
+   * 
+   * ph-collection-9.5.3.jar
+   * ph-commons-9.5.3.jar
+   * ph-jaxb-9.5.3.jar
+   * ph-schematron-5.6.5.jar
+   * ph-xml-9.5.3.jar
+   * Saxon-HE-10.3.jar
+   */
   @Override
   public 
   ValidationResult validate(byte[] content, String schematron) 
