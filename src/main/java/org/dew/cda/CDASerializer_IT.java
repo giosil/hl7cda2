@@ -806,14 +806,25 @@ class CDASerializer_IT implements ICDASerializer
       root      = CDAUtils.getRoot(relatedDocumentId, "2.16.840.1.113883.2.9.4.3.8");
       extension = CDAUtils.getExtension(relatedDocumentId);
     }
-    else if(relatedDocumentId != null && relatedDocumentId.length() == 15) {
-      root = "2.16.840.1.113883.2.9.4.3.8"; // NRE
+    else if(relatedDocumentId != null && relatedDocumentId.length() > 0) {
+      root      = "2.16.840.1.113883.2.9.2." + cda.getAuthorityCode() + ".4.4";
       extension = relatedDocumentId;
     }
-    else if(relatedDocumentId != null && relatedDocumentId.length() != 15) {
-      root = "2.16.840.1.113883.2.9.2." + cda.getAuthorityCode() + ".4.4";
-      extension = relatedDocumentId;
+    
+    String relatedDocumentSetId = cda.getRelatedDocumentSetId();
+    
+    String rootSet      = "";
+    String extensionSet = "";
+    if(relatedDocumentSetId != null && relatedDocumentSetId.length() > 10 && relatedDocumentSetId.indexOf('.') > 0) {
+      rootSet      = CDAUtils.getRoot(relatedDocumentSetId, "2.16.840.1.113883.2.9.4.3.8");
+      extensionSet = CDAUtils.getExtension(relatedDocumentSetId);
     }
+    else if(relatedDocumentSetId != null && relatedDocumentSetId.length() > 0) {
+      rootSet      = "2.16.840.1.113883.2.9.2." + cda.getAuthorityCode() + ".4.4";
+      extensionSet = relatedDocumentSetId;
+    }
+    
+    String versionNumber = cda.getRelatedVersionNumber();
     
     String relatedDocumentType = cda.getRelatedDocumentType();
     if(relatedDocumentType == null || relatedDocumentType.length() == 0) {
@@ -829,6 +840,12 @@ class CDASerializer_IT implements ICDASerializer
     }
     sb.append("<parentDocument>");
     sb.append("<id root=\"" + root + "\" extension=\"" + extension + "\" />");
+    if(extensionSet != null && extensionSet.length() > 0) {
+      sb.append("<setId root=\"" + rootSet + "\" extension=\"" + extensionSet + "\" />");
+    }
+    if(versionNumber != null && versionNumber.length() > 0) {
+      sb.append("<versionNumber value=\"" + versionNumber + "\"/>");
+    }
     sb.append("</parentDocument>");
     sb.append("</relatedDocument>");
   }
