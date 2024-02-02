@@ -182,15 +182,7 @@
 			<assert test = "count(hl7:legalAuthenticator)=0 or (count(hl7:legalAuthenticator/hl7:assignedEntity/hl7:assignedPerson/hl7:name/hl7:family)=1 and 
 			count(hl7:legalAuthenticator/hl7:assignedEntity/hl7:assignedPerson/hl7:name/hl7:given)=1)"
 			>ERRORE-33| L'elemento <name/>/legalAuthenticator/assignedEntity/assignedPerson/name DEVE riportare gli elementi 'given' e 'family'</assert>
-			
-			 <!--Controllo documentationOf-->
-			<assert test = "count (hl7:documentationOf/hl7:serviceEvent)=0 or 
-			                count (hl7:documentationOf/hl7:serviceEvent/hl7:code[@code='PROG'])=1 or
-                            count (hl7:documentationOf/hl7:serviceEvent/hl7:code[@code='DIR'])=1"
-			>ERRORE-33a| L'elemento ClinicalDocument/documentationOf/serviceEvent deve contenere l'elemento code e DEVE valorizzare il suo attributo code con uno dei seguenti valori: 'PROG'|'DIR' </assert>			
-			<assert test = "count(hl7:documentationOf/hl7:serviceEvent)= 0 or count(hl7:documentationOf/hl7:serviceEvent/hl7:code[@codeSystem='2.16.840.1.113883.2.9.5.1.4'])= 1"
-			>ERRORE-33b| L'elemento ClinicalDocument/documentationOf/serviceEvent DEVE contenere l'elemento code valorizzato con l'attributo @codeSystem '2.16.840.1.113883.2.9.5.1.4'</assert>
-
+	 
 
 			<!--Controllo componentOf-->
 			<assert test="count(hl7:componentOf)=1"
@@ -253,6 +245,18 @@
 			>ERRORE-38| <name/>/order/priorityCode DEVE avere l'attributo '@codeSystem='2.16.840.1.113883.5.7' e @code valorizzato con uno dei seguenti valori: 'R'|'P'|'UR'|'EM' </assert>
 			
 		</rule>
+		
+		 <rule context="hl7:ClinicalDocument/hl7:documentationOf">
+			<assert test = "count (hl7:serviceEvent)=0 or 
+			                count (hl7:serviceEvent/hl7:code[@code='PROG'])=1 or
+                            count (hl7:serviceEvent/hl7:code[@code='DIR'])=1"
+			>ERRORE-33a| L'elemento ClinicalDocument/documentationOf/serviceEvent deve contenere l'elemento code e DEVE valorizzare il suo attributo code con uno dei seguenti valori: 'PROG'|'DIR' </assert>			
+			<assert test = "count(hl7:serviceEvent)= 0 or count(hl7:serviceEvent/hl7:code[@codeSystem='2.16.840.1.113883.2.9.5.1.4'])= 1"
+			>ERRORE-33b| L'elemento ClinicalDocument/documentationOf/serviceEvent DEVE contenere l'elemento code valorizzato con l'attributo @codeSystem '2.16.840.1.113883.2.9.5.1.4'</assert>
+			<assert test="count(hl7:serviceEvent/hl7:performer)=0 or count(hl7:serviceEvent/hl7:performer[@typeCode!='PPRF'])=1"
+			>ERRORE-33c| L'elemento ClinicalDocument/documentationOf/serviceEvent/performer deve essere valorizzato con uno dei seguenti valori: 'PRF' o 'SPRF'.</assert>
+
+		 </rule>
 		
 <!--____________________________________________________CONTROLLI GENERICI_________________________________________________________________-->
 	

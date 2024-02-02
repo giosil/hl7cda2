@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- schematron versione: 3.0-->
+<!-- schematron versione: 3.2-->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" 
 		xmlns:cda="urn:hl7-org:v3"
         xmlns:iso="http://purl.oclc.org/dsdl/schematron"
@@ -65,37 +65,15 @@
 			<!--Controllo recordTarget-->
 			<assert test="count(hl7:recordTarget)=1"
 			>ERRORE-10| L'elemento <name/> DEVE contenere un solo elemento 'recordTarget' </assert>
-			
-	        <!--Controllo recordTarget/patientRole/id-->
+
+			<!--Controllo recordTarget/patientRole/id-->
 			<assert test="count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.4.3.2'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.4.3.15'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.10.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.20.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.30.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.41.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.42.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.50.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.60.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.70.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.80.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.90.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.100.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.110.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.120.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.130.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.140.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.150.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.160.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.170.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.180.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.190.4.1'])=1 or
-			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.2.200.4.1'])=1"
-			>ERRORE-11a| L'elemento <name/>/recordTarget/patientRole/id  deve avere l'attributo @root valorizzato tramite uno dei seguenti identificatori Nazionanli:
+			count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.4.3.15'])=1"
+			>ERRORE-10a| L'elemento <name/>/recordTarget/patientRole/id  deve avere l'attributo @root valorizzato tramite uno dei seguenti identificatori Nazionanli:
 			CF 2.16.840.1.113883.2.9.4.3.2
 			ANA 2.16.840.1.113883.2.9.4.3.15
 			Oppure tramite gli identificatori regionali generati per rappresentare l'id del paziente.
 			</assert>
-			
 			
 			<!--Controllo recordTarget/patientRole/addr-->
 			<let name="num_addr" value="count(hl7:recordTarget/hl7:patientRole/hl7:addr)"/>
@@ -125,11 +103,9 @@
 			
 		<!--Controllo recordTarget/patientRole/patient/birthTime-->
             <assert test="count($patient)=0 or
-            (count(hl7:recordTarget/hl7:patientRole/hl7:id[@root='2.16.840.1.113883.2.9.4.3.2' or
-            @root='2.16.840.1.113883.2.9.4.3.7' or @root='2.16.840.1.113883.2.9.4.3.3' or
-            @root='2.16.840.1.113883.2.9.4.3.17'])=0) or
-            count(hl7:recordTarget/hl7:patientRole/hl7:patient/hl7:birthTime)=1"
-            >ERRORE-17| L'elemento <name/>/recordTaget/patientRole/patient DEVE riportare un elemento 'birthTime'.</assert>
+			count(hl7:recordTarget/hl7:patientRole/hl7:patient/hl7:birthTime)=1"
+			>ERRORE-17| L'elemento <name/>/recordTaget/patientRole/patient DEVE riportare un elemento 'birthTime'. Qualora non si possa risalire al dato, è possibile valorizzare l'elemento con @nullFlavor="UNK"</assert>	
+			
 			
 			<!--Controllo recordTarget/patientRole/patient/birthplace/place/addr-->
 			<assert test="count(hl7:recordTarget/hl7:patientRole/hl7:patient/hl7:birthplace)=0 or 
@@ -158,7 +134,6 @@
 			
 			
 		    <!--Controllo ClinicalDocument/legalAuthenticator-->
-			<!--let name='statusCode' value='hl7:sdtc:statusCode'/-->
 			<assert test = "count(hl7:legalAuthenticator)= 1" 
 			>ERRORE-32| L'elemento legalAuthenticator è obbligatorio </assert>
 			<assert test = "count(hl7:legalAuthenticator)= 0 or count(hl7:legalAuthenticator/hl7:signatureCode[@code='S'])= 1" 
@@ -183,7 +158,10 @@
 			(count(hl7:authenticator/hl7:assignedEntity/hl7:assignedPerson/hl7:name/hl7:family)=1 and 
 			count(hl7:authenticator/hl7:assignedEntity/hl7:assignedPerson/hl7:name/hl7:given)=1)"
 			>ERRORE-39| L'elemento <name/>/authenticator/assignedEntity/assignedPerson/name DEVE riportare gli elementi 'given' e 'family'</assert>
-		
+			
+			<assert test = "count(hl7:documentationOf)>=1"
+			>ERRORE-39a| Deve essere presente almeno un elemento <name/>/documentationOf.</assert>
+				
 		</rule>		
 		
 		<!-- Controllo author-->
@@ -251,6 +229,12 @@
 			>ERRORE-43| L'elemento <name/>/associatedEntity/associatedPerson/name deve contenere gli elementi 'given' e 'family'</assert>
 			
 		</rule>
+		
+		<!--Controllo documentationOf-->
+		<rule context="hl7:ClinicalDocument/hl7:documentationOf">
+			<assert test="count(hl7:serviceEvent/hl7:performer)=0 or count(hl7:serviceEvent/hl7:performer[@typeCode!='PPRF'])=1"
+			>ERRORE-43a| L'elemento ClinicalDocument/documentationOf/serviceEvent/performer deve essere valorizzato con uno dei seguenti valori: 'PRF' o 'SPRF'.</assert>
+		</rule>
 
 <!--__________________________________________________________CONTROLLI GENERICI________________________________________________________________-->
 
@@ -260,7 +244,11 @@
 			<assert test="(count(@use)=1)"
 			>ERRORE-44| L’elemento 'telecom' DEVE contenere l'attributo @use </assert>
 		</rule>	
-		
+		<rule context="//*[contains(local-name(), 'Organization')][hl7:telecom]">
+			<assert test="not(hl7:telecom/@use='H' or hl7:telecom/@use='HP' or hl7:telecom/@use='HV')"
+			>ERRORE-44a| L'elemento telecom di un'organizzazione non può essere di tipo Home, ovvero l'attributo @use deve essere diverso da: H | HP | HV.
+			</assert>
+		</rule>
 		<!-- Controllo formato: -->
 		<!--campi Codice Fiscale: 16 cifre [A-Z0-9]{16} -->
 		<rule context="//hl7:id[@root='2.16.840.1.113883.2.9.4.3.2']">
@@ -287,14 +275,31 @@
 			- suspended
 			</assert>
 		</rule>
+		<!-- Controllo sotto elementi name-->
+		<rule context="//hl7:name[contains(local-name(..), 'Organization') or (parent::hl7:location)]">
+		  <assert test="count(hl7:delimiter)=0 and count(hl7:prefix)=0 and count(hl7:suffix)=0"
+		  >ERRORE-48| L’elemento 'name' di un'organizzazione non deve contenere i sotto elementi 'delimiter', 'prefix', 'suffix'.</assert>
+    	</rule>
+
+		<rule context="//hl7:name">
+			<assert test="count(hl7:delimiter)=0"
+			>ERRORE-49| L’elemento 'name' del soggetto non deve contenere il sotto elemento 'delimiter'.</assert>
+		</rule>
 		
-		<!--Verifica che i codici relativi al CodeSystem "UCUM" utilizzati siano corretti-->
-		<!--rule context="//*[@unit]">
-			<let name="val_UCUM" value="@unit"/>
-			<assert test="doc('DIZ/XML_FSE_v1/2.16.840.1.113883.4.642.3.912.xml')//el[@code=$val_UCUM]"
-			>ERRORE-48| Codice UCUM <value-of select="$val_UCUM"/> errato
+		<!-- Controllo effectiveTime: -->
+		<rule context="//hl7:effectiveTime[hl7:low/@value]">
+			<let name="effective_time_low" value="string(hl7:low/@value)"/>
+			<let name="effective_time_high" value="string(hl7:high/@value)"/>
+			<assert test="count(hl7:high/@value)=0 or ($effective_time_high >= $effective_time_low)"
+			>ERROR-50| Il valore dell'elemento effectiveTime/high : '<value-of select="$effective_time_high"/>' 
+			deve essere maggiore o uguale di quello di effectiveTime/low : '<value-of select="$effective_time_low"/>'.</assert>
+		</rule>
+		
+		<rule context="//*[contains(local-name(), 'Organization')]/hl7:addr[@use='H' or @use='HP' or @use='HV']">
+			<assert test="false()"
+			>ERRORE-51| L'indirizzo di un'organizzazione non può essere di tipo Home, ovvero l'attributo @use deve essere diverso da: H | HP | HV.
 			</assert>
-		</rule-->
+		</rule>
 		
 <!--___________________________________________________________________BODY__________________________________________________________________________-->
 	
@@ -632,20 +637,20 @@
 			<rule context="hl7:ClinicalDocument/hl7:component/hl7:structuredBody/hl7:component/hl7:section[hl7:code[@code='48765-2']]/hl7:entry/hl7:act/hl7:entryRelationship/hl7:observation[hl7:templateId[@root='2.16.840.1.113883.2.9.10.1.4.3.1.3']]/hl7:participant">	
 				
 				
-				<assert test="count(hl7:participantRole/hl7:playingEntity/hl7:code/@code)=0 or
-				count(hl7:participantRole/hl7:playingEntity/hl7:code[@codeSystem='2.16.840.1.113883.6.73'])=1 or
-				count(hl7:participantRole/hl7:playingEntity/hl7:code[@codeSystem='2.16.840.1.113883.2.9.6.1.5'])=1 or
-				count(hl7:participantRole/hl7:playingEntity/hl7:code[@codeSystem='2.16.840.1.113883.2.9.77.22.11.2'])=1"
-				>ERRORE-b70| Sezione Allergie e Intolleranze: entry/act/entryRelationship/observation/participant/participantRole/playingEntity/code deve avere l'attributo @codeSystem valorizzato come segue:
-				- 2.16.840.1.113883.6.73		codifica "WHO ATC"
-				- 2.16.840.1.113883.2.9.6.1.5 		codifica "AIC"
-				- 2.16.840.1.113883.11.22.9 		value set "AbsentorUnknownAllergies" (- per le allergie non a farmaci –)
+				<assert test="count(hl7:participantRole/hl7:playingEntity/hl7:code[(@nullFlavor='UNK' or @nullFlavor='NI') and not(@code or @codeSystem or @codeSystemName or @displayName)])=1 or
+					count(hl7:participantRole/hl7:playingEntity/hl7:code[@code and @codeSystem='2.16.840.1.113883.6.73' and not(@nullFlavor)])=1 or
+					count(hl7:participantRole/hl7:playingEntity/hl7:code[@code and @codeSystem='2.16.840.1.113883.2.9.6.1.5' and not(@nullFlavor)])=1 or
+					count(hl7:participantRole/hl7:playingEntity/hl7:code[@code and @codeSystem='2.16.840.1.113883.2.9.77.22.11.2' and not(@nullFlavor)])=1"
+					>ERRORE-b70| Sotto sezione Allergie: L'elemento participant/participantRole/playingEntity deve avere l'elemento code valorizzato con:
+					- @nullFlavor='UNK' nel caso in cui non è noto l'agente che ha causato la reazione allergica
+					- @nullFlavor='NI' nel caso in cui  l’agente scatenante non sia descrivibile attraverso una codifica
+					- code/@codeSystem valorizzato come segue:
+						- '2.16.840.1.113883.6.73' per la codifica "WHO ATC"
+						- '2.16.840.1.113883.2.9.6.1.5' per la codifica "AIC"
+						- '2.16.840.1.113883.2.9.77.22.11.2' per il value set "AllergenNoDrugs" (- per le allergie non a farmaci –)
 				</assert>		
 				
-				<assert test="count(hl7:participantRole/hl7:playingEntity/hl7:code/@nullFlavor)=0 or 
-				count(hl7:participantRole/hl7:playingEntity/hl7:code[@nullFlavor='NI'])=1"
-				>ERRORE-b71| Sezione Allergie e Intolleranze: entry/act/entryRelationship/observation/participant/participantRole/playingEntity DEVE contenere l'elemento code valorizzato con l'attributo @nullFlavor='NI'.</assert>
-				
+			
 				<assert test="(count(hl7:participantRole/hl7:playingEntity/hl7:code/@nullFlavor)=0 or
 				count(hl7:participantRole/hl7:playingEntity/hl7:code/hl7:originalText/hl7:reference)=1) "
 				>ERRORE-b72| Sezione Allergie e Intolleranze: entry/act/entryRelationship/observation/participant/participantRole/playingEntity DEVE contenere l'elemento originalText/reference.</assert>
@@ -1065,7 +1070,7 @@
 			
 			<!--dettaglio presenza protesi impianti ausili-->
 			<assert test="count(hl7:supply[hl7:templateId[@root='2.16.840.1.113883.2.9.10.1.4.3.9.1']])=0 or 
-			count(hl7:supply/hl7:code[@codeSystem='2.16.840.1.113883.2.9.6.1.48'])=1"
+			count(hl7:supply/hl7:code[@code and @codeSystem='2.16.840.1.113883.2.9.6.1.48'])=1"
 			>ERRORE-b163| Sezione Protesi, impianti, ausili: entry/supply DEVE contenere un elemento 'code'valorizzato secondo il code system "Classificazione Nazionale dei Dispositivi medici" - @codeSystem='2.16.840.1.113883.2.9.6.1.48'.</assert>
 			<assert test="count(hl7:supply[hl7:templateId[@root='2.16.840.1.113883.2.9.10.1.4.3.9.1']])=0 or 
 			count(hl7:supply[hl7:templateId[@root='2.16.840.1.113883.2.9.10.1.4.3.9.1']]/hl7:effectiveTime)=1"
@@ -1224,10 +1229,11 @@
 			>ERRORE-b201| Sezione Stato funzionale del paziente: entry/organizer/component/observation (Capacità motoria) DEVE contenere un elemento 'value' valorizzato secondo i seguenti code system:
 			- LOINC (@codeSystem: 2.16.840.1.113883.6.1)
 			- CapacitàMotoria_PSSIT  (@codeSystem=2.16.840.1.113883.2.9.77.22.11.15). </assert>
-			<assert test="count(hl7:organizer/hl7:component/hl7:observation[hl7:code[@code='75246-9']]/hl7:value[@code='LA21285-4'])=1 or 
+			<assert test="count(hl7:organizer/hl7:component/hl7:observation[hl7:code[@code='75246-9']]/hl7:value[@codeSystem='2.16.840.1.113883.2.9.77.22.11.15'])=1 or 
+			(count(hl7:organizer/hl7:component/hl7:observation[hl7:code[@code='75246-9']]/hl7:value[@code='LA21285-4'])=1 or 
 			count(hl7:organizer/hl7:component/hl7:observation[hl7:code[@code='75246-9']]/hl7:value[@code='LA21286-5'])=1 or
 			count(hl7:organizer/hl7:component/hl7:observation[hl7:code[@code='75246-9']]/hl7:value[@code='LA6743-4'])=1 or 
-			count(hl7:organizer/hl7:component/hl7:observation[hl7:code[@code='75246-9']]/hl7:value[@code='LA4270-0'])=1"
+			count(hl7:organizer/hl7:component/hl7:observation[hl7:code[@code='75246-9']]/hl7:value[@code='LA4270-0'])=1)"
 			>ERRORE-b201a| Sezione Stato funzionale del paziente: entry/organizer/component/observation (Capacità motoria) DEVE contenere un elemento 'value' il cui attributo @code può assumere uno dei seguente valori:
 			- "LA21285-4" per la condizione "autonomo";
 			- "LA21286-5" per la condizione "assistito";
@@ -1295,7 +1301,27 @@
 			>ERRORE-b212| Sezione Esenzioni: entry/act DEVE contenere un elemento 'effectiveTime' il quale deve avere l'elemento 'low' valorizzato.</assert-->
 			
 			<assert test="count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.6.1.22' or @codeSystem='2.16.840.1.113883.2.9.5.2.2'])=1 or 
-			matches(hl7:act/hl7:code/@codeSystem,'2.16.840.1.113883.2.9.2.[0-9]{3}.6.22')"
+			(count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.10.6.22'])=1 or 
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.20.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.30.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.41.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.42.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.50.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.60.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.70.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.80.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.90.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.100.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.110.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.120.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.130.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.140.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.150.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.160.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.170.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.180.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.190.6.22'])=1 or
+			count(hl7:act/hl7:code[@codeSystem='2.16.840.1.113883.2.9.2.200.6.22'])=1)"
 			>ERRORE-b211| Sezione Esenzioni: entry/act/code DEVE essere valorizzato secondo i seguenti sistemi di codifica:
 			- Catalogo Nazionale Esenzioni (2.16.840.1.113883.2.9.6.1.22)
 			- Catalogo Regionale (2.16.840.1.113883.2.9.2.[REGIONE].6.22)
