@@ -1,7 +1,11 @@
-package org.dew.cda;
+package it.ised.fse.util;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
 
@@ -27,12 +31,6 @@ class CDAAnonymizer extends DefaultHandler
   protected Stack<String> stackElements;
   protected boolean anonymizeText = false;
 
-  public boolean anonymize(String inputFile, String outputFile) throws Exception {
-    
-    return anonymize(new FileReader(inputFile), new FileWriter(outputFile));
-    
-  }
-
   public boolean anonymize(Reader reader, Writer writer) throws Exception {
     if(reader == null || writer == null) return false;
     
@@ -52,6 +50,25 @@ class CDAAnonymizer extends DefaultHandler
     xmlReader.parse(new InputSource(reader));
     
     return true;
+  }
+
+  public boolean anonymize(String inputFile, String outputFile) throws Exception {
+    
+    return anonymize(new FileReader(inputFile), new FileWriter(outputFile));
+    
+  }
+
+  public byte[] anonymize(byte[] input) throws Exception {
+    
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    
+    Reader reader = new InputStreamReader(new ByteArrayInputStream(input));
+    
+    Writer writer = new OutputStreamWriter(baos);
+    
+    anonymize(reader, writer);
+    
+    return baos.toByteArray();
   }
 
   @Override
