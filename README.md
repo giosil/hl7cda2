@@ -62,6 +62,14 @@ System.out.println(result.getErrors());
 System.out.println(result.getFatals());
 ```
 
+### Anonymize a Clinical Document
+
+```java
+CDAAnonymizer cdaAnonymizer = new CDAAnonymizer();
+
+cdaAnonymizer.anonymize("input.xml", "output.xml");
+```
+
 ### XAdES signature
 
 ```java
