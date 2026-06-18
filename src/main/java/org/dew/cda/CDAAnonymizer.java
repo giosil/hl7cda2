@@ -18,6 +18,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.AttributesImpl;
 import org.xml.sax.helpers.DefaultHandler;
 
+public
 class CDAAnonymizer extends DefaultHandler 
 {
   protected TransformerHandler target;
